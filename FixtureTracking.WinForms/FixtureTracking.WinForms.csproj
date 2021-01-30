@@ -6,4 +6,8 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\FixtureTrackingBackend\FixtureTracking.Entities\FixtureTracking.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

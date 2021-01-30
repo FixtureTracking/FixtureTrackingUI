@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixtureTracking.WinForms", "FixtureTracking.WinForms\FixtureTracking.WinForms.csproj", "{06F24DF3-97D5-4CE3-A715-726A0B25E5F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FixtureTracking.WinForms", "FixtureTracking.WinForms\FixtureTracking.WinForms.csproj", "{06F24DF3-97D5-4CE3-A715-726A0B25E5F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FixtureTracking.Entities", "..\FixtureTrackingBackend\FixtureTracking.Entities\FixtureTracking.Entities.csproj", "{96AF3E0C-D220-449B-BE4C-2B98987BF9EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{06F24DF3-97D5-4CE3-A715-726A0B25E5F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06F24DF3-97D5-4CE3-A715-726A0B25E5F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06F24DF3-97D5-4CE3-A715-726A0B25E5F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96AF3E0C-D220-449B-BE4C-2B98987BF9EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96AF3E0C-D220-449B-BE4C-2B98987BF9EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96AF3E0C-D220-449B-BE4C-2B98987BF9EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96AF3E0C-D220-449B-BE4C-2B98987BF9EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

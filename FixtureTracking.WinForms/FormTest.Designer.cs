@@ -32,6 +32,7 @@ namespace FixtureTracking.WinForms
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.btnCategory = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtPassword
@@ -61,11 +62,22 @@ namespace FixtureTracking.WinForms
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // btnCategory
+            // 
+            this.btnCategory.Location = new System.Drawing.Point(211, 39);
+            this.btnCategory.Name = "btnCategory";
+            this.btnCategory.Size = new System.Drawing.Size(93, 23);
+            this.btnCategory.TabIndex = 3;
+            this.btnCategory.Text = "Category GET";
+            this.btnCategory.UseVisualStyleBackColor = true;
+            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
+            // 
             // FormTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(235, 165);
+            this.ClientSize = new System.Drawing.Size(354, 165);
+            this.Controls.Add(this.btnCategory);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtPassword);
@@ -81,6 +93,7 @@ namespace FixtureTracking.WinForms
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnCategory;
     }
 }
 

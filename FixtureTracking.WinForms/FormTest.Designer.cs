@@ -34,6 +34,7 @@ namespace FixtureTracking.WinForms
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnCategory = new System.Windows.Forms.Button();
             this.btnSupplier = new System.Windows.Forms.Button();
+            this.btnDepartment = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtPassword
@@ -65,9 +66,9 @@ namespace FixtureTracking.WinForms
             // 
             // btnCategory
             // 
-            this.btnCategory.Location = new System.Drawing.Point(211, 39);
+            this.btnCategory.Location = new System.Drawing.Point(202, 39);
             this.btnCategory.Name = "btnCategory";
-            this.btnCategory.Size = new System.Drawing.Size(93, 23);
+            this.btnCategory.Size = new System.Drawing.Size(102, 23);
             this.btnCategory.TabIndex = 3;
             this.btnCategory.Text = "Category GET";
             this.btnCategory.UseVisualStyleBackColor = true;
@@ -75,19 +76,30 @@ namespace FixtureTracking.WinForms
             // 
             // btnSupplier
             // 
-            this.btnSupplier.Location = new System.Drawing.Point(211, 80);
+            this.btnSupplier.Location = new System.Drawing.Point(202, 80);
             this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Size = new System.Drawing.Size(93, 23);
+            this.btnSupplier.Size = new System.Drawing.Size(102, 23);
             this.btnSupplier.TabIndex = 4;
             this.btnSupplier.Text = "Supplier GET";
             this.btnSupplier.UseVisualStyleBackColor = true;
             this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
+            // 
+            // btnDepartment
+            // 
+            this.btnDepartment.Location = new System.Drawing.Point(202, 117);
+            this.btnDepartment.Name = "btnDepartment";
+            this.btnDepartment.Size = new System.Drawing.Size(102, 23);
+            this.btnDepartment.TabIndex = 4;
+            this.btnDepartment.Text = "Department GET";
+            this.btnDepartment.UseVisualStyleBackColor = true;
+            this.btnDepartment.Click += new System.EventHandler(this.btnDepartment_Click);
             // 
             // FormTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(354, 165);
+            this.Controls.Add(this.btnDepartment);
             this.Controls.Add(this.btnSupplier);
             this.Controls.Add(this.btnCategory);
             this.Controls.Add(this.btnLogin);
@@ -107,6 +119,8 @@ namespace FixtureTracking.WinForms
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCategory;
         private System.Windows.Forms.Button btnSupplier;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDepartment;
     }
 }
 

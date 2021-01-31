@@ -1,0 +1,33 @@
+﻿using FixtureTracking.Entities.Dtos.User;
+using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
+using System;
+using System.Windows.Forms;
+
+namespace FixtureTracking.WinForms
+{
+    public partial class FormTest : Form
+    {
+        public FormTest()
+        {
+            InitializeComponent();
+        }
+        private async void btnLogin_Click(object sender, EventArgs e)
+        {
+            UserForLoginDto userForLoginDto = new UserForLoginDto()
+            {
+                Email = txtEmail.Text,
+                Password = txtPassword.Text
+            };
+
+            try
+            {
+                await AuthService.Login(userForLoginDto);
+                MessageBox.Show("OK");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+    }
+}

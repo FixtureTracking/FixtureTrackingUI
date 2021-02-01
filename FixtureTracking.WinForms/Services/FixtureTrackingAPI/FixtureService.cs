@@ -1,8 +1,7 @@
-﻿using FixtureTracking.Core.Entities.Concrete;
-using FixtureTracking.Core.Utilities.Middlewares.Exception;
+﻿using FixtureTracking.Core.Utilities.Middlewares.Exception;
 using FixtureTracking.Core.Utilities.Results;
 using FixtureTracking.Entities.Concrete;
-using FixtureTracking.Entities.Dtos.Department;
+using FixtureTracking.Entities.Dtos.Fixture;
 using FixtureTracking.WinForms.Utils.Constants;
 using FixtureTracking.WinForms.Utils.Security;
 using System;
@@ -14,56 +13,56 @@ using System.Threading.Tasks;
 
 namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
 {
-    public class DepartmentService
+    public class FixtureService
     {
-        public static async Task<Department> GetById(int departmentId)
+        public static async Task<Fixture> GetById(Guid fixtureId)
         {
             using var client = new HttpClient();
-            var uri = $"{APIAddresses.DepartmentService}/{departmentId}";
+            var uri = $"{APIAddresses.FixtureService}/{fixtureId}";
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", FormAccessToken.Token);
             var response = await client.GetAsync(uri);
 
             if (response.IsSuccessStatusCode)
-                return response.Content.ReadFromJsonAsync<DataResult<Department>>().Result.Data;
+                return response.Content.ReadFromJsonAsync<DataResult<Fixture>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
             throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
         }
 
-        public static async Task<List<Department>> GetList()
+        public static async Task<List<Fixture>> GetList()
         {
             using var client = new HttpClient();
-            var uri = $"{APIAddresses.DepartmentService}";
+            var uri = $"{APIAddresses.FixtureService}";
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", FormAccessToken.Token);
             var response = await client.GetAsync(uri);
 
             if (response.IsSuccessStatusCode)
-                return response.Content.ReadFromJsonAsync<DataResult<List<Department>>>().Result.Data;
+                return response.Content.ReadFromJsonAsync<DataResult<List<Fixture>>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
             throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
         }
 
-        public static async Task<List<User>> GetUsers(int departmentId)
+        public static async Task<List<Debit>> GetDebits(Guid fixtureId)
         {
             using var client = new HttpClient();
-            var uri = $"{APIAddresses.DepartmentService}/{departmentId}/users";
+            var uri = $"{APIAddresses.FixtureService}/{fixtureId}/debits";
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", FormAccessToken.Token);
             var response = await client.GetAsync(uri);
 
             if (response.IsSuccessStatusCode)
-                return response.Content.ReadFromJsonAsync<DataResult<List<User>>>().Result.Data;
+                return response.Content.ReadFromJsonAsync<DataResult<List<Debit>>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
             throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
         }
 
-        public static async Task<Uri> Add(DepartmentForAddDto departmentForAddDto)
+        public static async Task<Uri> Add(FixtureForAddDto fixtureForAddDto)
         {
             using var client = new HttpClient();
-            var uri = $"{APIAddresses.DepartmentService}";
+            var uri = $"{APIAddresses.FixtureService}";
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", FormAccessToken.Token);
-            var response = await client.PostAsJsonAsync(uri, departmentForAddDto);
+            var response = await client.PostAsJsonAsync(uri, fixtureForAddDto);
 
             if (response.IsSuccessStatusCode)
                 return response.Headers.Location;
@@ -72,12 +71,12 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
             throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
         }
 
-        public static async Task Update(DepartmentForUpdateDto departmentForUpdateDto)
+        public static async Task Update(FixtureForUpdateDto fixtureForUpdateDto)
         {
             using var client = new HttpClient();
-            var uri = $"{APIAddresses.DepartmentService}/{departmentForUpdateDto.Id}";
+            var uri = $"{APIAddresses.FixtureService}/{fixtureForUpdateDto.Id}";
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", FormAccessToken.Token);
-            var response = await client.PutAsJsonAsync(uri, departmentForUpdateDto);
+            var response = await client.PutAsJsonAsync(uri, fixtureForUpdateDto);
 
             if (response.IsSuccessStatusCode)
                 return;
@@ -86,10 +85,10 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
             throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
         }
 
-        public static async Task Delete(int departmentId)
+        public static async Task Delete(Guid fixtureId)
         {
             using var client = new HttpClient();
-            var uri = $"{APIAddresses.DepartmentService}/{departmentId}";
+            var uri = $"{APIAddresses.FixtureService}/{fixtureId}";
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", FormAccessToken.Token);
             var response = await client.DeleteAsync(uri);
 

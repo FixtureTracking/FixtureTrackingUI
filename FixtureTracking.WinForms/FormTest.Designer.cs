@@ -35,6 +35,7 @@ namespace FixtureTracking.WinForms
             this.btnCategory = new System.Windows.Forms.Button();
             this.btnSupplier = new System.Windows.Forms.Button();
             this.btnDepartment = new System.Windows.Forms.Button();
+            this.btnFixture = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtPassword
@@ -94,11 +95,22 @@ namespace FixtureTracking.WinForms
             this.btnDepartment.UseVisualStyleBackColor = true;
             this.btnDepartment.Click += new System.EventHandler(this.btnDepartment_Click);
             // 
+            // btnFixture
+            // 
+            this.btnFixture.Location = new System.Drawing.Point(325, 40);
+            this.btnFixture.Name = "btnFixture";
+            this.btnFixture.Size = new System.Drawing.Size(102, 23);
+            this.btnFixture.TabIndex = 5;
+            this.btnFixture.Text = "Fixture GET";
+            this.btnFixture.UseVisualStyleBackColor = true;
+            this.btnFixture.Click += new System.EventHandler(this.btnFixture_Click);
+            // 
             // FormTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 165);
+            this.ClientSize = new System.Drawing.Size(448, 165);
+            this.Controls.Add(this.btnFixture);
             this.Controls.Add(this.btnDepartment);
             this.Controls.Add(this.btnSupplier);
             this.Controls.Add(this.btnCategory);
@@ -119,8 +131,8 @@ namespace FixtureTracking.WinForms
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCategory;
         private System.Windows.Forms.Button btnSupplier;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnDepartment;
+        private System.Windows.Forms.Button btnFixture;
     }
 }
 

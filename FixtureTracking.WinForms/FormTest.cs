@@ -81,5 +81,19 @@ namespace FixtureTracking.WinForms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private async void btnUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var result = await UserService.GetList();
+                MessageBox.Show(result.Count.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }

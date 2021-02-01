@@ -9,5 +9,6 @@
         public static string DepartmentService => $"{baseUrl}/departments";
         public static string FixtureService => $"{baseUrl}/fixtures";
         public static string SupplierService => $"{baseUrl}/suppliers";
+        public static string UserService => $"{baseUrl}/users";
     }
 }

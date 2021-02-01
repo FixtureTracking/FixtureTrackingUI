@@ -36,6 +36,7 @@ namespace FixtureTracking.WinForms
             this.btnSupplier = new System.Windows.Forms.Button();
             this.btnDepartment = new System.Windows.Forms.Button();
             this.btnFixture = new System.Windows.Forms.Button();
+            this.btnUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtPassword
@@ -105,11 +106,22 @@ namespace FixtureTracking.WinForms
             this.btnFixture.UseVisualStyleBackColor = true;
             this.btnFixture.Click += new System.EventHandler(this.btnFixture_Click);
             // 
+            // btnUser
+            // 
+            this.btnUser.Location = new System.Drawing.Point(325, 79);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Size = new System.Drawing.Size(102, 23);
+            this.btnUser.TabIndex = 5;
+            this.btnUser.Text = "User GET";
+            this.btnUser.UseVisualStyleBackColor = true;
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
+            // 
             // FormTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(448, 165);
+            this.Controls.Add(this.btnUser);
             this.Controls.Add(this.btnFixture);
             this.Controls.Add(this.btnDepartment);
             this.Controls.Add(this.btnSupplier);
@@ -133,6 +145,7 @@ namespace FixtureTracking.WinForms
         private System.Windows.Forms.Button btnSupplier;
         private System.Windows.Forms.Button btnDepartment;
         private System.Windows.Forms.Button btnFixture;
+        private System.Windows.Forms.Button btnUser;
     }
 }
 

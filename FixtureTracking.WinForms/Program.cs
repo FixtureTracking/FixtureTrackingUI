@@ -1,3 +1,4 @@
+using FixtureTracking.WinForms.Views;
 using System;
 using System.Windows.Forms;
 
@@ -14,7 +15,7 @@ namespace FixtureTracking.WinForms
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormTest());
+            Application.Run(new FormMain());
         }
     }
 }

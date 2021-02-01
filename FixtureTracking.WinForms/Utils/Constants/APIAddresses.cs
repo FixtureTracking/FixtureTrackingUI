@@ -6,6 +6,7 @@
 
         public static string AuthService => $"{baseUrl}/auth";
         public static string CategoryService => $"{baseUrl}/categories";
+        public static string DebitService => $"{baseUrl}/debits";
         public static string DepartmentService => $"{baseUrl}/departments";
         public static string FixtureService => $"{baseUrl}/fixtures";
         public static string SupplierService => $"{baseUrl}/suppliers";

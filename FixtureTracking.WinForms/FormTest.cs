@@ -86,6 +86,19 @@ namespace FixtureTracking.WinForms
         {
             try
             {
+                var result = await DebitService.GetList();
+                MessageBox.Show(result.Count.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private async void btnDebit_Click(object sender, EventArgs e)
+        {
+            try
+            {
                 var result = await UserService.GetList();
                 MessageBox.Show(result.Count.ToString());
             }

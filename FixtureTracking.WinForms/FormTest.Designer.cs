@@ -37,6 +37,7 @@ namespace FixtureTracking.WinForms
             this.btnDepartment = new System.Windows.Forms.Button();
             this.btnFixture = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
+            this.btnDebit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtPassword
@@ -116,11 +117,22 @@ namespace FixtureTracking.WinForms
             this.btnUser.UseVisualStyleBackColor = true;
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
+            // btnDebit
+            // 
+            this.btnDebit.Location = new System.Drawing.Point(325, 117);
+            this.btnDebit.Name = "btnDebit";
+            this.btnDebit.Size = new System.Drawing.Size(102, 23);
+            this.btnDebit.TabIndex = 5;
+            this.btnDebit.Text = "Debit GET";
+            this.btnDebit.UseVisualStyleBackColor = true;
+            this.btnDebit.Click += new System.EventHandler(this.btnUser_Click);
+            // 
             // FormTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(448, 165);
+            this.Controls.Add(this.btnDebit);
             this.Controls.Add(this.btnUser);
             this.Controls.Add(this.btnFixture);
             this.Controls.Add(this.btnDepartment);
@@ -146,6 +158,7 @@ namespace FixtureTracking.WinForms
         private System.Windows.Forms.Button btnDepartment;
         private System.Windows.Forms.Button btnFixture;
         private System.Windows.Forms.Button btnUser;
+        private System.Windows.Forms.Button btnDebit;
     }
 }
 

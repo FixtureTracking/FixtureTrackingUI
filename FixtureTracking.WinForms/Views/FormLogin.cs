@@ -1,6 +1,6 @@
 ﻿using FixtureTracking.Entities.Dtos.User;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
-using FixtureTracking.WinForms.Utils.CustomExceptions;
+using FixtureTracking.WinForms.Utilities.CustomExceptions;
 using System;
 using System.Windows.Forms;
 

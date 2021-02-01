@@ -1,9 +1,9 @@
 ﻿using FixtureTracking.Core.Utilities.Middlewares.Exception;
 using FixtureTracking.Core.Utilities.Security.Tokens;
 using FixtureTracking.Entities.Dtos.User;
-using FixtureTracking.WinForms.Utils.Constants;
-using FixtureTracking.WinForms.Utils.CustomExceptions;
-using FixtureTracking.WinForms.Utils.Security;
+using FixtureTracking.WinForms.Utilities.Constants;
+using FixtureTracking.WinForms.Utilities.CustomExceptions;
+using FixtureTracking.WinForms.Utilities.Security;
 using System;
 using System.Net.Http;
 using System.Net.Http.Json;

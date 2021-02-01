@@ -2,9 +2,9 @@
 using FixtureTracking.Core.Utilities.Results;
 using FixtureTracking.Entities.Concrete;
 using FixtureTracking.Entities.Dtos.Category;
-using FixtureTracking.WinForms.Utils.Constants;
-using FixtureTracking.WinForms.Utils.CustomExceptions;
-using FixtureTracking.WinForms.Utils.Security;
+using FixtureTracking.WinForms.Utilities.Constants;
+using FixtureTracking.WinForms.Utilities.CustomExceptions;
+using FixtureTracking.WinForms.Utilities.Security;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;

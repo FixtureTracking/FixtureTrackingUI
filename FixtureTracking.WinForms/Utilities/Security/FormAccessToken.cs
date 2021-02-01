@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FixtureTracking.WinForms.Utils.Security
+namespace FixtureTracking.WinForms.Utilities.Security
 {
     public static class FormAccessToken
     {

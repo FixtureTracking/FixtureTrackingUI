@@ -2,7 +2,7 @@
 using System;
 using System.Net;
 
-namespace FixtureTracking.WinForms.Utils.CustomExceptions
+namespace FixtureTracking.WinForms.Utilities.CustomExceptions
 {
     public class HttpFailureException : Exception
     {

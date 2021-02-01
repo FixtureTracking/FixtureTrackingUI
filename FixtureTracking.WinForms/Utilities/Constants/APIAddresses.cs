@@ -1,4 +1,4 @@
-﻿namespace FixtureTracking.WinForms.Utils.Constants
+﻿namespace FixtureTracking.WinForms.Utilities.Constants
 {
     public static class APIAddresses
     {

@@ -2,6 +2,7 @@
 using FixtureTracking.Core.Utilities.Security.Tokens;
 using FixtureTracking.Entities.Dtos.User;
 using FixtureTracking.WinForms.Utils.Constants;
+using FixtureTracking.WinForms.Utils.CustomExceptions;
 using FixtureTracking.WinForms.Utils.Security;
 using System;
 using System.Net.Http;
@@ -28,7 +29,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return;
             }
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
 
         public static async Task<Uri> Register(UserForRegisterDto userForRegisterDto)
@@ -42,7 +43,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return response.Headers.Location;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
     }
 }

@@ -3,6 +3,7 @@ using FixtureTracking.Core.Utilities.Middlewares.Exception;
 using FixtureTracking.Core.Utilities.Results;
 using FixtureTracking.Entities.Concrete;
 using FixtureTracking.WinForms.Utils.Constants;
+using FixtureTracking.WinForms.Utils.CustomExceptions;
 using FixtureTracking.WinForms.Utils.Security;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return response.Content.ReadFromJsonAsync<DataResult<User>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
 
         public static async Task<List<User>> GetList()
@@ -40,7 +41,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return response.Content.ReadFromJsonAsync<DataResult<List<User>>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
 
         public static async Task<List<Debit>> GetDebits(Guid userId)
@@ -54,7 +55,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return response.Content.ReadFromJsonAsync<DataResult<List<Debit>>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
 
         public static async Task Delete(Guid userId)
@@ -68,7 +69,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
     }
 }

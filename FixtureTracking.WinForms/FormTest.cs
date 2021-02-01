@@ -1,5 +1,6 @@
 ﻿using FixtureTracking.Entities.Dtos.User;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
+using FixtureTracking.WinForms.Utils.CustomExceptions;
 using System;
 using System.Windows.Forms;
 
@@ -24,9 +25,9 @@ namespace FixtureTracking.WinForms
                 await AuthService.Login(userForLoginDto);
                 MessageBox.Show("OK");
             }
-            catch (Exception ex)
+            catch (HttpFailureException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, ex.HttpStatusCode.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

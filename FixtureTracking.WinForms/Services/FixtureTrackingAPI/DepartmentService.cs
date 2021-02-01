@@ -4,6 +4,7 @@ using FixtureTracking.Core.Utilities.Results;
 using FixtureTracking.Entities.Concrete;
 using FixtureTracking.Entities.Dtos.Department;
 using FixtureTracking.WinForms.Utils.Constants;
+using FixtureTracking.WinForms.Utils.CustomExceptions;
 using FixtureTracking.WinForms.Utils.Security;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return response.Content.ReadFromJsonAsync<DataResult<Department>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
 
         public static async Task<List<Department>> GetList()
@@ -41,7 +42,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return response.Content.ReadFromJsonAsync<DataResult<List<Department>>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
 
         public static async Task<List<User>> GetUsers(int departmentId)
@@ -55,7 +56,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return response.Content.ReadFromJsonAsync<DataResult<List<User>>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
 
         public static async Task<Uri> Add(DepartmentForAddDto departmentForAddDto)
@@ -69,7 +70,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return response.Headers.Location;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
 
         public static async Task Update(DepartmentForUpdateDto departmentForUpdateDto)
@@ -83,7 +84,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
 
         public static async Task Delete(int departmentId)
@@ -97,7 +98,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
     }
 }

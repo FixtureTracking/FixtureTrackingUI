@@ -3,6 +3,7 @@ using FixtureTracking.Core.Utilities.Results;
 using FixtureTracking.Entities.Concrete;
 using FixtureTracking.Entities.Dtos.Debit;
 using FixtureTracking.WinForms.Utils.Constants;
+using FixtureTracking.WinForms.Utils.CustomExceptions;
 using FixtureTracking.WinForms.Utils.Security;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return response.Content.ReadFromJsonAsync<DataResult<Debit>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
 
         public static async Task<List<Debit>> GetList()
@@ -40,7 +41,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return response.Content.ReadFromJsonAsync<DataResult<List<Debit>>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
 
         public static async Task<Uri> Add(DebitForAddDto debitForAddDto)
@@ -54,7 +55,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return response.Headers.Location;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
 
         public static async Task Update(DebitForUpdateDto debitForUpdateDto)
@@ -68,7 +69,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
 
         public static async Task Delete(Guid debitId)
@@ -82,7 +83,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
                 return;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new Exception(response.StatusCode.ToString() + "\r\n" + errorContent.Message.Replace("~", "\r\n"));
+            throw new HttpFailureException(errorContent);
         }
     }
 }

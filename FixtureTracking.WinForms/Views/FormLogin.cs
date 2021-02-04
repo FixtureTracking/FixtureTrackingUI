@@ -1,6 +1,7 @@
 ﻿using FixtureTracking.Entities.Dtos.User;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
 using FixtureTracking.WinForms.Utilities.CustomExceptions;
+using FixtureTracking.WinForms.Utilities.Security;
 using System;
 using System.Windows.Forms;
 
@@ -24,6 +25,7 @@ namespace FixtureTracking.WinForms.Views
             try
             {
                 await AuthService.Login(userForLoginDto);
+                FormJwtDecoder.DecodeNameIdendifier();
                 Hide();
             }
             catch (HttpFailureException ex)

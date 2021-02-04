@@ -2,6 +2,7 @@
 using FixtureTracking.Core.Utilities.Middlewares.Exception;
 using FixtureTracking.Core.Utilities.Results;
 using FixtureTracking.Entities.Concrete;
+using FixtureTracking.Entities.Dtos.User;
 using FixtureTracking.WinForms.Utilities.Constants;
 using FixtureTracking.WinForms.Utilities.CustomExceptions;
 using FixtureTracking.WinForms.Utilities.Security;
@@ -25,6 +26,20 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
 
             if (response.IsSuccessStatusCode)
                 return response.Content.ReadFromJsonAsync<DataResult<User>>().Result.Data;
+
+            var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
+            throw new HttpFailureException(errorContent);
+        }
+
+        public static async Task<UserForDetailDto> GetDetail(Guid userId)
+        {
+            using var client = new HttpClient();
+            var uri = $"{APIAddresses.UserService}/{userId}/details";
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", FormAccessToken.Token);
+            var response = await client.GetAsync(uri);
+
+            if (response.IsSuccessStatusCode)
+                return response.Content.ReadFromJsonAsync<DataResult<UserForDetailDto>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
             throw new HttpFailureException(errorContent);

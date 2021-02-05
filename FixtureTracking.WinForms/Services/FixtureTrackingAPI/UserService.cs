@@ -1,7 +1,6 @@
 ﻿using FixtureTracking.Core.Entities.Concrete;
 using FixtureTracking.Core.Utilities.Middlewares.Exception;
 using FixtureTracking.Core.Utilities.Results;
-using FixtureTracking.Entities.Concrete;
 using FixtureTracking.Entities.Dtos.Debit;
 using FixtureTracking.Entities.Dtos.User;
 using FixtureTracking.WinForms.Utilities.Constants;

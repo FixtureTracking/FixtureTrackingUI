@@ -22,6 +22,13 @@ namespace FixtureTracking.WinForms.Views
             await LoadMyDebits();
         }
 
+        private async void btnRefreshList_Click(object sender, EventArgs e)
+        {
+            dgvMyDebits.Rows.Clear();
+            dgvMyDebits.Refresh();
+            await LoadMyDebits();
+        }
+
         private async Task LoadUserDetail()
         {
             try
@@ -47,6 +54,7 @@ namespace FixtureTracking.WinForms.Views
                 {
                     dgvMyDebits.Rows.Add(debit.FixtureName, debit.Debit.Description, debit.Debit.DateDebit, debit.Debit.IsReturn);
                 }
+                tlpMyDebitsTitle.Visible = true;
                 tlpMyDebits.Visible = true;
             }
             catch (HttpFailureException ex)

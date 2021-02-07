@@ -1,6 +1,5 @@
 ﻿using FixtureTracking.Entities.Dtos.User;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
-using FixtureTracking.WinForms.Utilities.CustomExceptions;
 using FixtureTracking.WinForms.Utilities.Security;
 using System;
 using System.Windows.Forms;
@@ -22,16 +21,9 @@ namespace FixtureTracking.WinForms.Views
                 Password = txtPassword.Text
             };
 
-            try
-            {
-                await AuthService.Login(userForLoginDto);
-                FormJwtDecoder.DecodeNameIdendifier();
-                Hide();
-            }
-            catch (HttpFailureException ex)
-            {
-                MessageBox.Show(ex.Message, ex.HttpStatusCode.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            await AuthService.Login(userForLoginDto);
+            FormJwtDecoder.DecodeNameIdendifier();
+            Hide();
         }
 
         private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)

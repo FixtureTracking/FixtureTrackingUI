@@ -1,5 +1,4 @@
 ﻿using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
-using FixtureTracking.WinForms.Utilities.CustomExceptions;
 using FixtureTracking.WinForms.Utilities.Security;
 using System;
 using System.Threading.Tasks;
@@ -18,6 +17,7 @@ namespace FixtureTracking.WinForms.Views
         {
             FormLogin frmLogin = new FormLogin();
             frmLogin.ShowDialog();
+
             await LoadUserDetail();
             await LoadMyDebits();
         }
@@ -31,36 +31,22 @@ namespace FixtureTracking.WinForms.Views
 
         private async Task LoadUserDetail()
         {
-            try
-            {
-                var user = await UserService.GetDetail(FormAccessToken.UserId);
-                FormAccessToken.CurrentUser = user;
+            var user = await UserService.GetDetail(FormAccessToken.UserId);
+            FormAccessToken.CurrentUser = user;
 
-                lblUserDepartment.Text = $"{FormAccessToken.CurrentUser.FullName} - {FormAccessToken.CurrentUser.DepartmentName}";
-                tlpUserDep.Visible = true;
-            }
-            catch (HttpFailureException ex)
-            {
-                MessageBox.Show(ex.Message, ex.HttpStatusCode.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            lblUserDepartment.Text = $"{FormAccessToken.CurrentUser.FullName} - {FormAccessToken.CurrentUser.DepartmentName}";
+            tlpUserDep.Visible = true;
         }
 
         private async Task LoadMyDebits()
         {
-            try
+            var debits = await UserService.GetDebits(FormAccessToken.UserId);
+            debits.ForEach(debitDto =>
             {
-                var debits = await UserService.GetDebits(FormAccessToken.UserId);
-                foreach (var debit in debits)
-                {
-                    dgvMyDebits.Rows.Add(debit.FixtureName, debit.Debit.Description, debit.Debit.DateDebit, debit.Debit.IsReturn);
-                }
-                tlpMyDebitsTitle.Visible = true;
-                tlpMyDebits.Visible = true;
-            }
-            catch (HttpFailureException ex)
-            {
-                MessageBox.Show(ex.Message, ex.HttpStatusCode.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+                dgvMyDebits.Rows.Add(debitDto.FixtureName, debitDto.Debit.Description, debitDto.Debit.DateDebit, debitDto.Debit.IsReturn);
+            });
+            tlpMyDebitsTitle.Visible = true;
+            tlpMyDebits.Visible = true;
         }
     }
 }

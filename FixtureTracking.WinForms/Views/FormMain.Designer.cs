@@ -30,63 +30,45 @@ namespace FixtureTracking.WinForms.Views
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.tlpUserDep = new System.Windows.Forms.TableLayoutPanel();
-            this.lblUserDepartment = new System.Windows.Forms.Label();
             this.tlpMyDebits = new System.Windows.Forms.TableLayoutPanel();
             this.dgvMyDebits = new System.Windows.Forms.DataGridView();
-            this.FixtureName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DebitDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsReturn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.fixtureName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.debitDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isReturn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tlpMyDebitsTitle = new System.Windows.Forms.TableLayoutPanel();
             this.btnRefreshList = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tlpUserDep.SuspendLayout();
+            this.lblMyDebitTitle = new System.Windows.Forms.Label();
+            this.tlpLeftSide = new System.Windows.Forms.TableLayoutPanel();
+            this.btnCategoryOps = new System.Windows.Forms.Button();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblDepartment = new System.Windows.Forms.Label();
+            this.lblOperationTitle = new System.Windows.Forms.Label();
+            this.btnSupplierOps = new System.Windows.Forms.Button();
+            this.btnFixtureOps = new System.Windows.Forms.Button();
+            this.btnDepartmentOps = new System.Windows.Forms.Button();
+            this.btnUserOps = new System.Windows.Forms.Button();
+            this.btnDebitOps = new System.Windows.Forms.Button();
             this.tlpMyDebits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMyDebits)).BeginInit();
             this.tlpMyDebitsTitle.SuspendLayout();
+            this.tlpLeftSide.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tlpUserDep
-            // 
-            this.tlpUserDep.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlpUserDep.ColumnCount = 2;
-            this.tlpUserDep.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpUserDep.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpUserDep.Controls.Add(this.lblUserDepartment, 1, 0);
-            this.tlpUserDep.Location = new System.Drawing.Point(12, 3);
-            this.tlpUserDep.Name = "tlpUserDep";
-            this.tlpUserDep.RowCount = 1;
-            this.tlpUserDep.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpUserDep.Size = new System.Drawing.Size(639, 26);
-            this.tlpUserDep.TabIndex = 1;
-            this.tlpUserDep.Visible = false;
-            // 
-            // lblUserDepartment
-            // 
-            this.lblUserDepartment.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblUserDepartment.AutoSize = true;
-            this.lblUserDepartment.Location = new System.Drawing.Point(532, 5);
-            this.lblUserDepartment.Name = "lblUserDepartment";
-            this.lblUserDepartment.Size = new System.Drawing.Size(104, 15);
-            this.lblUserDepartment.TabIndex = 0;
-            this.lblUserDepartment.Text = "User - Department";
             // 
             // tlpMyDebits
             // 
-            this.tlpMyDebits.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tlpMyDebits.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpMyDebits.ColumnCount = 1;
             this.tlpMyDebits.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMyDebits.Controls.Add(this.dgvMyDebits, 0, 0);
-            this.tlpMyDebits.Location = new System.Drawing.Point(12, 52);
+            this.tlpMyDebits.Location = new System.Drawing.Point(130, 31);
             this.tlpMyDebits.Name = "tlpMyDebits";
             this.tlpMyDebits.RowCount = 1;
             this.tlpMyDebits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMyDebits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 298F));
-            this.tlpMyDebits.Size = new System.Drawing.Size(639, 301);
+            this.tlpMyDebits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 288F));
+            this.tlpMyDebits.Size = new System.Drawing.Size(582, 288);
             this.tlpMyDebits.TabIndex = 4;
             this.tlpMyDebits.Visible = false;
             // 
@@ -95,63 +77,65 @@ namespace FixtureTracking.WinForms.Views
             this.dgvMyDebits.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMyDebits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMyDebits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FixtureName,
-            this.DebitDescription,
-            this.DateDebit,
-            this.IsReturn});
+            this.fixtureName,
+            this.debitDescription,
+            this.dateDebit,
+            this.isReturn});
             this.dgvMyDebits.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMyDebits.Location = new System.Drawing.Point(3, 3);
             this.dgvMyDebits.Name = "dgvMyDebits";
             this.dgvMyDebits.ReadOnly = true;
             this.dgvMyDebits.RowTemplate.Height = 25;
-            this.dgvMyDebits.Size = new System.Drawing.Size(633, 295);
+            this.dgvMyDebits.Size = new System.Drawing.Size(576, 282);
             this.dgvMyDebits.TabIndex = 2;
             // 
-            // FixtureName
+            // fixtureName
             // 
-            this.FixtureName.HeaderText = "Fixture Name";
-            this.FixtureName.Name = "FixtureName";
-            this.FixtureName.ReadOnly = true;
+            this.fixtureName.HeaderText = "Fixture Name";
+            this.fixtureName.Name = "fixtureName";
+            this.fixtureName.ReadOnly = true;
             // 
-            // DebitDescription
+            // debitDescription
             // 
-            this.DebitDescription.HeaderText = "Debit Description";
-            this.DebitDescription.Name = "DebitDescription";
-            this.DebitDescription.ReadOnly = true;
+            this.debitDescription.HeaderText = "Debit Description";
+            this.debitDescription.Name = "debitDescription";
+            this.debitDescription.ReadOnly = true;
             // 
-            // DateDebit
+            // dateDebit
             // 
-            this.DateDebit.HeaderText = "Date of Debit";
-            this.DateDebit.Name = "DateDebit";
-            this.DateDebit.ReadOnly = true;
+            this.dateDebit.HeaderText = "Date of Debit";
+            this.dateDebit.Name = "dateDebit";
+            this.dateDebit.ReadOnly = true;
             // 
-            // IsReturn
+            // isReturn
             // 
-            this.IsReturn.HeaderText = "Debit Return Status";
-            this.IsReturn.Name = "IsReturn";
-            this.IsReturn.ReadOnly = true;
+            this.isReturn.HeaderText = "Debit Return Status";
+            this.isReturn.Name = "isReturn";
+            this.isReturn.ReadOnly = true;
             // 
             // tlpMyDebitsTitle
             // 
-            this.tlpMyDebitsTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.tlpMyDebitsTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpMyDebitsTitle.ColumnCount = 2;
             this.tlpMyDebitsTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tlpMyDebitsTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMyDebitsTitle.Controls.Add(this.btnRefreshList, 1, 0);
-            this.tlpMyDebitsTitle.Controls.Add(this.label1, 0, 0);
-            this.tlpMyDebitsTitle.Location = new System.Drawing.Point(12, 25);
+            this.tlpMyDebitsTitle.Controls.Add(this.lblMyDebitTitle, 0, 0);
+            this.tlpMyDebitsTitle.Location = new System.Drawing.Point(130, 3);
             this.tlpMyDebitsTitle.Name = "tlpMyDebitsTitle";
             this.tlpMyDebitsTitle.RowCount = 1;
             this.tlpMyDebitsTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMyDebitsTitle.Size = new System.Drawing.Size(639, 29);
+            this.tlpMyDebitsTitle.Size = new System.Drawing.Size(582, 29);
             this.tlpMyDebitsTitle.TabIndex = 1;
             this.tlpMyDebitsTitle.Visible = false;
             // 
             // btnRefreshList
             // 
-            this.btnRefreshList.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnRefreshList.Location = new System.Drawing.Point(83, 3);
+            this.btnRefreshList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefreshList.FlatAppearance.BorderSize = 0;
+            this.btnRefreshList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefreshList.Location = new System.Drawing.Point(496, 3);
             this.btnRefreshList.Name = "btnRefreshList";
             this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
             this.btnRefreshList.TabIndex = 2;
@@ -159,51 +143,203 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList.UseVisualStyleBackColor = true;
             this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
             // 
-            // label1
+            // lblMyDebitTitle
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "My Debits";
+            this.lblMyDebitTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblMyDebitTitle.AutoSize = true;
+            this.lblMyDebitTitle.Location = new System.Drawing.Point(3, 7);
+            this.lblMyDebitTitle.Name = "lblMyDebitTitle";
+            this.lblMyDebitTitle.Size = new System.Drawing.Size(60, 15);
+            this.lblMyDebitTitle.TabIndex = 0;
+            this.lblMyDebitTitle.Text = "My Debits";
+            // 
+            // tlpLeftSide
+            // 
+            this.tlpLeftSide.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tlpLeftSide.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tlpLeftSide.ColumnCount = 1;
+            this.tlpLeftSide.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpLeftSide.Controls.Add(this.btnCategoryOps, 0, 1);
+            this.tlpLeftSide.Controls.Add(this.lblName, 0, 11);
+            this.tlpLeftSide.Controls.Add(this.lblDepartment, 0, 10);
+            this.tlpLeftSide.Controls.Add(this.lblOperationTitle, 0, 0);
+            this.tlpLeftSide.Controls.Add(this.btnSupplierOps, 0, 2);
+            this.tlpLeftSide.Controls.Add(this.btnFixtureOps, 0, 3);
+            this.tlpLeftSide.Controls.Add(this.btnDepartmentOps, 0, 5);
+            this.tlpLeftSide.Controls.Add(this.btnUserOps, 0, 6);
+            this.tlpLeftSide.Controls.Add(this.btnDebitOps, 0, 8);
+            this.tlpLeftSide.Location = new System.Drawing.Point(7, 3);
+            this.tlpLeftSide.Name = "tlpLeftSide";
+            this.tlpLeftSide.RowCount = 12;
+            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpLeftSide.Size = new System.Drawing.Size(117, 313);
+            this.tlpLeftSide.TabIndex = 5;
+            this.tlpLeftSide.Visible = false;
+            // 
+            // btnCategoryOps
+            // 
+            this.btnCategoryOps.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnCategoryOps.AutoSize = true;
+            this.btnCategoryOps.FlatAppearance.BorderSize = 0;
+            this.btnCategoryOps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCategoryOps.Location = new System.Drawing.Point(3, 38);
+            this.btnCategoryOps.Name = "btnCategoryOps";
+            this.btnCategoryOps.Size = new System.Drawing.Size(89, 24);
+            this.btnCategoryOps.TabIndex = 2;
+            this.btnCategoryOps.Text = "Category Ops";
+            this.btnCategoryOps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblName
+            // 
+            this.lblName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(3, 295);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(39, 15);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Name";
+            // 
+            // lblDepartment
+            // 
+            this.lblDepartment.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblDepartment.AutoSize = true;
+            this.lblDepartment.Location = new System.Drawing.Point(3, 275);
+            this.lblDepartment.Name = "lblDepartment";
+            this.lblDepartment.Size = new System.Drawing.Size(70, 15);
+            this.lblDepartment.TabIndex = 0;
+            this.lblDepartment.Text = "Department";
+            // 
+            // lblOperationTitle
+            // 
+            this.lblOperationTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblOperationTitle.AutoSize = true;
+            this.lblOperationTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblOperationTitle.Location = new System.Drawing.Point(3, 7);
+            this.lblOperationTitle.Name = "lblOperationTitle";
+            this.lblOperationTitle.Size = new System.Drawing.Size(90, 20);
+            this.lblOperationTitle.TabIndex = 1;
+            this.lblOperationTitle.Text = " Operations";
+            // 
+            // btnSupplierOps
+            // 
+            this.btnSupplierOps.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnSupplierOps.AutoSize = true;
+            this.btnSupplierOps.FlatAppearance.BorderSize = 0;
+            this.btnSupplierOps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSupplierOps.Location = new System.Drawing.Point(3, 68);
+            this.btnSupplierOps.Name = "btnSupplierOps";
+            this.btnSupplierOps.Size = new System.Drawing.Size(89, 24);
+            this.btnSupplierOps.TabIndex = 2;
+            this.btnSupplierOps.Text = "Supplier Ops";
+            this.btnSupplierOps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnFixtureOps
+            // 
+            this.btnFixtureOps.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnFixtureOps.AutoSize = true;
+            this.btnFixtureOps.FlatAppearance.BorderSize = 0;
+            this.btnFixtureOps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFixtureOps.Location = new System.Drawing.Point(3, 98);
+            this.btnFixtureOps.Name = "btnFixtureOps";
+            this.btnFixtureOps.Size = new System.Drawing.Size(89, 24);
+            this.btnFixtureOps.TabIndex = 2;
+            this.btnFixtureOps.Text = "Fixture Ops";
+            this.btnFixtureOps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnDepartmentOps
+            // 
+            this.btnDepartmentOps.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnDepartmentOps.AutoSize = true;
+            this.btnDepartmentOps.FlatAppearance.BorderSize = 0;
+            this.btnDepartmentOps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDepartmentOps.Location = new System.Drawing.Point(3, 143);
+            this.btnDepartmentOps.Name = "btnDepartmentOps";
+            this.btnDepartmentOps.Size = new System.Drawing.Size(104, 24);
+            this.btnDepartmentOps.TabIndex = 2;
+            this.btnDepartmentOps.Text = "Department Ops";
+            this.btnDepartmentOps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnUserOps
+            // 
+            this.btnUserOps.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnUserOps.AutoSize = true;
+            this.btnUserOps.FlatAppearance.BorderSize = 0;
+            this.btnUserOps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserOps.Location = new System.Drawing.Point(3, 173);
+            this.btnUserOps.Name = "btnUserOps";
+            this.btnUserOps.Size = new System.Drawing.Size(104, 24);
+            this.btnUserOps.TabIndex = 2;
+            this.btnUserOps.Text = "User Ops";
+            this.btnUserOps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnDebitOps
+            // 
+            this.btnDebitOps.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnDebitOps.AutoSize = true;
+            this.btnDebitOps.FlatAppearance.BorderSize = 0;
+            this.btnDebitOps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDebitOps.Location = new System.Drawing.Point(3, 218);
+            this.btnDebitOps.Name = "btnDebitOps";
+            this.btnDebitOps.Size = new System.Drawing.Size(104, 24);
+            this.btnDebitOps.TabIndex = 2;
+            this.btnDebitOps.Text = "Debit Ops";
+            this.btnDebitOps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 365);
+            this.ClientSize = new System.Drawing.Size(724, 331);
+            this.Controls.Add(this.tlpLeftSide);
             this.Controls.Add(this.tlpMyDebits);
             this.Controls.Add(this.tlpMyDebitsTitle);
-            this.Controls.Add(this.tlpUserDep);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fixture Tracking";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.tlpUserDep.ResumeLayout(false);
-            this.tlpUserDep.PerformLayout();
             this.tlpMyDebits.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMyDebits)).EndInit();
             this.tlpMyDebitsTitle.ResumeLayout(false);
             this.tlpMyDebitsTitle.PerformLayout();
+            this.tlpLeftSide.ResumeLayout(false);
+            this.tlpLeftSide.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.TableLayoutPanel tlpUserDep;
-        private System.Windows.Forms.Label lblUserDepartment;
         private System.Windows.Forms.TableLayoutPanel tlpMyDebits;
         private System.Windows.Forms.DataGridView dgvMyDebits;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FixtureName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DebitDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateDebit;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn IsReturn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fixtureName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn debitDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDebit;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isReturn;
         private System.Windows.Forms.TableLayoutPanel tlpMyDebitsTitle;
         private System.Windows.Forms.Button btnRefreshList;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMyDebitTitle;
+        private System.Windows.Forms.TableLayoutPanel tlpLeftSide;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblDepartment;
+        private System.Windows.Forms.Label lblOperationTitle;
+        private System.Windows.Forms.Button btnCategoryOps;
+        private System.Windows.Forms.Button btnSupplierOps;
+        private System.Windows.Forms.Button btnFixtureOps;
+        private System.Windows.Forms.Button btnDepartmentOps;
+        private System.Windows.Forms.Button btnUserOps;
+        private System.Windows.Forms.Button btnDebitOps;
     }
 }

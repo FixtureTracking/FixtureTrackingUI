@@ -34,8 +34,10 @@ namespace FixtureTracking.WinForms.Views
             var user = await UserService.GetDetail(FormAccessToken.UserId);
             FormAccessToken.CurrentUser = user;
 
-            lblUserDepartment.Text = $"{FormAccessToken.CurrentUser.FullName} - {FormAccessToken.CurrentUser.DepartmentName}";
-            tlpUserDep.Visible = true;
+            lblName.Text = FormAccessToken.CurrentUser.FullName;
+            lblDepartment.Text = FormAccessToken.CurrentUser.DepartmentName;
+
+            tlpLeftSide.Visible = true;
         }
 
         private async Task LoadMyDebits()

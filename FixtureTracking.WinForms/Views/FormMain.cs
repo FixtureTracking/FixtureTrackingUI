@@ -20,6 +20,7 @@ namespace FixtureTracking.WinForms.Views
 
             await LoadUserDetail();
             await LoadMyDebits();
+            EditSidebarSections();
         }
 
         private async void btnRefreshList_Click(object sender, EventArgs e)
@@ -27,6 +28,36 @@ namespace FixtureTracking.WinForms.Views
             dgvMyDebits.Rows.Clear();
             dgvMyDebits.Refresh();
             await LoadMyDebits();
+        }
+
+        private void btnCategoryOps_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSupplierOps_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFixtureOps_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDepartmentOps_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUserOps_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDebitOps_Click(object sender, EventArgs e)
+        {
+
         }
 
         private async Task LoadUserDetail()
@@ -37,7 +68,7 @@ namespace FixtureTracking.WinForms.Views
             lblName.Text = FormAccessToken.CurrentUser.FullName;
             lblDepartment.Text = FormAccessToken.CurrentUser.DepartmentName;
 
-            tlpLeftSide.Visible = true;
+            tlpOperationsSideBar.Visible = true;
         }
 
         private async Task LoadMyDebits()
@@ -49,6 +80,43 @@ namespace FixtureTracking.WinForms.Views
             });
             tlpMyDebitsTitle.Visible = true;
             tlpMyDebits.Visible = true;
+        }
+
+        private void EditSidebarSections()
+        {
+            var departmentId = FormAccessToken.CurrentUser.DepartmentId;
+
+            switch (departmentId)
+            {
+                case 1: // director
+                    btnCategoryOps.Enabled = true;
+                    btnSupplierOps.Enabled = true;
+                    btnFixtureOps.Enabled = true;
+                    btnDepartmentOps.Enabled = true;
+                    btnUserOps.Enabled = true;
+                    btnDebitOps.Enabled = true;
+                    break;
+
+                case 2: // human resources
+                    btnDepartmentOps.Enabled = true;
+                    btnUserOps.Enabled = true;
+                    break;
+
+                case 3: // accounting
+                    btnCategoryOps.Enabled = true;
+                    btnSupplierOps.Enabled = true;
+                    btnDebitOps.Enabled = true;
+                    break;
+
+                case 4: // sales
+                    btnCategoryOps.Enabled = true;
+                    btnSupplierOps.Enabled = true;
+                    btnFixtureOps.Enabled = true;
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }

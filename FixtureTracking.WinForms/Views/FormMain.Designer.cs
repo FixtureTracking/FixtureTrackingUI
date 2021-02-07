@@ -39,7 +39,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpMyDebitsTitle = new System.Windows.Forms.TableLayoutPanel();
             this.btnRefreshList = new System.Windows.Forms.Button();
             this.lblMyDebitTitle = new System.Windows.Forms.Label();
-            this.tlpLeftSide = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpOperationsSideBar = new System.Windows.Forms.TableLayoutPanel();
             this.btnCategoryOps = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
             this.lblDepartment = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpMyDebits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMyDebits)).BeginInit();
             this.tlpMyDebitsTitle.SuspendLayout();
-            this.tlpLeftSide.SuspendLayout();
+            this.tlpOperationsSideBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpMyDebits
@@ -153,53 +153,55 @@ namespace FixtureTracking.WinForms.Views
             this.lblMyDebitTitle.TabIndex = 0;
             this.lblMyDebitTitle.Text = "My Debits";
             // 
-            // tlpLeftSide
+            // tlpOperationsSideBar
             // 
-            this.tlpLeftSide.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tlpOperationsSideBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.tlpLeftSide.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tlpLeftSide.ColumnCount = 1;
-            this.tlpLeftSide.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpLeftSide.Controls.Add(this.btnCategoryOps, 0, 1);
-            this.tlpLeftSide.Controls.Add(this.lblName, 0, 11);
-            this.tlpLeftSide.Controls.Add(this.lblDepartment, 0, 10);
-            this.tlpLeftSide.Controls.Add(this.lblOperationTitle, 0, 0);
-            this.tlpLeftSide.Controls.Add(this.btnSupplierOps, 0, 2);
-            this.tlpLeftSide.Controls.Add(this.btnFixtureOps, 0, 3);
-            this.tlpLeftSide.Controls.Add(this.btnDepartmentOps, 0, 5);
-            this.tlpLeftSide.Controls.Add(this.btnUserOps, 0, 6);
-            this.tlpLeftSide.Controls.Add(this.btnDebitOps, 0, 8);
-            this.tlpLeftSide.Location = new System.Drawing.Point(7, 3);
-            this.tlpLeftSide.Name = "tlpLeftSide";
-            this.tlpLeftSide.RowCount = 12;
-            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpLeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpLeftSide.Size = new System.Drawing.Size(117, 313);
-            this.tlpLeftSide.TabIndex = 5;
-            this.tlpLeftSide.Visible = false;
+            this.tlpOperationsSideBar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tlpOperationsSideBar.ColumnCount = 1;
+            this.tlpOperationsSideBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpOperationsSideBar.Controls.Add(this.btnCategoryOps, 0, 1);
+            this.tlpOperationsSideBar.Controls.Add(this.lblName, 0, 11);
+            this.tlpOperationsSideBar.Controls.Add(this.lblDepartment, 0, 10);
+            this.tlpOperationsSideBar.Controls.Add(this.lblOperationTitle, 0, 0);
+            this.tlpOperationsSideBar.Controls.Add(this.btnSupplierOps, 0, 2);
+            this.tlpOperationsSideBar.Controls.Add(this.btnFixtureOps, 0, 3);
+            this.tlpOperationsSideBar.Controls.Add(this.btnDepartmentOps, 0, 5);
+            this.tlpOperationsSideBar.Controls.Add(this.btnUserOps, 0, 6);
+            this.tlpOperationsSideBar.Controls.Add(this.btnDebitOps, 0, 8);
+            this.tlpOperationsSideBar.Location = new System.Drawing.Point(7, 3);
+            this.tlpOperationsSideBar.Name = "tlpOperationsSideBar";
+            this.tlpOperationsSideBar.RowCount = 12;
+            this.tlpOperationsSideBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tlpOperationsSideBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpOperationsSideBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpOperationsSideBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpOperationsSideBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tlpOperationsSideBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpOperationsSideBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpOperationsSideBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tlpOperationsSideBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpOperationsSideBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpOperationsSideBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpOperationsSideBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpOperationsSideBar.Size = new System.Drawing.Size(117, 313);
+            this.tlpOperationsSideBar.TabIndex = 5;
+            this.tlpOperationsSideBar.Visible = false;
             // 
             // btnCategoryOps
             // 
             this.btnCategoryOps.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnCategoryOps.AutoSize = true;
+            this.btnCategoryOps.Enabled = false;
             this.btnCategoryOps.FlatAppearance.BorderSize = 0;
             this.btnCategoryOps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCategoryOps.Location = new System.Drawing.Point(3, 38);
             this.btnCategoryOps.Name = "btnCategoryOps";
-            this.btnCategoryOps.Size = new System.Drawing.Size(89, 24);
+            this.btnCategoryOps.Size = new System.Drawing.Size(111, 24);
             this.btnCategoryOps.TabIndex = 2;
             this.btnCategoryOps.Text = "Category Ops";
             this.btnCategoryOps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCategoryOps.Click += new System.EventHandler(this.btnCategoryOps_Click);
             // 
             // lblName
             // 
@@ -236,73 +238,83 @@ namespace FixtureTracking.WinForms.Views
             // 
             this.btnSupplierOps.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnSupplierOps.AutoSize = true;
+            this.btnSupplierOps.Enabled = false;
             this.btnSupplierOps.FlatAppearance.BorderSize = 0;
             this.btnSupplierOps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSupplierOps.Location = new System.Drawing.Point(3, 68);
             this.btnSupplierOps.Name = "btnSupplierOps";
-            this.btnSupplierOps.Size = new System.Drawing.Size(89, 24);
+            this.btnSupplierOps.Size = new System.Drawing.Size(111, 24);
             this.btnSupplierOps.TabIndex = 2;
             this.btnSupplierOps.Text = "Supplier Ops";
             this.btnSupplierOps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSupplierOps.Click += new System.EventHandler(this.btnSupplierOps_Click);
             // 
             // btnFixtureOps
             // 
             this.btnFixtureOps.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnFixtureOps.AutoSize = true;
+            this.btnFixtureOps.Enabled = false;
             this.btnFixtureOps.FlatAppearance.BorderSize = 0;
             this.btnFixtureOps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFixtureOps.Location = new System.Drawing.Point(3, 98);
             this.btnFixtureOps.Name = "btnFixtureOps";
-            this.btnFixtureOps.Size = new System.Drawing.Size(89, 24);
+            this.btnFixtureOps.Size = new System.Drawing.Size(111, 24);
             this.btnFixtureOps.TabIndex = 2;
             this.btnFixtureOps.Text = "Fixture Ops";
             this.btnFixtureOps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFixtureOps.Click += new System.EventHandler(this.btnFixtureOps_Click);
             // 
             // btnDepartmentOps
             // 
             this.btnDepartmentOps.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnDepartmentOps.AutoSize = true;
+            this.btnDepartmentOps.Enabled = false;
             this.btnDepartmentOps.FlatAppearance.BorderSize = 0;
             this.btnDepartmentOps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDepartmentOps.Location = new System.Drawing.Point(3, 143);
             this.btnDepartmentOps.Name = "btnDepartmentOps";
-            this.btnDepartmentOps.Size = new System.Drawing.Size(104, 24);
+            this.btnDepartmentOps.Size = new System.Drawing.Size(111, 24);
             this.btnDepartmentOps.TabIndex = 2;
             this.btnDepartmentOps.Text = "Department Ops";
             this.btnDepartmentOps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDepartmentOps.Click += new System.EventHandler(this.btnDepartmentOps_Click);
             // 
             // btnUserOps
             // 
             this.btnUserOps.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnUserOps.AutoSize = true;
+            this.btnUserOps.Enabled = false;
             this.btnUserOps.FlatAppearance.BorderSize = 0;
             this.btnUserOps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserOps.Location = new System.Drawing.Point(3, 173);
             this.btnUserOps.Name = "btnUserOps";
-            this.btnUserOps.Size = new System.Drawing.Size(104, 24);
+            this.btnUserOps.Size = new System.Drawing.Size(111, 24);
             this.btnUserOps.TabIndex = 2;
             this.btnUserOps.Text = "User Ops";
             this.btnUserOps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUserOps.Click += new System.EventHandler(this.btnUserOps_Click);
             // 
             // btnDebitOps
             // 
             this.btnDebitOps.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnDebitOps.AutoSize = true;
+            this.btnDebitOps.Enabled = false;
             this.btnDebitOps.FlatAppearance.BorderSize = 0;
             this.btnDebitOps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDebitOps.Location = new System.Drawing.Point(3, 218);
             this.btnDebitOps.Name = "btnDebitOps";
-            this.btnDebitOps.Size = new System.Drawing.Size(104, 24);
+            this.btnDebitOps.Size = new System.Drawing.Size(111, 24);
             this.btnDebitOps.TabIndex = 2;
             this.btnDebitOps.Text = "Debit Ops";
             this.btnDebitOps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDebitOps.Click += new System.EventHandler(this.btnDebitOps_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(724, 331);
-            this.Controls.Add(this.tlpLeftSide);
+            this.Controls.Add(this.tlpOperationsSideBar);
             this.Controls.Add(this.tlpMyDebits);
             this.Controls.Add(this.tlpMyDebitsTitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -315,8 +327,8 @@ namespace FixtureTracking.WinForms.Views
             ((System.ComponentModel.ISupportInitialize)(this.dgvMyDebits)).EndInit();
             this.tlpMyDebitsTitle.ResumeLayout(false);
             this.tlpMyDebitsTitle.PerformLayout();
-            this.tlpLeftSide.ResumeLayout(false);
-            this.tlpLeftSide.PerformLayout();
+            this.tlpOperationsSideBar.ResumeLayout(false);
+            this.tlpOperationsSideBar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -331,7 +343,7 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.TableLayoutPanel tlpMyDebitsTitle;
         private System.Windows.Forms.Button btnRefreshList;
         private System.Windows.Forms.Label lblMyDebitTitle;
-        private System.Windows.Forms.TableLayoutPanel tlpLeftSide;
+        private System.Windows.Forms.TableLayoutPanel tlpOperationsSideBar;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblDepartment;
         private System.Windows.Forms.Label lblOperationTitle;

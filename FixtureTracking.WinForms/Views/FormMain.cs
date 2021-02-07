@@ -52,7 +52,8 @@ namespace FixtureTracking.WinForms.Views
 
         private void btnUserOps_Click(object sender, EventArgs e)
         {
-
+            FormUserOps formUserOps = new FormUserOps();
+            formUserOps.ShowDialog();
         }
 
         private void btnDebitOps_Click(object sender, EventArgs e)

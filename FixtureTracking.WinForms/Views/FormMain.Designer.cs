@@ -74,6 +74,8 @@ namespace FixtureTracking.WinForms.Views
             // 
             // dgvMyDebits
             // 
+            this.dgvMyDebits.AllowUserToAddRows = false;
+            this.dgvMyDebits.AllowUserToDeleteRows = false;
             this.dgvMyDebits.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMyDebits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMyDebits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

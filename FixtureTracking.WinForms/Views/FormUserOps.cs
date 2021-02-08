@@ -1,4 +1,5 @@
-﻿using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
+﻿using FixtureTracking.Entities.Dtos.User;
+using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,19 +21,27 @@ namespace FixtureTracking.WinForms.Views
 
         private async void btnRefreshList_Click(object sender, EventArgs e)
         {
-            dgvUserList.Rows.Clear();
-            dgvUserList.Refresh();
             await LoadUserList();
+        }
+
+        private async void btnAddUser_Click(object sender, EventArgs e)
+        {
+            await RegisterUser();
         }
 
         private async Task LoadUserList()
         {
+            dgvUserList.Rows.Clear();
+            dgvUserList.Refresh();
+
             var users = await UserService.GetList();
 
             users.ForEach(user =>
             {
-                dgvUserList.Rows.Add(user.Id, user.FirstName, user.LastName, user.Username, user.Email);
+                dgvUserList.Rows.Add(user.Id, user.FirstName, user.LastName, user.Username, user.Email, user.CreatedAt);
             });
+
+            dgvUserList.Sort(dgvUserList.Columns["createdAt"], System.ComponentModel.ListSortDirection.Descending);
         }
 
         private async Task LoadDepartmentComboBox()
@@ -46,6 +55,26 @@ namespace FixtureTracking.WinForms.Views
             {
                 cmbDepartment.Items.Add(new { Display = department.Name, Value = department.Id });
             });
+
+            cmbDepartment.SelectedItem = new { Display = "Staff", Value = 5 };
+        }
+
+        private async Task RegisterUser()
+        {
+            UserForRegisterDto userForRegisterDto = new UserForRegisterDto()
+            {
+                BirthDate = dtpBirthdate.Value.Date,
+                DepartmentId = (cmbDepartment.SelectedItem as dynamic).Value,
+                Email = txtEmail.Text,
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                Password = "fixT123.", // TODO : random password -> send e-mail
+                Username = txtUsername.Text
+            };
+            await AuthService.Register(userForRegisterDto);
+
+            MessageBox.Show("User registered");
+            await LoadUserList();
         }
     }
 }

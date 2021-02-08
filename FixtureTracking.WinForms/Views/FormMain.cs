@@ -32,7 +32,8 @@ namespace FixtureTracking.WinForms.Views
 
         private void btnCategoryOps_Click(object sender, EventArgs e)
         {
-
+            FormCategoryOps formCategoryOps = new FormCategoryOps();
+            formCategoryOps.ShowDialog();
         }
 
         private void btnSupplierOps_Click(object sender, EventArgs e)

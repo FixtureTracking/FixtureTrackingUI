@@ -1,4 +1,5 @@
-﻿using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
+﻿using FixtureTracking.Entities.Dtos.Category;
+using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +23,11 @@ namespace FixtureTracking.WinForms.Views
             await LoadCategoryList();
         }
 
+        private async void btnAdd_Click(object sender, EventArgs e)
+        {
+            await AddCategory();
+        }
+
         private async Task LoadCategoryList()
         {
             dgvObjectList.Rows.Clear();
@@ -36,5 +42,19 @@ namespace FixtureTracking.WinForms.Views
 
             dgvObjectList.Sort(dgvObjectList.Columns["clmUpdatedAt"], System.ComponentModel.ListSortDirection.Descending);
         }
+
+        private async Task AddCategory()
+        {
+            CategoryForAddDto categoryForAddDto = new CategoryForAddDto()
+            {
+                Description = txtDescription.Text,
+                Name = txtName.Text
+            };
+
+            await CategoryService.Add(categoryForAddDto);
+            MessageBox.Show("Category added.");
+            await LoadCategoryList();
+        }
+
     }
 }

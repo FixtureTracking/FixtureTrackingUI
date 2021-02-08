@@ -44,9 +44,9 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectInputs = new System.Windows.Forms.TableLayoutPanel();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.lblDescription = new System.Windows.Forms.Label();
-            this.txtDescription = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.lblDescription = new System.Windows.Forms.Label();
             this.tlpListTitle.SuspendLayout();
             this.tlpObjectList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectList)).BeginInit();
@@ -104,7 +104,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectList.Name = "tlpObjectList";
             this.tlpObjectList.RowCount = 1;
             this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpObjectList.Size = new System.Drawing.Size(551, 251);
+            this.tlpObjectList.Size = new System.Drawing.Size(551, 182);
             this.tlpObjectList.TabIndex = 5;
             // 
             // dgvObjectList
@@ -125,7 +125,7 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.ReadOnly = true;
             this.dgvObjectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvObjectList.RowTemplate.Height = 25;
-            this.dgvObjectList.Size = new System.Drawing.Size(545, 245);
+            this.dgvObjectList.Size = new System.Drawing.Size(545, 176);
             this.dgvObjectList.TabIndex = 0;
             // 
             // clmCategoryId
@@ -167,22 +167,20 @@ namespace FixtureTracking.WinForms.Views
             // 
             // tlpObjectInputs
             // 
-            this.tlpObjectInputs.ColumnCount = 3;
+            this.tlpObjectInputs.ColumnCount = 2;
             this.tlpObjectInputs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tlpObjectInputs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpObjectInputs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpObjectInputs.Controls.Add(this.txtName, 1, 0);
             this.tlpObjectInputs.Controls.Add(this.lblName, 0, 0);
-            this.tlpObjectInputs.Controls.Add(this.lblDescription, 0, 1);
+            this.tlpObjectInputs.Controls.Add(this.btnAdd, 1, 2);
             this.tlpObjectInputs.Controls.Add(this.txtDescription, 1, 1);
+            this.tlpObjectInputs.Controls.Add(this.lblDescription, 0, 1);
             this.tlpObjectInputs.Location = new System.Drawing.Point(12, 12);
             this.tlpObjectInputs.Name = "tlpObjectInputs";
-            this.tlpObjectInputs.RowCount = 5;
+            this.tlpObjectInputs.RowCount = 3;
             this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpObjectInputs.Size = new System.Drawing.Size(300, 143);
             this.tlpObjectInputs.TabIndex = 4;
             // 
@@ -203,43 +201,43 @@ namespace FixtureTracking.WinForms.Views
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name";
             // 
-            // lblDescription
-            // 
-            this.lblDescription.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(3, 37);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(67, 15);
-            this.lblDescription.TabIndex = 0;
-            this.lblDescription.Text = "Description";
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(83, 33);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(214, 23);
-            this.txtDescription.TabIndex = 1;
-            // 
             // btnAdd
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Location = new System.Drawing.Point(114, 268);
+            this.btnAdd.Location = new System.Drawing.Point(197, 103);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 26);
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add Category";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(83, 33);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(214, 64);
+            this.txtDescription.TabIndex = 1;
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Location = new System.Drawing.Point(3, 30);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(67, 30);
+            this.lblDescription.TabIndex = 0;
+            this.lblDescription.Text = "\r\nDescription";
             // 
             // FormCategoryOps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 329);
+            this.ClientSize = new System.Drawing.Size(881, 225);
             this.Controls.Add(this.tlpListTitle);
             this.Controls.Add(this.tlpObjectList);
             this.Controls.Add(this.tlpObjectInputs);
-            this.Controls.Add(this.btnAdd);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCategoryOps";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

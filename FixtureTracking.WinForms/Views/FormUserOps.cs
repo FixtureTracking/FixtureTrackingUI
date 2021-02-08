@@ -35,19 +35,39 @@ namespace FixtureTracking.WinForms.Views
                 return;
 
             var clickedCell = dgvUserList.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            var userIdCell = dgvUserList.Rows[e.RowIndex].Cells["clmUserId"];
+            Guid userId = Guid.Parse(userIdCell.Value.ToString());
             switch (clickedCell.OwningColumn.HeaderCell.Value)
             {
                 case "Detail":
-                    var userIdCell = dgvUserList.Rows[e.RowIndex].Cells["clmUserId"];
-                    Guid userId = Guid.Parse(userIdCell.Value.ToString());
                     var userForDetailDto = await UserService.GetDetail(userId);
-
                     FormUserDetail formUserDetail = new FormUserDetail(userForDetailDto);
                     formUserDetail.ShowDialog();
                     break;
 
+                case "Delete":
+                    var firstNameCell = dgvUserList.Rows[e.RowIndex].Cells["clmFirstName"];
+                    var lastNameCell = dgvUserList.Rows[e.RowIndex].Cells["clmLastName"];
+                    var usernameCell = dgvUserList.Rows[e.RowIndex].Cells["clmUsername"];
+
+                    var fullName = $"{firstNameCell.Value} {lastNameCell.Value}";
+                    var username = usernameCell.Value.ToString();
+
+                    ShowDeleteDiaolog(userId, fullName, username);
+                    break;
+
                 default:
                     break;
+            }
+        }
+
+        private async void ShowDeleteDiaolog(Guid userId, string fullName, string username)
+        {
+            var confirmResult = MessageBox.Show($"Are you sure to delete this user?\r\n({fullName} - {username})", "Confirm Delete", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                await DeleteUser(userId);
             }
         }
 
@@ -60,7 +80,7 @@ namespace FixtureTracking.WinForms.Views
 
             users.ForEach(user =>
             {
-                dgvUserList.Rows.Add(user.Id, user.FirstName, user.LastName, user.Username, user.Email, user.CreatedAt, "Get Detail");
+                dgvUserList.Rows.Add(user.Id, user.FirstName, user.LastName, user.Username, user.Email, user.CreatedAt, "Get Detail", "Delete");
             });
 
             dgvUserList.Sort(dgvUserList.Columns["clmCreatedAt"], System.ComponentModel.ListSortDirection.Descending);
@@ -95,7 +115,14 @@ namespace FixtureTracking.WinForms.Views
             };
             await AuthService.Register(userForRegisterDto);
 
-            MessageBox.Show("User registered");
+            MessageBox.Show("User registered.");
+            await LoadUserList();
+        }
+
+        private async Task DeleteUser(Guid userId)
+        {
+            await UserService.Delete(userId);
+            MessageBox.Show("User deleted.");
             await LoadUserList();
         }
     }

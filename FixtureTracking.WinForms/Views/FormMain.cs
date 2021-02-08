@@ -37,7 +37,7 @@ namespace FixtureTracking.WinForms.Views
 
         private void btnSupplierOps_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Not yet implemented!");
         }
 
         private void btnFixtureOps_Click(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace FixtureTracking.WinForms.Views
 
         private void btnDepartmentOps_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Not yet implemented!");
         }
 
         private void btnUserOps_Click(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace FixtureTracking.WinForms.Views
             var debits = await UserService.GetDebits(FormAccessToken.UserId);
             debits.ForEach(debitDto =>
             {
-                dgvMyDebits.Rows.Add(debitDto.FixtureName, debitDto.Debit.Description, debitDto.Debit.DateDebit, debitDto.Debit.IsReturn);
+                dgvMyDebits.Rows.Add(debitDto.Debit.Id, debitDto.FixtureName, debitDto.Debit.Description, debitDto.Debit.DateDebit, debitDto.Debit.IsReturn);
             });
             tlpMyDebitsTitle.Visible = true;
             tlpMyDebits.Visible = true;

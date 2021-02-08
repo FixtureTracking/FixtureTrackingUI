@@ -29,7 +29,7 @@ namespace FixtureTracking.WinForms.Views
             await RegisterUser();
         }
 
-        private void dgvUserList_CellClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvUserList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
@@ -38,8 +38,12 @@ namespace FixtureTracking.WinForms.Views
             switch (clickedCell.OwningColumn.HeaderCell.Value)
             {
                 case "Detail":
-                    var userId = dgvUserList.Rows[e.RowIndex].Cells["clmUserId"];
-                    MessageBox.Show(userId.Value.ToString());
+                    var userIdCell = dgvUserList.Rows[e.RowIndex].Cells["clmUserId"];
+                    Guid userId = Guid.Parse(userIdCell.Value.ToString());
+                    var userForDetailDto = await UserService.GetDetail(userId);
+
+                    FormUserDetail formUserDetail = new FormUserDetail(userForDetailDto);
+                    formUserDetail.ShowDialog();
                     break;
 
                 default:

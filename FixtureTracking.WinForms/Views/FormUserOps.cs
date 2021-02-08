@@ -29,6 +29,24 @@ namespace FixtureTracking.WinForms.Views
             await RegisterUser();
         }
 
+        private void dgvUserList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            var clickedCell = dgvUserList.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            switch (clickedCell.OwningColumn.HeaderCell.Value)
+            {
+                case "Detail":
+                    var userId = dgvUserList.Rows[e.RowIndex].Cells["clmUserId"];
+                    MessageBox.Show(userId.Value.ToString());
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
         private async Task LoadUserList()
         {
             dgvUserList.Rows.Clear();
@@ -38,10 +56,10 @@ namespace FixtureTracking.WinForms.Views
 
             users.ForEach(user =>
             {
-                dgvUserList.Rows.Add(user.Id, user.FirstName, user.LastName, user.Username, user.Email, user.CreatedAt);
+                dgvUserList.Rows.Add(user.Id, user.FirstName, user.LastName, user.Username, user.Email, user.CreatedAt, "Get Detail");
             });
 
-            dgvUserList.Sort(dgvUserList.Columns["createdAt"], System.ComponentModel.ListSortDirection.Descending);
+            dgvUserList.Sort(dgvUserList.Columns["clmCreatedAt"], System.ComponentModel.ListSortDirection.Descending);
         }
 
         private async Task LoadDepartmentComboBox()

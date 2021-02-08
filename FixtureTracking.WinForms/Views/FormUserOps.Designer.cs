@@ -46,12 +46,13 @@ namespace FixtureTracking.WinForms.Views
             this.btnAddUser = new System.Windows.Forms.Button();
             this.tlpUserList = new System.Windows.Forms.TableLayoutPanel();
             this.dgvUserList = new System.Windows.Forms.DataGridView();
-            this.userId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDetail = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tlpUserTitle = new System.Windows.Forms.TableLayoutPanel();
             this.lblUserTitle = new System.Windows.Forms.Label();
             this.btnRefreshList = new System.Windows.Forms.Button();
@@ -231,12 +232,13 @@ namespace FixtureTracking.WinForms.Views
             this.dgvUserList.AllowUserToDeleteRows = false;
             this.dgvUserList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUserList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.userId,
-            this.firstName,
-            this.lastName,
-            this.username,
-            this.email,
-            this.createdAt});
+            this.clmUserId,
+            this.clmFirstName,
+            this.clmLastName,
+            this.clmUsername,
+            this.clmEmail,
+            this.clmCreatedAt,
+            this.clmDetail});
             this.dgvUserList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUserList.Location = new System.Drawing.Point(3, 3);
             this.dgvUserList.Name = "dgvUserList";
@@ -245,42 +247,50 @@ namespace FixtureTracking.WinForms.Views
             this.dgvUserList.RowTemplate.Height = 25;
             this.dgvUserList.Size = new System.Drawing.Size(608, 245);
             this.dgvUserList.TabIndex = 0;
+            this.dgvUserList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserList_CellClick);
             // 
-            // userId
+            // clmUserId
             // 
-            this.userId.HeaderText = "User Id";
-            this.userId.Name = "userId";
-            this.userId.ReadOnly = true;
+            this.clmUserId.HeaderText = "User Id";
+            this.clmUserId.Name = "clmUserId";
+            this.clmUserId.ReadOnly = true;
+            this.clmUserId.Visible = false;
             // 
-            // firstName
+            // clmFirstName
             // 
-            this.firstName.HeaderText = "First Name";
-            this.firstName.Name = "firstName";
-            this.firstName.ReadOnly = true;
+            this.clmFirstName.HeaderText = "First Name";
+            this.clmFirstName.Name = "clmFirstName";
+            this.clmFirstName.ReadOnly = true;
             // 
-            // lastName
+            // clmLastName
             // 
-            this.lastName.HeaderText = "Last Name";
-            this.lastName.Name = "lastName";
-            this.lastName.ReadOnly = true;
+            this.clmLastName.HeaderText = "Last Name";
+            this.clmLastName.Name = "clmLastName";
+            this.clmLastName.ReadOnly = true;
             // 
-            // username
+            // clmUsername
             // 
-            this.username.HeaderText = "Username";
-            this.username.Name = "username";
-            this.username.ReadOnly = true;
+            this.clmUsername.HeaderText = "Username";
+            this.clmUsername.Name = "clmUsername";
+            this.clmUsername.ReadOnly = true;
             // 
-            // email
+            // clmEmail
             // 
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
+            this.clmEmail.HeaderText = "Email";
+            this.clmEmail.Name = "clmEmail";
+            this.clmEmail.ReadOnly = true;
             // 
-            // createdAt
+            // clmCreatedAt
             // 
-            this.createdAt.HeaderText = "Created At";
-            this.createdAt.Name = "createdAt";
-            this.createdAt.ReadOnly = true;
+            this.clmCreatedAt.HeaderText = "Created At";
+            this.clmCreatedAt.Name = "clmCreatedAt";
+            this.clmCreatedAt.ReadOnly = true;
+            // 
+            // clmDetail
+            // 
+            this.clmDetail.HeaderText = "Detail";
+            this.clmDetail.Name = "clmDetail";
+            this.clmDetail.ReadOnly = true;
             // 
             // tlpUserTitle
             // 
@@ -367,11 +377,12 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.Button btnRefreshList;
         private System.Windows.Forms.Label lblUserTitle;
         private System.Windows.Forms.Button btnAddUser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn username;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdAt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmUserId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmFirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmUsername;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCreatedAt;
+        private System.Windows.Forms.DataGridViewLinkColumn clmDetail;
     }
 }

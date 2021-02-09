@@ -267,6 +267,8 @@ namespace FixtureTracking.WinForms.Views
             this.Controls.Add(this.tlpObjectList);
             this.Controls.Add(this.tlpObjectInputs);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormCategoryOps";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fixture Tracking | Category Operations";

@@ -41,30 +41,25 @@ namespace FixtureTracking.WinForms.Views
 
             var clickedCell = dgvObjectList.Rows[e.RowIndex].Cells[e.ColumnIndex];
             var categoryIdCell = dgvObjectList.Rows[e.RowIndex].Cells["clmCategoryId"];
-            short categoryId = Convert.ToInt16(categoryIdCell.Value.ToString());
-            selectedCategoryId = categoryId;
+            var categoryNameCell = dgvObjectList.Rows[e.RowIndex].Cells["clmName"];
+
+            selectedCategoryId = Convert.ToInt16(categoryIdCell.Value.ToString());
+
             switch (clickedCell.OwningColumn.HeaderCell.Value)
             {
                 case "Update":
-                    btnAdd.Hide();
-                    btnUpdate.Show();
-
-                    var categoryNameCell = dgvObjectList.Rows[e.RowIndex].Cells["clmName"];
                     var categoryDescCell = dgvObjectList.Rows[e.RowIndex].Cells["clmDescription"];
                     txtDescription.Text = categoryDescCell.Value.ToString();
                     txtName.Text = categoryNameCell.Value.ToString();
+
+                    btnAdd.Hide();
+                    btnUpdate.Show();
                     break;
 
-                //case "Delete":
-                //    var firstNameCell = dgvUserList.Rows[e.RowIndex].Cells["clmFirstName"];
-                //    var lastNameCell = dgvUserList.Rows[e.RowIndex].Cells["clmLastName"];
-                //    var usernameCell = dgvUserList.Rows[e.RowIndex].Cells["clmUsername"];
-
-                //    var fullName = $"{firstNameCell.Value} {lastNameCell.Value}";
-                //    var username = usernameCell.Value.ToString();
-
-                //    ShowDeleteDiaolog(categoryId, fullName, username);
-                //    break;
+                case "Delete":
+                    string categoryName = categoryNameCell.Value.ToString();
+                    ShowDeleteDiaolog(selectedCategoryId, categoryName);
+                    break;
 
                 default:
                     break;
@@ -83,6 +78,14 @@ namespace FixtureTracking.WinForms.Views
             btnAdd.Show();
         }
 
+        private async void ShowDeleteDiaolog(short categoryId, string categoryName)
+        {
+            var confirmResult = MessageBox.Show($"Are you sure to delete this category?\r\n({categoryName})", "Confirm Delete", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+                await DeleteCategory(categoryId);
+        }
+
         private async Task LoadCategoryList()
         {
             dgvObjectList.Rows.Clear();
@@ -91,7 +94,6 @@ namespace FixtureTracking.WinForms.Views
             HideUpdateButton();
 
             var categories = await CategoryService.GetList();
-
             categories.ForEach(category =>
             {
                 dgvObjectList.Rows.Add(category.Id, category.Name, category.Description, category.UpdatedAt, "Update", "Delete");
@@ -110,8 +112,6 @@ namespace FixtureTracking.WinForms.Views
 
             await CategoryService.Add(categoryForAddDto);
             MessageBox.Show("Category added.");
-
-            ClearInputs();
             await LoadCategoryList();
         }
 
@@ -126,9 +126,13 @@ namespace FixtureTracking.WinForms.Views
 
             await CategoryService.Update(categoryForUpdateDto);
             MessageBox.Show("Category updated.");
+            await LoadCategoryList();
+        }
 
-            ClearInputs();
-            HideUpdateButton();
+        private async Task DeleteCategory(short categoryId)
+        {
+            await CategoryService.Delete(categoryId);
+            MessageBox.Show("Category deleted.");
             await LoadCategoryList();
         }
     }

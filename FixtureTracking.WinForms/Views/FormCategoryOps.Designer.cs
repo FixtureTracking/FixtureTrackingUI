@@ -44,13 +44,16 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectInputs = new System.Windows.Forms.TableLayoutPanel();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
+            this.pnlActionButtons = new System.Windows.Forms.Panel();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.tlpListTitle.SuspendLayout();
             this.tlpObjectList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectList)).BeginInit();
             this.tlpObjectInputs.SuspendLayout();
+            this.pnlActionButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpListTitle
@@ -127,6 +130,7 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.RowTemplate.Height = 25;
             this.dgvObjectList.Size = new System.Drawing.Size(545, 176);
             this.dgvObjectList.TabIndex = 0;
+            this.dgvObjectList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectList_CellClick);
             // 
             // clmCategoryId
             // 
@@ -172,9 +176,9 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectInputs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpObjectInputs.Controls.Add(this.txtName, 1, 0);
             this.tlpObjectInputs.Controls.Add(this.lblName, 0, 0);
-            this.tlpObjectInputs.Controls.Add(this.btnAdd, 1, 2);
             this.tlpObjectInputs.Controls.Add(this.txtDescription, 1, 1);
             this.tlpObjectInputs.Controls.Add(this.lblDescription, 0, 1);
+            this.tlpObjectInputs.Controls.Add(this.pnlActionButtons, 1, 2);
             this.tlpObjectInputs.Location = new System.Drawing.Point(12, 12);
             this.tlpObjectInputs.Name = "tlpObjectInputs";
             this.tlpObjectInputs.RowCount = 3;
@@ -201,18 +205,6 @@ namespace FixtureTracking.WinForms.Views
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name";
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Location = new System.Drawing.Point(197, 103);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 26);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "Add Category";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(83, 33);
@@ -229,6 +221,42 @@ namespace FixtureTracking.WinForms.Views
             this.lblDescription.Size = new System.Drawing.Size(67, 30);
             this.lblDescription.TabIndex = 0;
             this.lblDescription.Text = "\r\nDescription";
+            // 
+            // pnlActionButtons
+            // 
+            this.pnlActionButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlActionButtons.Controls.Add(this.btnAdd);
+            this.pnlActionButtons.Controls.Add(this.btnUpdate);
+            this.pnlActionButtons.Location = new System.Drawing.Point(167, 103);
+            this.pnlActionButtons.Name = "pnlActionButtons";
+            this.pnlActionButtons.Size = new System.Drawing.Size(130, 31);
+            this.pnlActionButtons.TabIndex = 7;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Location = new System.Drawing.Point(30, 0);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(100, 28);
+            this.btnAdd.TabIndex = 6;
+            this.btnAdd.Text = "Add Category";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdate.FlatAppearance.BorderSize = 2;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Location = new System.Drawing.Point(16, 0);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(114, 28);
+            this.btnUpdate.TabIndex = 6;
+            this.btnUpdate.Text = "Update Category";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // FormCategoryOps
             // 
@@ -249,6 +277,7 @@ namespace FixtureTracking.WinForms.Views
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectList)).EndInit();
             this.tlpObjectInputs.ResumeLayout(false);
             this.tlpObjectInputs.PerformLayout();
+            this.pnlActionButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -272,5 +301,7 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUpdatedAt;
         private System.Windows.Forms.DataGridViewLinkColumn clmUpdate;
         private System.Windows.Forms.DataGridViewLinkColumn clmDelete;
+        private System.Windows.Forms.Panel pnlActionButtons;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

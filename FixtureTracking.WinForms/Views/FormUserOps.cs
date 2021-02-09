@@ -61,6 +61,16 @@ namespace FixtureTracking.WinForms.Views
             }
         }
 
+        private void ClearInputs()
+        {
+            txtFirstName.ResetText();
+            txtLastName.ResetText();
+            txtUsername.ResetText();
+            txtEmail.ResetText();
+            dtpBirthdate.ResetText();
+            cmbDepartment.ResetText();
+        }
+
         private async void ShowDeleteDiaolog(Guid userId, string fullName, string username)
         {
             var confirmResult = MessageBox.Show($"Are you sure to delete this user?\r\n({fullName} - {username})", "Confirm Delete", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
@@ -75,6 +85,7 @@ namespace FixtureTracking.WinForms.Views
         {
             dgvUserList.Rows.Clear();
             dgvUserList.Refresh();
+            ClearInputs();
 
             var users = await UserService.GetList();
 
@@ -123,6 +134,7 @@ namespace FixtureTracking.WinForms.Views
         {
             await UserService.Delete(userId);
             MessageBox.Show("User deleted.");
+            ClearInputs();
             await LoadUserList();
         }
     }

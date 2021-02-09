@@ -102,7 +102,7 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList.Location = new System.Drawing.Point(592, 3);
             this.btnRefreshList.Name = "btnRefreshList";
             this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
-            this.btnRefreshList.TabIndex = 10;
+            this.btnRefreshList.TabIndex = 20;
             this.btnRefreshList.Text = "Refresh List";
             this.btnRefreshList.UseVisualStyleBackColor = true;
             this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
@@ -143,7 +143,7 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvObjectList.RowTemplate.Height = 25;
             this.dgvObjectList.Size = new System.Drawing.Size(672, 335);
-            this.dgvObjectList.TabIndex = 0;
+            this.dgvObjectList.TabIndex = 100;
             // 
             // clmFixtureId
             // 
@@ -317,21 +317,23 @@ namespace FixtureTracking.WinForms.Views
             this.txtPrice.Location = new System.Drawing.Point(108, 103);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(189, 23);
-            this.txtPrice.TabIndex = 0;
+            this.txtPrice.TabIndex = 2;
+            this.txtPrice.Text = "0.00";
+            this.txtPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // dtpPurchase
             // 
             this.dtpPurchase.Location = new System.Drawing.Point(108, 133);
             this.dtpPurchase.Name = "dtpPurchase";
             this.dtpPurchase.Size = new System.Drawing.Size(189, 23);
-            this.dtpPurchase.TabIndex = 8;
+            this.dtpPurchase.TabIndex = 3;
             // 
             // dtpWarranty
             // 
             this.dtpWarranty.Location = new System.Drawing.Point(108, 163);
             this.dtpWarranty.Name = "dtpWarranty";
             this.dtpWarranty.Size = new System.Drawing.Size(189, 23);
-            this.dtpWarranty.TabIndex = 8;
+            this.dtpWarranty.TabIndex = 4;
             // 
             // cmbSupplier
             // 
@@ -340,7 +342,8 @@ namespace FixtureTracking.WinForms.Views
             this.cmbSupplier.Location = new System.Drawing.Point(108, 193);
             this.cmbSupplier.Name = "cmbSupplier";
             this.cmbSupplier.Size = new System.Drawing.Size(189, 23);
-            this.cmbSupplier.TabIndex = 9;
+            this.cmbSupplier.Sorted = true;
+            this.cmbSupplier.TabIndex = 5;
             // 
             // cmbCategory
             // 
@@ -349,7 +352,8 @@ namespace FixtureTracking.WinForms.Views
             this.cmbCategory.Location = new System.Drawing.Point(108, 223);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(189, 23);
-            this.cmbCategory.TabIndex = 9;
+            this.cmbCategory.Sorted = true;
+            this.cmbCategory.TabIndex = 6;
             // 
             // pnlActionButtons
             // 
@@ -368,9 +372,10 @@ namespace FixtureTracking.WinForms.Views
             this.btnAdd.Location = new System.Drawing.Point(49, 0);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(81, 28);
-            this.btnAdd.TabIndex = 6;
+            this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add Fixture";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnUpdate
             // 
@@ -380,7 +385,7 @@ namespace FixtureTracking.WinForms.Views
             this.btnUpdate.Location = new System.Drawing.Point(34, -1);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(96, 28);
-            this.btnUpdate.TabIndex = 6;
+            this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Update Fixture";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Visible = false;

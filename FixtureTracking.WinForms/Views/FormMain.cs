@@ -43,7 +43,8 @@ namespace FixtureTracking.WinForms.Views
 
         private void btnFixtureOps_Click(object sender, EventArgs e)
         {
-
+            FormFixtureOps formFixtureOps = new FormFixtureOps();
+            formFixtureOps.ShowDialog();
         }
 
         private void btnDepartmentOps_Click(object sender, EventArgs e)

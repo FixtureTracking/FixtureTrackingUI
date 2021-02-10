@@ -3,7 +3,6 @@ using FixtureTracking.Entities.Dtos.Fixture;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -48,9 +47,6 @@ namespace FixtureTracking.WinForms.Views
 
             var clickedCell = dgvObjectList.Rows[e.RowIndex].Cells[e.ColumnIndex];
             var fixtureIdCell = dgvObjectList.Rows[e.RowIndex].Cells["clmFixtureId"];
-            var fixtureNameCell = dgvObjectList.Rows[e.RowIndex].Cells["clmName"];
-            var fixtureDescriptionCell = dgvObjectList.Rows[e.RowIndex].Cells["clmDescription"];
-
             _selectedFixtureId = Guid.Parse(fixtureIdCell.Value.ToString());
 
             switch (clickedCell.OwningColumn.HeaderCell.Value)
@@ -62,10 +58,27 @@ namespace FixtureTracking.WinForms.Views
                     btnUpdate.Show();
                     break;
 
+
+                case "Delete":
+                    var fixtureNameCell = dgvObjectList.Rows[e.RowIndex].Cells["clmName"];
+                    var fixtureDescriptionCell = dgvObjectList.Rows[e.RowIndex].Cells["clmDescription"];
+
+                    ShowDeleteDiaolog(_selectedFixtureId, fixtureNameCell.Value.ToString(), fixtureDescriptionCell.Value.ToString());
+                    break;
+
                 default:
                     break;
             }
         }
+
+        private async void ShowDeleteDiaolog(Guid fixtureId, string fixtureName, string fixtureDescription)
+        {
+            var confirmResult = MessageBox.Show($"Are you sure to delete this fixture?\r\n({fixtureName} - {fixtureDescription})", "Confirm Delete", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+                await DeleteFixture(fixtureId);
+        }
+
 
         private async void FillInputValues()
         {
@@ -83,7 +96,6 @@ namespace FixtureTracking.WinForms.Views
             cmbSupplier.SelectedItem = new { Display = clickedSupplier.Name, Value = clickedSupplier.Id };
             cmbCategory.SelectedItem = new { Display = clickedCategory.Name, Value = clickedCategory.Id };
         }
-
 
         private void ClearInputs()
         {
@@ -186,6 +198,13 @@ namespace FixtureTracking.WinForms.Views
 
             await FixtureService.Update(fixtureForUpdateDto);
             MessageBox.Show("Fixture updated.");
+            await LoadFixtureList();
+        }
+
+        private async Task DeleteFixture(Guid fixtureId)
+        {
+            await FixtureService.Delete(fixtureId);
+            MessageBox.Show("Fixture deleted.");
             await LoadFixtureList();
         }
     }

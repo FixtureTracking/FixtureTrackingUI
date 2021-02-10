@@ -79,7 +79,6 @@ namespace FixtureTracking.WinForms.Views
                 await DeleteFixture(fixtureId);
         }
 
-
         private async void FillInputValues()
         {
             var fixture = await FixtureService.GetById(_selectedFixtureId);
@@ -124,7 +123,8 @@ namespace FixtureTracking.WinForms.Views
             var fixtures = await FixtureService.GetList();
             fixtures.ForEach(fixture =>
             {
-                dgvObjectList.Rows.Add(fixture.Id, fixture.Name, fixture.Description, fixture.DateWarranty.ToShortDateString(), fixture.Price, fixture.UpdatedAt, "Update", "Delete");
+                var availableStatus = fixture.FixturePositionId == 1;
+                dgvObjectList.Rows.Add(fixture.Id, fixture.Name, fixture.Description, fixture.DateWarranty.ToShortDateString(), fixture.Price, availableStatus, fixture.UpdatedAt, "Update", "Delete");
             });
 
             dgvObjectList.Sort(dgvObjectList.Columns["clmUpdatedAt"], System.ComponentModel.ListSortDirection.Descending);

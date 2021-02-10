@@ -35,14 +35,6 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList = new System.Windows.Forms.Button();
             this.tlpObjectList = new System.Windows.Forms.TableLayoutPanel();
             this.dgvObjectList = new System.Windows.Forms.DataGridView();
-            this.clmFixtureId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDateWarranty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmUpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmUpdate = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.clmDelete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tlpObjectInputs = new System.Windows.Forms.TableLayoutPanel();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -61,6 +53,15 @@ namespace FixtureTracking.WinForms.Views
             this.pnlActionButtons = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.clmFixtureId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDateWarranty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAvailable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clmUpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUpdate = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.clmDelete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tlpListTitle.SuspendLayout();
             this.tlpObjectList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectList)).BeginInit();
@@ -81,7 +82,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpListTitle.Name = "tlpListTitle";
             this.tlpListTitle.RowCount = 1;
             this.tlpListTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpListTitle.Size = new System.Drawing.Size(678, 29);
+            this.tlpListTitle.Size = new System.Drawing.Size(749, 29);
             this.tlpListTitle.TabIndex = 9;
             // 
             // lblListTitle
@@ -99,7 +100,7 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefreshList.FlatAppearance.BorderSize = 0;
             this.btnRefreshList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefreshList.Location = new System.Drawing.Point(592, 3);
+            this.btnRefreshList.Location = new System.Drawing.Point(663, 3);
             this.btnRefreshList.Name = "btnRefreshList";
             this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
             this.btnRefreshList.TabIndex = 20;
@@ -119,7 +120,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectList.Name = "tlpObjectList";
             this.tlpObjectList.RowCount = 1;
             this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpObjectList.Size = new System.Drawing.Size(678, 341);
+            this.tlpObjectList.Size = new System.Drawing.Size(749, 341);
             this.tlpObjectList.TabIndex = 8;
             // 
             // dgvObjectList
@@ -133,6 +134,7 @@ namespace FixtureTracking.WinForms.Views
             this.clmDescription,
             this.clmDateWarranty,
             this.clmPrice,
+            this.clmAvailable,
             this.clmUpdatedAt,
             this.clmUpdate,
             this.clmDelete});
@@ -142,58 +144,9 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.ReadOnly = true;
             this.dgvObjectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvObjectList.RowTemplate.Height = 25;
-            this.dgvObjectList.Size = new System.Drawing.Size(672, 335);
+            this.dgvObjectList.Size = new System.Drawing.Size(743, 335);
             this.dgvObjectList.TabIndex = 100;
             this.dgvObjectList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectList_CellClick);
-            // 
-            // clmFixtureId
-            // 
-            this.clmFixtureId.HeaderText = "Fixture Id";
-            this.clmFixtureId.Name = "clmFixtureId";
-            this.clmFixtureId.ReadOnly = true;
-            this.clmFixtureId.Visible = false;
-            // 
-            // clmName
-            // 
-            this.clmName.HeaderText = "Name";
-            this.clmName.Name = "clmName";
-            this.clmName.ReadOnly = true;
-            // 
-            // clmDescription
-            // 
-            this.clmDescription.HeaderText = "Description";
-            this.clmDescription.Name = "clmDescription";
-            this.clmDescription.ReadOnly = true;
-            // 
-            // clmDateWarranty
-            // 
-            this.clmDateWarranty.HeaderText = "Date Warranty";
-            this.clmDateWarranty.Name = "clmDateWarranty";
-            this.clmDateWarranty.ReadOnly = true;
-            // 
-            // clmPrice
-            // 
-            this.clmPrice.HeaderText = "Price";
-            this.clmPrice.Name = "clmPrice";
-            this.clmPrice.ReadOnly = true;
-            // 
-            // clmUpdatedAt
-            // 
-            this.clmUpdatedAt.HeaderText = "Updated At";
-            this.clmUpdatedAt.Name = "clmUpdatedAt";
-            this.clmUpdatedAt.ReadOnly = true;
-            // 
-            // clmUpdate
-            // 
-            this.clmUpdate.HeaderText = "Update";
-            this.clmUpdate.Name = "clmUpdate";
-            this.clmUpdate.ReadOnly = true;
-            // 
-            // clmDelete
-            // 
-            this.clmDelete.HeaderText = "Delete";
-            this.clmDelete.Name = "clmDelete";
-            this.clmDelete.ReadOnly = true;
             // 
             // tlpObjectInputs
             // 
@@ -392,11 +345,68 @@ namespace FixtureTracking.WinForms.Views
             this.btnUpdate.Visible = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // clmFixtureId
+            // 
+            this.clmFixtureId.HeaderText = "Fixture Id";
+            this.clmFixtureId.Name = "clmFixtureId";
+            this.clmFixtureId.ReadOnly = true;
+            this.clmFixtureId.Visible = false;
+            // 
+            // clmName
+            // 
+            this.clmName.HeaderText = "Name";
+            this.clmName.Name = "clmName";
+            this.clmName.ReadOnly = true;
+            // 
+            // clmDescription
+            // 
+            this.clmDescription.HeaderText = "Description";
+            this.clmDescription.Name = "clmDescription";
+            this.clmDescription.ReadOnly = true;
+            // 
+            // clmDateWarranty
+            // 
+            this.clmDateWarranty.HeaderText = "Date Warranty";
+            this.clmDateWarranty.Name = "clmDateWarranty";
+            this.clmDateWarranty.ReadOnly = true;
+            // 
+            // clmPrice
+            // 
+            this.clmPrice.HeaderText = "Price";
+            this.clmPrice.Name = "clmPrice";
+            this.clmPrice.ReadOnly = true;
+            // 
+            // clmAvailable
+            // 
+            this.clmAvailable.HeaderText = "Available";
+            this.clmAvailable.Name = "clmAvailable";
+            this.clmAvailable.ReadOnly = true;
+            this.clmAvailable.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmAvailable.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // clmUpdatedAt
+            // 
+            this.clmUpdatedAt.HeaderText = "Updated At";
+            this.clmUpdatedAt.Name = "clmUpdatedAt";
+            this.clmUpdatedAt.ReadOnly = true;
+            // 
+            // clmUpdate
+            // 
+            this.clmUpdate.HeaderText = "Update";
+            this.clmUpdate.Name = "clmUpdate";
+            this.clmUpdate.ReadOnly = true;
+            // 
+            // clmDelete
+            // 
+            this.clmDelete.HeaderText = "Delete";
+            this.clmDelete.Name = "clmDelete";
+            this.clmDelete.ReadOnly = true;
+            // 
             // FormFixtureOps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 384);
+            this.ClientSize = new System.Drawing.Size(1079, 384);
             this.Controls.Add(this.tlpListTitle);
             this.Controls.Add(this.tlpObjectList);
             this.Controls.Add(this.tlpObjectInputs);
@@ -425,14 +435,6 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.Button btnRefreshList;
         private System.Windows.Forms.TableLayoutPanel tlpObjectList;
         private System.Windows.Forms.DataGridView dgvObjectList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmFixtureId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDateWarranty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmUpdatedAt;
-        private System.Windows.Forms.DataGridViewLinkColumn clmUpdate;
-        private System.Windows.Forms.DataGridViewLinkColumn clmDelete;
         private System.Windows.Forms.TableLayoutPanel tlpObjectInputs;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
@@ -451,5 +453,14 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.DateTimePicker dtpWarranty;
         private System.Windows.Forms.ComboBox cmbSupplier;
         private System.Windows.Forms.ComboBox cmbCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmFixtureId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDateWarranty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPrice;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmAvailable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmUpdatedAt;
+        private System.Windows.Forms.DataGridViewLinkColumn clmUpdate;
+        private System.Windows.Forms.DataGridViewLinkColumn clmDelete;
     }
 }

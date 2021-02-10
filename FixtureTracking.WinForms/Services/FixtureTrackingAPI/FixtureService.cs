@@ -45,6 +45,20 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
             throw new HttpFailureException(errorContent);
         }
 
+        public static async Task<List<Fixture>> GetAvailableList()
+        {
+            using var client = new HttpClient();
+            var uri = $"{APIAddresses.FixtureService}/available";
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", FormAccessToken.Token);
+            var response = await client.GetAsync(uri);
+
+            if (response.IsSuccessStatusCode)
+                return response.Content.ReadFromJsonAsync<DataResult<List<Fixture>>>().Result.Data;
+
+            var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
+            throw new HttpFailureException(errorContent);
+        }
+
         public static async Task<List<DebitForUserDetailDto>> GetDebits(Guid fixtureId)
         {
             using var client = new HttpClient();

@@ -144,6 +144,7 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.RowTemplate.Height = 25;
             this.dgvObjectList.Size = new System.Drawing.Size(672, 335);
             this.dgvObjectList.TabIndex = 100;
+            this.dgvObjectList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectList_CellClick);
             // 
             // clmFixtureId
             // 
@@ -389,6 +390,7 @@ namespace FixtureTracking.WinForms.Views
             this.btnUpdate.Text = "Update Fixture";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // FormFixtureOps
             // 

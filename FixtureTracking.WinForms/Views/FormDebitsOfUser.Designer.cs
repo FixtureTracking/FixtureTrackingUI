@@ -61,7 +61,6 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 256F));
             this.tlpObjectList.Size = new System.Drawing.Size(644, 256);
             this.tlpObjectList.TabIndex = 8;
-            this.tlpObjectList.Visible = false;
             // 
             // dgvObjectList
             // 
@@ -136,7 +135,6 @@ namespace FixtureTracking.WinForms.Views
             this.tlpListTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpListTitle.Size = new System.Drawing.Size(644, 29);
             this.tlpListTitle.TabIndex = 7;
-            this.tlpListTitle.Visible = false;
             // 
             // btnRefreshList
             // 

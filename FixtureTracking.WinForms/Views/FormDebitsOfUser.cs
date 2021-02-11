@@ -36,8 +36,6 @@ namespace FixtureTracking.WinForms.Views
                 string dateOfReturn = debitDto.Debit.IsReturn ? debitDto.Debit.DateReturn.ToString() : "-";
                 dgvObjectList.Rows.Add(debitDto.Debit.Id, debitDto.FixtureName, debitDto.Debit.Description, debitDto.Debit.DateDebit, debitDto.Debit.IsReturn, dateOfReturn);
             });
-            tlpListTitle.Visible = true;
-            tlpObjectList.Visible = true;
         }
     }
 }

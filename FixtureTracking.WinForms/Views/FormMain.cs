@@ -59,7 +59,8 @@ namespace FixtureTracking.WinForms.Views
 
         private async void btnDebitOps_Click(object sender, EventArgs e)
         {
-            // TODO : debit ops form
+            FormDebitOps formDebitOps = new FormDebitOps();
+            formDebitOps.ShowDialog();
             await LoadMyDebits();
         }
 

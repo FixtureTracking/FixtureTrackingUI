@@ -31,15 +31,15 @@ namespace FixtureTracking.WinForms.Views
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDebitOps));
             this.tlpObjectInputs = new System.Windows.Forms.TableLayoutPanel();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.btnSlcFixture = new System.Windows.Forms.Button();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtpWarranty = new System.Windows.Forms.DateTimePicker();
+            this.dtpDebit = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pnlActionButtons = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.btnSlcUser = new System.Windows.Forms.Button();
             this.tlpObjectList = new System.Windows.Forms.TableLayoutPanel();
             this.dgvObjectList = new System.Windows.Forms.DataGridView();
@@ -56,7 +56,6 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList = new System.Windows.Forms.Button();
             this.lblListTitle = new System.Windows.Forms.Label();
             this.tlpObjectInputs.SuspendLayout();
-            this.pnlActionButtons.SuspendLayout();
             this.tlpObjectList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectList)).BeginInit();
             this.tlpListTitle.SuspendLayout();
@@ -67,25 +66,51 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectInputs.ColumnCount = 2;
             this.tlpObjectInputs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tlpObjectInputs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpObjectInputs.Controls.Add(this.btnClear, 1, 5);
+            this.tlpObjectInputs.Controls.Add(this.btnAdd, 1, 4);
             this.tlpObjectInputs.Controls.Add(this.btnSlcFixture, 1, 2);
             this.tlpObjectInputs.Controls.Add(this.txtDescription, 1, 0);
             this.tlpObjectInputs.Controls.Add(this.label1, 0, 0);
-            this.tlpObjectInputs.Controls.Add(this.dtpWarranty, 1, 1);
+            this.tlpObjectInputs.Controls.Add(this.dtpDebit, 1, 1);
             this.tlpObjectInputs.Controls.Add(this.label2, 0, 1);
             this.tlpObjectInputs.Controls.Add(this.label3, 0, 2);
             this.tlpObjectInputs.Controls.Add(this.label4, 0, 3);
-            this.tlpObjectInputs.Controls.Add(this.pnlActionButtons, 1, 4);
             this.tlpObjectInputs.Controls.Add(this.btnSlcUser, 1, 3);
             this.tlpObjectInputs.Location = new System.Drawing.Point(12, 12);
             this.tlpObjectInputs.Name = "tlpObjectInputs";
-            this.tlpObjectInputs.RowCount = 5;
+            this.tlpObjectInputs.RowCount = 6;
             this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpObjectInputs.Size = new System.Drawing.Size(262, 203);
+            this.tlpObjectInputs.Size = new System.Drawing.Size(262, 258);
             this.tlpObjectInputs.TabIndex = 8;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Location = new System.Drawing.Point(178, 202);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(81, 28);
+            this.btnClear.TabIndex = 10;
+            this.btnClear.Text = "Clear Inputs";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Location = new System.Drawing.Point(178, 167);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(81, 28);
+            this.btnAdd.TabIndex = 10;
+            this.btnAdd.Text = "Add Debit";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSlcFixture
             // 
@@ -118,15 +143,15 @@ namespace FixtureTracking.WinForms.Views
             this.label1.TabIndex = 0;
             this.label1.Text = "\r\nDescription";
             // 
-            // dtpWarranty
+            // dtpDebit
             // 
-            this.dtpWarranty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dtpDebit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpWarranty.Location = new System.Drawing.Point(88, 73);
-            this.dtpWarranty.Name = "dtpWarranty";
-            this.dtpWarranty.Size = new System.Drawing.Size(171, 23);
-            this.dtpWarranty.TabIndex = 4;
+            this.dtpDebit.Location = new System.Drawing.Point(88, 73);
+            this.dtpDebit.Name = "dtpDebit";
+            this.dtpDebit.Size = new System.Drawing.Size(171, 23);
+            this.dtpDebit.TabIndex = 4;
             // 
             // label2
             // 
@@ -157,27 +182,6 @@ namespace FixtureTracking.WinForms.Views
             this.label4.Size = new System.Drawing.Size(30, 15);
             this.label4.TabIndex = 0;
             this.label4.Text = "User";
-            // 
-            // pnlActionButtons
-            // 
-            this.pnlActionButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlActionButtons.Controls.Add(this.btnAdd);
-            this.pnlActionButtons.Location = new System.Drawing.Point(129, 167);
-            this.pnlActionButtons.Name = "pnlActionButtons";
-            this.pnlActionButtons.Size = new System.Drawing.Size(130, 31);
-            this.pnlActionButtons.TabIndex = 7;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Location = new System.Drawing.Point(49, 0);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(81, 28);
-            this.btnAdd.TabIndex = 10;
-            this.btnAdd.Text = "Add Debit";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSlcUser
             // 
@@ -232,6 +236,7 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.RowTemplate.Height = 25;
             this.dgvObjectList.Size = new System.Drawing.Size(816, 267);
             this.dgvObjectList.TabIndex = 2;
+            this.dgvObjectList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectList_CellContentClick);
             // 
             // clmDebitId
             // 
@@ -344,7 +349,6 @@ namespace FixtureTracking.WinForms.Views
             this.Load += new System.EventHandler(this.FormDebitOps_Load);
             this.tlpObjectInputs.ResumeLayout(false);
             this.tlpObjectInputs.PerformLayout();
-            this.pnlActionButtons.ResumeLayout(false);
             this.tlpObjectList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectList)).EndInit();
             this.tlpListTitle.ResumeLayout(false);
@@ -361,8 +365,7 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtpWarranty;
-        private System.Windows.Forms.Panel pnlActionButtons;
+        private System.Windows.Forms.DateTimePicker dtpDebit;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSlcFixture;
         private System.Windows.Forms.Button btnSlcUser;
@@ -380,5 +383,6 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmIsReturn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDateReturn;
         private System.Windows.Forms.DataGridViewLinkColumn clmDelete;
+        private System.Windows.Forms.Button btnClear;
     }
 }

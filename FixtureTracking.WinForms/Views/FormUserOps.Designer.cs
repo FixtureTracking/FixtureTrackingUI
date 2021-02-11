@@ -46,17 +46,17 @@ namespace FixtureTracking.WinForms.Views
             this.btnAddUser = new System.Windows.Forms.Button();
             this.tlpUserList = new System.Windows.Forms.TableLayoutPanel();
             this.dgvUserList = new System.Windows.Forms.DataGridView();
-            this.tlpUserTitle = new System.Windows.Forms.TableLayoutPanel();
-            this.lblUserTitle = new System.Windows.Forms.Label();
-            this.btnRefreshList = new System.Windows.Forms.Button();
             this.clmUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDetail = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.clmDebits = new System.Windows.Forms.DataGridViewLinkColumn();
             this.clmDelete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.tlpUserTitle = new System.Windows.Forms.TableLayoutPanel();
+            this.lblUserTitle = new System.Windows.Forms.Label();
+            this.btnRefreshList = new System.Windows.Forms.Button();
             this.tlpUserInputs.SuspendLayout();
             this.tlpUserList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).BeginInit();
@@ -224,7 +224,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpUserList.Name = "tlpUserList";
             this.tlpUserList.RowCount = 1;
             this.tlpUserList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpUserList.Size = new System.Drawing.Size(614, 251);
+            this.tlpUserList.Size = new System.Drawing.Size(643, 251);
             this.tlpUserList.TabIndex = 2;
             // 
             // dgvUserList
@@ -234,12 +234,12 @@ namespace FixtureTracking.WinForms.Views
             this.dgvUserList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUserList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmUserId,
-            this.clmFirstName,
-            this.clmLastName,
+            this.clmName,
+            this.clmDepartment,
             this.clmUsername,
             this.clmEmail,
             this.clmCreatedAt,
-            this.clmDetail,
+            this.clmDebits,
             this.clmDelete});
             this.dgvUserList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUserList.Location = new System.Drawing.Point(3, 3);
@@ -247,48 +247,9 @@ namespace FixtureTracking.WinForms.Views
             this.dgvUserList.ReadOnly = true;
             this.dgvUserList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvUserList.RowTemplate.Height = 25;
-            this.dgvUserList.Size = new System.Drawing.Size(608, 245);
+            this.dgvUserList.Size = new System.Drawing.Size(637, 245);
             this.dgvUserList.TabIndex = 0;
             this.dgvUserList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserList_CellClick);
-            // 
-            // tlpUserTitle
-            // 
-            this.tlpUserTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlpUserTitle.ColumnCount = 2;
-            this.tlpUserTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tlpUserTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpUserTitle.Controls.Add(this.lblUserTitle, 0, 0);
-            this.tlpUserTitle.Controls.Add(this.btnRefreshList, 1, 0);
-            this.tlpUserTitle.Location = new System.Drawing.Point(318, 5);
-            this.tlpUserTitle.Name = "tlpUserTitle";
-            this.tlpUserTitle.RowCount = 1;
-            this.tlpUserTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpUserTitle.Size = new System.Drawing.Size(614, 29);
-            this.tlpUserTitle.TabIndex = 3;
-            // 
-            // lblUserTitle
-            // 
-            this.lblUserTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblUserTitle.AutoSize = true;
-            this.lblUserTitle.Location = new System.Drawing.Point(3, 7);
-            this.lblUserTitle.Name = "lblUserTitle";
-            this.lblUserTitle.Size = new System.Drawing.Size(35, 15);
-            this.lblUserTitle.TabIndex = 0;
-            this.lblUserTitle.Text = "Users";
-            // 
-            // btnRefreshList
-            // 
-            this.btnRefreshList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefreshList.FlatAppearance.BorderSize = 0;
-            this.btnRefreshList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefreshList.Location = new System.Drawing.Point(528, 3);
-            this.btnRefreshList.Name = "btnRefreshList";
-            this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
-            this.btnRefreshList.TabIndex = 10;
-            this.btnRefreshList.Text = "Refresh List";
-            this.btnRefreshList.UseVisualStyleBackColor = true;
-            this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
             // 
             // clmUserId
             // 
@@ -297,17 +258,17 @@ namespace FixtureTracking.WinForms.Views
             this.clmUserId.ReadOnly = true;
             this.clmUserId.Visible = false;
             // 
-            // clmFirstName
+            // clmName
             // 
-            this.clmFirstName.HeaderText = "First Name";
-            this.clmFirstName.Name = "clmFirstName";
-            this.clmFirstName.ReadOnly = true;
+            this.clmName.HeaderText = "Name";
+            this.clmName.Name = "clmName";
+            this.clmName.ReadOnly = true;
             // 
-            // clmLastName
+            // clmDepartment
             // 
-            this.clmLastName.HeaderText = "Last Name";
-            this.clmLastName.Name = "clmLastName";
-            this.clmLastName.ReadOnly = true;
+            this.clmDepartment.HeaderText = "Department";
+            this.clmDepartment.Name = "clmDepartment";
+            this.clmDepartment.ReadOnly = true;
             // 
             // clmUsername
             // 
@@ -327,11 +288,11 @@ namespace FixtureTracking.WinForms.Views
             this.clmCreatedAt.Name = "clmCreatedAt";
             this.clmCreatedAt.ReadOnly = true;
             // 
-            // clmDetail
+            // clmDebits
             // 
-            this.clmDetail.HeaderText = "Detail";
-            this.clmDetail.Name = "clmDetail";
-            this.clmDetail.ReadOnly = true;
+            this.clmDebits.HeaderText = "Debits";
+            this.clmDebits.Name = "clmDebits";
+            this.clmDebits.ReadOnly = true;
             // 
             // clmDelete
             // 
@@ -339,11 +300,50 @@ namespace FixtureTracking.WinForms.Views
             this.clmDelete.Name = "clmDelete";
             this.clmDelete.ReadOnly = true;
             // 
+            // tlpUserTitle
+            // 
+            this.tlpUserTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlpUserTitle.ColumnCount = 2;
+            this.tlpUserTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tlpUserTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpUserTitle.Controls.Add(this.lblUserTitle, 0, 0);
+            this.tlpUserTitle.Controls.Add(this.btnRefreshList, 1, 0);
+            this.tlpUserTitle.Location = new System.Drawing.Point(318, 5);
+            this.tlpUserTitle.Name = "tlpUserTitle";
+            this.tlpUserTitle.RowCount = 1;
+            this.tlpUserTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpUserTitle.Size = new System.Drawing.Size(643, 29);
+            this.tlpUserTitle.TabIndex = 3;
+            // 
+            // lblUserTitle
+            // 
+            this.lblUserTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblUserTitle.AutoSize = true;
+            this.lblUserTitle.Location = new System.Drawing.Point(3, 7);
+            this.lblUserTitle.Name = "lblUserTitle";
+            this.lblUserTitle.Size = new System.Drawing.Size(35, 15);
+            this.lblUserTitle.TabIndex = 0;
+            this.lblUserTitle.Text = "Users";
+            // 
+            // btnRefreshList
+            // 
+            this.btnRefreshList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefreshList.FlatAppearance.BorderSize = 0;
+            this.btnRefreshList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefreshList.Location = new System.Drawing.Point(557, 3);
+            this.btnRefreshList.Name = "btnRefreshList";
+            this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
+            this.btnRefreshList.TabIndex = 10;
+            this.btnRefreshList.Text = "Refresh List";
+            this.btnRefreshList.UseVisualStyleBackColor = true;
+            this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
+            // 
             // FormUserOps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 294);
+            this.ClientSize = new System.Drawing.Size(973, 294);
             this.Controls.Add(this.tlpUserTitle);
             this.Controls.Add(this.tlpUserList);
             this.Controls.Add(this.tlpUserInputs);
@@ -386,12 +386,12 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.Label lblUserTitle;
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUserId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmFirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmLastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUsername;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCreatedAt;
-        private System.Windows.Forms.DataGridViewLinkColumn clmDetail;
+        private System.Windows.Forms.DataGridViewLinkColumn clmDebits;
         private System.Windows.Forms.DataGridViewLinkColumn clmDelete;
     }
 }

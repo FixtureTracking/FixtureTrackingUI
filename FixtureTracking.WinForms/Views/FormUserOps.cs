@@ -1,6 +1,7 @@
 ﻿using FixtureTracking.Entities.Dtos.User;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -8,6 +9,8 @@ namespace FixtureTracking.WinForms.Views
 {
     public partial class FormUserOps : Form
     {
+        private Guid _selectedUserId;
+        private List<UserForDetailDto> _users;
         public FormUserOps()
         {
             InitializeComponent();
@@ -29,31 +32,25 @@ namespace FixtureTracking.WinForms.Views
             await RegisterUser();
         }
 
-        private async void dgvUserList_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvUserList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
 
             var clickedCell = dgvUserList.Rows[e.RowIndex].Cells[e.ColumnIndex];
             var userIdCell = dgvUserList.Rows[e.RowIndex].Cells["clmUserId"];
-            Guid userId = Guid.Parse(userIdCell.Value.ToString());
+            _selectedUserId = Guid.Parse(userIdCell.Value.ToString());
             switch (clickedCell.OwningColumn.HeaderCell.Value)
             {
-                case "Detail":
-                    var userForDetailDto = await UserService.GetDetail(userId);
-                    FormUserDetail formUserDetail = new FormUserDetail(userForDetailDto);
-                    formUserDetail.ShowDialog();
+                case "Debits":
+                    // TODO : Debits (name) form
                     break;
 
                 case "Delete":
-                    var firstNameCell = dgvUserList.Rows[e.RowIndex].Cells["clmFirstName"];
-                    var lastNameCell = dgvUserList.Rows[e.RowIndex].Cells["clmLastName"];
+                    var nameCell = dgvUserList.Rows[e.RowIndex].Cells["clmName"];
                     var usernameCell = dgvUserList.Rows[e.RowIndex].Cells["clmUsername"];
 
-                    var fullName = $"{firstNameCell.Value} {lastNameCell.Value}";
-                    var username = usernameCell.Value.ToString();
-
-                    ShowDeleteDiaolog(userId, fullName, username);
+                    ShowDeleteDiaolog(_selectedUserId, nameCell.Value.ToString(), usernameCell.Value.ToString());
                     break;
 
                 default:
@@ -88,10 +85,11 @@ namespace FixtureTracking.WinForms.Views
             ClearInputs();
 
             var users = await UserService.GetList();
+            _users = users;
 
-            users.ForEach(user =>
+            users.ForEach(userDto =>
             {
-                dgvUserList.Rows.Add(user.Id, user.FirstName, user.LastName, user.Username, user.Email, user.CreatedAt, "Get Detail", "Delete");
+                dgvUserList.Rows.Add(userDto.User.Id, userDto.FullName, userDto.DepartmentName, userDto.User.Username, userDto.User.Email, userDto.User.CreatedAt, "Get Debits", "Delete");
             });
 
             dgvUserList.Sort(dgvUserList.Columns["clmCreatedAt"], System.ComponentModel.ListSortDirection.Descending);

@@ -30,7 +30,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
             throw new HttpFailureException(errorContent);
         }
 
-        public static async Task<List<Debit>> GetList()
+        public static async Task<List<DebitForDetailDto>> GetList()
         {
             using var client = new HttpClient();
             var uri = $"{APIAddresses.DebitService}";
@@ -38,7 +38,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
             var response = await client.GetAsync(uri);
 
             if (response.IsSuccessStatusCode)
-                return response.Content.ReadFromJsonAsync<DataResult<List<Debit>>>().Result.Data;
+                return response.Content.ReadFromJsonAsync<DataResult<List<DebitForDetailDto>>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
             throw new HttpFailureException(errorContent);
@@ -53,20 +53,6 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
 
             if (response.IsSuccessStatusCode)
                 return response.Headers.Location;
-
-            var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new HttpFailureException(errorContent);
-        }
-
-        public static async Task Update(DebitForUpdateDto debitForUpdateDto)
-        {
-            using var client = new HttpClient();
-            var uri = $"{APIAddresses.DebitService}/{debitForUpdateDto.Id}";
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", FormAccessToken.Token);
-            var response = await client.PutAsJsonAsync(uri, debitForUpdateDto);
-
-            if (response.IsSuccessStatusCode)
-                return;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
             throw new HttpFailureException(errorContent);

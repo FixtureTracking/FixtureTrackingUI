@@ -48,7 +48,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
         public static async Task<List<Fixture>> GetAvailableList()
         {
             using var client = new HttpClient();
-            var uri = $"{APIAddresses.FixtureService}/available";
+            var uri = $"{APIAddresses.FixtureService}/positions";
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", FormAccessToken.Token);
             var response = await client.GetAsync(uri);
 

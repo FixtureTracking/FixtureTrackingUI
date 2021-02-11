@@ -13,7 +13,7 @@ namespace FixtureTracking.WinForms.Utilities.Security
             var jwt = handler.ReadJwtToken(FormAccessToken.Token);
             var nameIdendifier = jwt.Claims.First(claim => claim.Type == ClaimTypes.NameIdentifier).Value;
 
-            FormAccessToken.UserId = Guid.Parse(nameIdendifier);
+            FormCurrentUser.UserId = Guid.Parse(nameIdendifier);
         }
     }
 }

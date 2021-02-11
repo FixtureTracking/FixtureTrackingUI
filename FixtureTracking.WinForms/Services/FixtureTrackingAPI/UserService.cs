@@ -31,21 +31,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
             throw new HttpFailureException(errorContent);
         }
 
-        public static async Task<UserForDetailDto> GetDetail(Guid userId)
-        {
-            using var client = new HttpClient();
-            var uri = $"{APIAddresses.UserService}/{userId}/details";
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", FormAccessToken.Token);
-            var response = await client.GetAsync(uri);
-
-            if (response.IsSuccessStatusCode)
-                return response.Content.ReadFromJsonAsync<DataResult<UserForDetailDto>>().Result.Data;
-
-            var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
-            throw new HttpFailureException(errorContent);
-        }
-
-        public static async Task<List<User>> GetList()
+        public static async Task<List<UserForDetailDto>> GetList()
         {
             using var client = new HttpClient();
             var uri = $"{APIAddresses.UserService}";
@@ -53,7 +39,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
             var response = await client.GetAsync(uri);
 
             if (response.IsSuccessStatusCode)
-                return response.Content.ReadFromJsonAsync<DataResult<List<User>>>().Result.Data;
+                return response.Content.ReadFromJsonAsync<DataResult<List<UserForDetailDto>>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
             throw new HttpFailureException(errorContent);
@@ -72,7 +58,6 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
             throw new HttpFailureException(errorContent);
         }
-
         public static async Task Delete(Guid userId)
         {
             using var client = new HttpClient();

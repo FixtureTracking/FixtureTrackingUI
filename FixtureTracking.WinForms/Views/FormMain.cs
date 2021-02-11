@@ -25,8 +25,6 @@ namespace FixtureTracking.WinForms.Views
 
         private async void btnRefreshList_Click(object sender, EventArgs e)
         {
-            dgvMyDebits.Rows.Clear();
-            dgvMyDebits.Refresh();
             await LoadMyDebits();
         }
 
@@ -41,10 +39,11 @@ namespace FixtureTracking.WinForms.Views
             MessageBox.Show("Not yet implemented!");
         }
 
-        private void btnFixtureOps_Click(object sender, EventArgs e)
+        private async void btnFixtureOps_Click(object sender, EventArgs e)
         {
             FormFixtureOps formFixtureOps = new FormFixtureOps();
             formFixtureOps.ShowDialog();
+            await LoadMyDebits();
         }
 
         private void btnDepartmentOps_Click(object sender, EventArgs e)
@@ -58,25 +57,32 @@ namespace FixtureTracking.WinForms.Views
             formUserOps.ShowDialog();
         }
 
-        private void btnDebitOps_Click(object sender, EventArgs e)
+        private async void btnDebitOps_Click(object sender, EventArgs e)
         {
-
+            // TODO : debit ops form
+            await LoadMyDebits();
         }
 
         private async Task LoadUserDetail()
         {
-            var user = await UserService.GetDetail(FormAccessToken.UserId);
-            FormAccessToken.CurrentUser = user;
+            var user = await UserService.GetById(FormCurrentUser.UserId);
+            FormCurrentUser.SetUserValues(user);
 
-            lblName.Text = FormAccessToken.CurrentUser.FullName;
-            lblDepartment.Text = FormAccessToken.CurrentUser.DepartmentName;
+            var department = await DepartmentService.GetById(FormCurrentUser.DepartmentId);
+            FormCurrentUser.SetDepartmentValues(department);
+
+            lblName.Text = FormCurrentUser.FullName;
+            lblDepartment.Text = FormCurrentUser.DepartmentName;
 
             tlpOperationsSideBar.Visible = true;
         }
 
         private async Task LoadMyDebits()
         {
-            var debits = await UserService.GetDebits(FormAccessToken.UserId);
+            dgvMyDebits.Rows.Clear();
+            dgvMyDebits.Refresh();
+
+            var debits = await UserService.GetDebits(FormCurrentUser.UserId);
             debits.ForEach(debitDto =>
             {
                 dgvMyDebits.Rows.Add(debitDto.Debit.Id, debitDto.FixtureName, debitDto.Debit.Description, debitDto.Debit.DateDebit, debitDto.Debit.IsReturn);
@@ -87,7 +93,7 @@ namespace FixtureTracking.WinForms.Views
 
         private void EditSidebarSections()
         {
-            var departmentId = FormAccessToken.CurrentUser.DepartmentId;
+            var departmentId = FormCurrentUser.DepartmentId;
 
             switch (departmentId)
             {

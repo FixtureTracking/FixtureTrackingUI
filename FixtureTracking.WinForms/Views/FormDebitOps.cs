@@ -7,6 +7,7 @@ namespace FixtureTracking.WinForms.Views
 {
     public partial class FormDebitOps : Form
     {
+        private Guid _selectedFixtureId;
         public FormDebitOps()
         {
             InitializeComponent();
@@ -37,7 +38,14 @@ namespace FixtureTracking.WinForms.Views
 
         private void btnSlcFixture_Click(object sender, EventArgs e)
         {
-
+            FormSelectFixture formSelectFixture = new FormSelectFixture();
+            formSelectFixture.ShowDialog();
+            _selectedFixtureId = formSelectFixture.SelectedFixtureId;
+            if (_selectedFixtureId != Guid.Empty)
+            {
+                btnSlcFixture.Enabled = false;
+                btnSlcFixture.Text = "Fixture selected";
+            }
         }
 
         private void btnSlcUser_Click(object sender, EventArgs e)

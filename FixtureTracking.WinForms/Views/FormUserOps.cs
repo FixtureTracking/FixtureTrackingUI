@@ -1,7 +1,6 @@
 ﻿using FixtureTracking.Entities.Dtos.User;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -10,7 +9,6 @@ namespace FixtureTracking.WinForms.Views
     public partial class FormUserOps : Form
     {
         private Guid _selectedUserId;
-        private List<UserForDetailDto> _users;
         public FormUserOps()
         {
             InitializeComponent();

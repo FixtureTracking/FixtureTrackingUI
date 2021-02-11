@@ -39,15 +39,19 @@ namespace FixtureTracking.WinForms.Views
 
             var clickedCell = dgvUserList.Rows[e.RowIndex].Cells[e.ColumnIndex];
             var userIdCell = dgvUserList.Rows[e.RowIndex].Cells["clmUserId"];
+            var nameCell = dgvUserList.Rows[e.RowIndex].Cells["clmName"];
+
             _selectedUserId = Guid.Parse(userIdCell.Value.ToString());
             switch (clickedCell.OwningColumn.HeaderCell.Value)
             {
                 case "Debits":
-                    // TODO : Debits (name) form
+                    var departmentCell = dgvUserList.Rows[e.RowIndex].Cells["clmDepartment"];
+
+                    FormDebitsOfUser formDebitsOfUser = new FormDebitsOfUser(_selectedUserId, nameCell.Value.ToString(), departmentCell.Value.ToString());
+                    formDebitsOfUser.ShowDialog();
                     break;
 
                 case "Delete":
-                    var nameCell = dgvUserList.Rows[e.RowIndex].Cells["clmName"];
                     var usernameCell = dgvUserList.Rows[e.RowIndex].Cells["clmUsername"];
 
                     ShowDeleteDiaolog(_selectedUserId, nameCell.Value.ToString(), usernameCell.Value.ToString());
@@ -85,7 +89,6 @@ namespace FixtureTracking.WinForms.Views
             ClearInputs();
 
             var users = await UserService.GetList();
-            _users = users;
 
             users.ForEach(userDto =>
             {

@@ -50,6 +50,7 @@ namespace FixtureTracking.WinForms.Views
             this.clmDebitDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDateDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmIsReturn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clmDateReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpMyDebits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMyDebits)).BeginInit();
             this.tlpMyDebitsTitle.SuspendLayout();
@@ -69,7 +70,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpMyDebits.RowCount = 1;
             this.tlpMyDebits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMyDebits.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 288F));
-            this.tlpMyDebits.Size = new System.Drawing.Size(599, 288);
+            this.tlpMyDebits.Size = new System.Drawing.Size(661, 288);
             this.tlpMyDebits.TabIndex = 4;
             this.tlpMyDebits.Visible = false;
             // 
@@ -83,14 +84,15 @@ namespace FixtureTracking.WinForms.Views
             this.clmFixtureName,
             this.clmDebitDescription,
             this.clmDateDebit,
-            this.clmIsReturn});
+            this.clmIsReturn,
+            this.clmDateReturn});
             this.dgvMyDebits.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMyDebits.Location = new System.Drawing.Point(3, 3);
             this.dgvMyDebits.Name = "dgvMyDebits";
             this.dgvMyDebits.ReadOnly = true;
             this.dgvMyDebits.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvMyDebits.RowTemplate.Height = 25;
-            this.dgvMyDebits.Size = new System.Drawing.Size(593, 282);
+            this.dgvMyDebits.Size = new System.Drawing.Size(655, 282);
             this.dgvMyDebits.TabIndex = 2;
             // 
             // tlpMyDebitsTitle
@@ -106,7 +108,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpMyDebitsTitle.Name = "tlpMyDebitsTitle";
             this.tlpMyDebitsTitle.RowCount = 1;
             this.tlpMyDebitsTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMyDebitsTitle.Size = new System.Drawing.Size(599, 29);
+            this.tlpMyDebitsTitle.Size = new System.Drawing.Size(661, 29);
             this.tlpMyDebitsTitle.TabIndex = 1;
             this.tlpMyDebitsTitle.Visible = false;
             // 
@@ -115,7 +117,7 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefreshList.FlatAppearance.BorderSize = 0;
             this.btnRefreshList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefreshList.Location = new System.Drawing.Point(513, 3);
+            this.btnRefreshList.Location = new System.Drawing.Point(575, 3);
             this.btnRefreshList.Name = "btnRefreshList";
             this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
             this.btnRefreshList.TabIndex = 2;
@@ -320,11 +322,17 @@ namespace FixtureTracking.WinForms.Views
             this.clmIsReturn.Name = "clmIsReturn";
             this.clmIsReturn.ReadOnly = true;
             // 
+            // clmDateReturn
+            // 
+            this.clmDateReturn.HeaderText = "Date of Return";
+            this.clmDateReturn.Name = "clmDateReturn";
+            this.clmDateReturn.ReadOnly = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 331);
+            this.ClientSize = new System.Drawing.Size(803, 331);
             this.Controls.Add(this.tlpOperationsSideBar);
             this.Controls.Add(this.tlpMyDebits);
             this.Controls.Add(this.tlpMyDebitsTitle);
@@ -365,5 +373,6 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDebitDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDateDebit;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmIsReturn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDateReturn;
     }
 }

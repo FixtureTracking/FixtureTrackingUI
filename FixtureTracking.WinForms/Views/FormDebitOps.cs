@@ -8,6 +8,7 @@ namespace FixtureTracking.WinForms.Views
 {
     public partial class FormDebitOps : Form
     {
+        private Guid _selectedDebitId;
         private Guid _selectedFixtureId;
         private Guid _selectedUserId;
         public FormDebitOps()
@@ -51,7 +52,7 @@ namespace FixtureTracking.WinForms.Views
 
         private async void btnAdd_Click(object sender, EventArgs e)
         {
-            await AddFixture();
+            await AddDebit();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -61,7 +62,25 @@ namespace FixtureTracking.WinForms.Views
 
         private void dgvObjectList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
 
+            var clickedCell = dgvObjectList.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            var debitIdCell = dgvObjectList.Rows[e.RowIndex].Cells["clmDebitId"];
+
+            _selectedDebitId = Guid.Parse(debitIdCell.Value.ToString());
+            switch (clickedCell.OwningColumn.HeaderCell.Value)
+            {
+                case "Delete":
+                    var fixtureCell = dgvObjectList.Rows[e.RowIndex].Cells["clmFixture"];
+                    var userCell = dgvObjectList.Rows[e.RowIndex].Cells["clmUser"];
+
+                    ShowDeleteDiaolog(_selectedDebitId, fixtureCell.Value.ToString(), userCell.Value.ToString());
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void ClearInputs()
@@ -74,6 +93,16 @@ namespace FixtureTracking.WinForms.Views
             btnSlcUser.Text = "Select User";
             _selectedFixtureId = Guid.Empty;
             _selectedUserId = Guid.Empty;
+        }
+
+        private async void ShowDeleteDiaolog(Guid debitId, string fixture, string user)
+        {
+            var confirmResult = MessageBox.Show($"Are you sure to delete this debit?\r\n({fixture} - {user})", "Confirm Delete", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                await DeleteDebit(debitId);
+            }
         }
 
         private async Task LoadDebitList()
@@ -90,7 +119,7 @@ namespace FixtureTracking.WinForms.Views
             });
         }
 
-        private async Task AddFixture()
+        private async Task AddDebit()
         {
             DebitForAddDto debitForAddDto = new DebitForAddDto()
             {
@@ -102,6 +131,13 @@ namespace FixtureTracking.WinForms.Views
 
             await DebitService.Add(debitForAddDto);
             MessageBox.Show("Debit added");
+            await LoadDebitList();
+        }
+
+        private async Task DeleteDebit(Guid debitId)
+        {
+            await DebitService.Delete(debitId);
+            MessageBox.Show("Debit deleted");
             await LoadDebitList();
         }
     }

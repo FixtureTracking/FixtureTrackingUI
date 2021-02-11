@@ -46,7 +46,7 @@ namespace FixtureTracking.WinForms.Views
             this.clmDebitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFixture = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNameOfUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDateDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmIsReturn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -222,7 +222,7 @@ namespace FixtureTracking.WinForms.Views
             this.clmDebitId,
             this.clmDescription,
             this.clmFixture,
-            this.clmNameOfUser,
+            this.clmUser,
             this.clmDepartment,
             this.clmDateDebit,
             this.clmIsReturn,
@@ -257,11 +257,11 @@ namespace FixtureTracking.WinForms.Views
             this.clmFixture.Name = "clmFixture";
             this.clmFixture.ReadOnly = true;
             // 
-            // clmNameOfUser
+            // clmUser
             // 
-            this.clmNameOfUser.HeaderText = "User";
-            this.clmNameOfUser.Name = "clmNameOfUser";
-            this.clmNameOfUser.ReadOnly = true;
+            this.clmUser.HeaderText = "User";
+            this.clmUser.Name = "clmUser";
+            this.clmUser.ReadOnly = true;
             // 
             // clmDepartment
             // 
@@ -374,15 +374,15 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.TableLayoutPanel tlpListTitle;
         private System.Windows.Forms.Button btnRefreshList;
         private System.Windows.Forms.Label lblListTitle;
+        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDebitId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFixture;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmNameOfUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDateDebit;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmIsReturn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDateReturn;
         private System.Windows.Forms.DataGridViewLinkColumn clmDelete;
-        private System.Windows.Forms.Button btnClear;
     }
 }

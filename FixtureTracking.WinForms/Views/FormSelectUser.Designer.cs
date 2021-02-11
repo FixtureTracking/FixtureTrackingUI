@@ -1,7 +1,7 @@
 ﻿
 namespace FixtureTracking.WinForms.Views
 {
-    partial class FormSelectFixture
+    partial class FormSelectUser
     {
         /// <summary>
         /// Required designer variable.
@@ -29,17 +29,17 @@ namespace FixtureTracking.WinForms.Views
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSelectFixture));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSelectUser));
             this.tlpListTitle = new System.Windows.Forms.TableLayoutPanel();
             this.lblListTitle = new System.Windows.Forms.Label();
             this.btnRefreshList = new System.Windows.Forms.Button();
             this.tlpObjectList = new System.Windows.Forms.TableLayoutPanel();
             this.dgvObjectList = new System.Windows.Forms.DataGridView();
-            this.clmFixtureId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDateWarranty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmUpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSelect = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tlpListTitle.SuspendLayout();
             this.tlpObjectList.SuspendLayout();
@@ -55,12 +55,12 @@ namespace FixtureTracking.WinForms.Views
             this.tlpListTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpListTitle.Controls.Add(this.lblListTitle, 0, 0);
             this.tlpListTitle.Controls.Add(this.btnRefreshList, 1, 0);
-            this.tlpListTitle.Location = new System.Drawing.Point(12, 5);
+            this.tlpListTitle.Location = new System.Drawing.Point(12, 6);
             this.tlpListTitle.Name = "tlpListTitle";
             this.tlpListTitle.RowCount = 1;
             this.tlpListTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpListTitle.Size = new System.Drawing.Size(710, 29);
-            this.tlpListTitle.TabIndex = 11;
+            this.tlpListTitle.TabIndex = 5;
             // 
             // lblListTitle
             // 
@@ -68,9 +68,9 @@ namespace FixtureTracking.WinForms.Views
             this.lblListTitle.AutoSize = true;
             this.lblListTitle.Location = new System.Drawing.Point(3, 7);
             this.lblListTitle.Name = "lblListTitle";
-            this.lblListTitle.Size = new System.Drawing.Size(48, 15);
+            this.lblListTitle.Size = new System.Drawing.Size(35, 15);
             this.lblListTitle.TabIndex = 0;
-            this.lblListTitle.Text = "Fixtures";
+            this.lblListTitle.Text = "Users";
             // 
             // btnRefreshList
             // 
@@ -80,7 +80,7 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList.Location = new System.Drawing.Point(624, 3);
             this.btnRefreshList.Name = "btnRefreshList";
             this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
-            this.btnRefreshList.TabIndex = 20;
+            this.btnRefreshList.TabIndex = 10;
             this.btnRefreshList.Text = "Refresh List";
             this.btnRefreshList.UseVisualStyleBackColor = true;
             this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
@@ -93,12 +93,12 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectList.ColumnCount = 1;
             this.tlpObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpObjectList.Controls.Add(this.dgvObjectList, 0, 0);
-            this.tlpObjectList.Location = new System.Drawing.Point(12, 31);
+            this.tlpObjectList.Location = new System.Drawing.Point(12, 32);
             this.tlpObjectList.Name = "tlpObjectList";
             this.tlpObjectList.RowCount = 1;
             this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpObjectList.Size = new System.Drawing.Size(710, 268);
-            this.tlpObjectList.TabIndex = 10;
+            this.tlpObjectList.Size = new System.Drawing.Size(710, 267);
+            this.tlpObjectList.TabIndex = 4;
             // 
             // dgvObjectList
             // 
@@ -106,11 +106,11 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.AllowUserToDeleteRows = false;
             this.dgvObjectList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmFixtureId,
+            this.clmUserId,
             this.clmName,
-            this.clmDescription,
-            this.clmDateWarranty,
-            this.clmUpdatedAt,
+            this.clmDepartment,
+            this.clmUsername,
+            this.clmEmail,
             this.clmSelect});
             this.dgvObjectList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvObjectList.Location = new System.Drawing.Point(3, 3);
@@ -118,16 +118,16 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.ReadOnly = true;
             this.dgvObjectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvObjectList.RowTemplate.Height = 25;
-            this.dgvObjectList.Size = new System.Drawing.Size(704, 262);
-            this.dgvObjectList.TabIndex = 100;
+            this.dgvObjectList.Size = new System.Drawing.Size(704, 261);
+            this.dgvObjectList.TabIndex = 0;
             this.dgvObjectList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectList_CellClick);
             // 
-            // clmFixtureId
+            // clmUserId
             // 
-            this.clmFixtureId.HeaderText = "Fixture Id";
-            this.clmFixtureId.Name = "clmFixtureId";
-            this.clmFixtureId.ReadOnly = true;
-            this.clmFixtureId.Visible = false;
+            this.clmUserId.HeaderText = "User Id";
+            this.clmUserId.Name = "clmUserId";
+            this.clmUserId.ReadOnly = true;
+            this.clmUserId.Visible = false;
             // 
             // clmName
             // 
@@ -135,33 +135,31 @@ namespace FixtureTracking.WinForms.Views
             this.clmName.Name = "clmName";
             this.clmName.ReadOnly = true;
             // 
-            // clmDescription
+            // clmDepartment
             // 
-            this.clmDescription.HeaderText = "Description";
-            this.clmDescription.Name = "clmDescription";
-            this.clmDescription.ReadOnly = true;
+            this.clmDepartment.HeaderText = "Department";
+            this.clmDepartment.Name = "clmDepartment";
+            this.clmDepartment.ReadOnly = true;
             // 
-            // clmDateWarranty
+            // clmUsername
             // 
-            this.clmDateWarranty.HeaderText = "Date Warranty";
-            this.clmDateWarranty.Name = "clmDateWarranty";
-            this.clmDateWarranty.ReadOnly = true;
+            this.clmUsername.HeaderText = "Username";
+            this.clmUsername.Name = "clmUsername";
+            this.clmUsername.ReadOnly = true;
             // 
-            // clmUpdatedAt
+            // clmEmail
             // 
-            this.clmUpdatedAt.HeaderText = "Updated At";
-            this.clmUpdatedAt.Name = "clmUpdatedAt";
-            this.clmUpdatedAt.ReadOnly = true;
+            this.clmEmail.HeaderText = "Email";
+            this.clmEmail.Name = "clmEmail";
+            this.clmEmail.ReadOnly = true;
             // 
             // clmSelect
             // 
             this.clmSelect.HeaderText = "Select";
             this.clmSelect.Name = "clmSelect";
             this.clmSelect.ReadOnly = true;
-            this.clmSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmSelect.Text = "";
             // 
-            // FormSelectFixture
+            // FormSelectUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -171,10 +169,10 @@ namespace FixtureTracking.WinForms.Views
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormSelectFixture";
+            this.Name = "FormSelectUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Fixture Tracking | Select Fixture for Debit Operations";
-            this.Load += new System.EventHandler(this.FormSelectFixture_Load);
+            this.Text = "Fixture Tracking | Select User for Debit Operations";
+            this.Load += new System.EventHandler(this.FormSelectUser_Load);
             this.tlpListTitle.ResumeLayout(false);
             this.tlpListTitle.PerformLayout();
             this.tlpObjectList.ResumeLayout(false);
@@ -190,11 +188,11 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.Button btnRefreshList;
         private System.Windows.Forms.TableLayoutPanel tlpObjectList;
         private System.Windows.Forms.DataGridView dgvObjectList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmFixtureId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmUserId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDateWarranty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmUpdatedAt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDepartment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmUsername;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmEmail;
         private System.Windows.Forms.DataGridViewButtonColumn clmSelect;
     }
 }

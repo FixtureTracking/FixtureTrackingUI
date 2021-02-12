@@ -48,7 +48,7 @@ namespace FixtureTracking.WinForms.Views
             // 
             // tlpListTitle
             // 
-            this.tlpListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tlpListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpListTitle.ColumnCount = 2;
             this.tlpListTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -60,7 +60,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpListTitle.RowCount = 1;
             this.tlpListTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpListTitle.Size = new System.Drawing.Size(710, 29);
-            this.tlpListTitle.TabIndex = 11;
+            this.tlpListTitle.TabIndex = 0;
             // 
             // lblListTitle
             // 
@@ -80,15 +80,15 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList.Location = new System.Drawing.Point(624, 3);
             this.btnRefreshList.Name = "btnRefreshList";
             this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
-            this.btnRefreshList.TabIndex = 20;
+            this.btnRefreshList.TabIndex = 1;
             this.btnRefreshList.Text = "Refresh List";
             this.btnRefreshList.UseVisualStyleBackColor = true;
             this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
             // 
             // tlpObjectList
             // 
-            this.tlpObjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tlpObjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpObjectList.ColumnCount = 1;
             this.tlpObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -98,7 +98,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectList.RowCount = 1;
             this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpObjectList.Size = new System.Drawing.Size(710, 268);
-            this.tlpObjectList.TabIndex = 10;
+            this.tlpObjectList.TabIndex = 2;
             // 
             // dgvObjectList
             // 
@@ -119,7 +119,7 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvObjectList.RowTemplate.Height = 25;
             this.dgvObjectList.Size = new System.Drawing.Size(704, 262);
-            this.dgvObjectList.TabIndex = 100;
+            this.dgvObjectList.TabIndex = 3;
             this.dgvObjectList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectList_CellClick);
             // 
             // clmFixtureId

@@ -80,17 +80,17 @@ namespace FixtureTracking.WinForms.Views
 
         private async Task LoadMyDebits()
         {
-            dgvMyDebits.Rows.Clear();
-            dgvMyDebits.Refresh();
+            dgvObjectList.Rows.Clear();
+            dgvObjectList.Refresh();
 
             var debits = await UserService.GetDebits(FormCurrentUser.UserId);
             debits.ForEach(debitDto =>
             {
                 string dateReturn = debitDto.Debit.IsReturn ? debitDto.Debit.DateReturn.ToString() : "-";
-                dgvMyDebits.Rows.Add(debitDto.Debit.Id, debitDto.FixtureName, debitDto.Debit.Description, debitDto.Debit.DateDebit, debitDto.Debit.IsReturn, dateReturn);
+                dgvObjectList.Rows.Add(debitDto.Debit.Id, debitDto.FixtureName, debitDto.Debit.Description, debitDto.Debit.DateDebit, debitDto.Debit.IsReturn, dateReturn);
             });
-            tlpMyDebitsTitle.Visible = true;
-            tlpMyDebits.Visible = true;
+            tlpListTitle.Visible = true;
+            tlpObjectList.Visible = true;
         }
 
         private void EditSidebarSections()

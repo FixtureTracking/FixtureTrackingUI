@@ -33,10 +33,10 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectList = new System.Windows.Forms.TableLayoutPanel();
             this.dgvObjectList = new System.Windows.Forms.DataGridView();
             this.clmDebitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmFixtureName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDebitDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmFixture = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDateDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmIsReturn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clmDebitReturn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.clmDateReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpListTitle = new System.Windows.Forms.TableLayoutPanel();
             this.btnRefreshList = new System.Windows.Forms.Button();
@@ -54,13 +54,13 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectList.ColumnCount = 1;
             this.tlpObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpObjectList.Controls.Add(this.dgvObjectList, 0, 0);
-            this.tlpObjectList.Location = new System.Drawing.Point(12, 40);
+            this.tlpObjectList.Location = new System.Drawing.Point(12, 35);
             this.tlpObjectList.Name = "tlpObjectList";
             this.tlpObjectList.RowCount = 1;
             this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 256F));
-            this.tlpObjectList.Size = new System.Drawing.Size(644, 256);
-            this.tlpObjectList.TabIndex = 8;
+            this.tlpObjectList.Size = new System.Drawing.Size(644, 261);
+            this.tlpObjectList.TabIndex = 2;
             // 
             // dgvObjectList
             // 
@@ -69,10 +69,10 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvObjectList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmDebitId,
-            this.clmFixtureName,
-            this.clmDebitDescription,
+            this.clmFixture,
+            this.clmDescription,
             this.clmDateDebit,
-            this.clmIsReturn,
+            this.clmDebitReturn,
             this.clmDateReturn});
             this.dgvObjectList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvObjectList.Location = new System.Drawing.Point(3, 3);
@@ -80,8 +80,8 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.ReadOnly = true;
             this.dgvObjectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvObjectList.RowTemplate.Height = 25;
-            this.dgvObjectList.Size = new System.Drawing.Size(638, 250);
-            this.dgvObjectList.TabIndex = 2;
+            this.dgvObjectList.Size = new System.Drawing.Size(638, 255);
+            this.dgvObjectList.TabIndex = 3;
             // 
             // clmDebitId
             // 
@@ -90,17 +90,17 @@ namespace FixtureTracking.WinForms.Views
             this.clmDebitId.ReadOnly = true;
             this.clmDebitId.Visible = false;
             // 
-            // clmFixtureName
+            // clmFixture
             // 
-            this.clmFixtureName.HeaderText = "Fixture Name";
-            this.clmFixtureName.Name = "clmFixtureName";
-            this.clmFixtureName.ReadOnly = true;
+            this.clmFixture.HeaderText = "Fixture Name";
+            this.clmFixture.Name = "clmFixture";
+            this.clmFixture.ReadOnly = true;
             // 
-            // clmDebitDescription
+            // clmDescription
             // 
-            this.clmDebitDescription.HeaderText = "Debit Description";
-            this.clmDebitDescription.Name = "clmDebitDescription";
-            this.clmDebitDescription.ReadOnly = true;
+            this.clmDescription.HeaderText = "Debit Description";
+            this.clmDescription.Name = "clmDescription";
+            this.clmDescription.ReadOnly = true;
             // 
             // clmDateDebit
             // 
@@ -108,11 +108,11 @@ namespace FixtureTracking.WinForms.Views
             this.clmDateDebit.Name = "clmDateDebit";
             this.clmDateDebit.ReadOnly = true;
             // 
-            // clmIsReturn
+            // clmDebitReturn
             // 
-            this.clmIsReturn.HeaderText = "Debit Return Status";
-            this.clmIsReturn.Name = "clmIsReturn";
-            this.clmIsReturn.ReadOnly = true;
+            this.clmDebitReturn.HeaderText = "Debit Return Status";
+            this.clmDebitReturn.Name = "clmDebitReturn";
+            this.clmDebitReturn.ReadOnly = true;
             // 
             // clmDateReturn
             // 
@@ -129,12 +129,12 @@ namespace FixtureTracking.WinForms.Views
             this.tlpListTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpListTitle.Controls.Add(this.btnRefreshList, 1, 0);
             this.tlpListTitle.Controls.Add(this.lblListTitle, 0, 0);
-            this.tlpListTitle.Location = new System.Drawing.Point(12, 12);
+            this.tlpListTitle.Location = new System.Drawing.Point(12, 7);
             this.tlpListTitle.Name = "tlpListTitle";
             this.tlpListTitle.RowCount = 1;
             this.tlpListTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpListTitle.Size = new System.Drawing.Size(644, 29);
-            this.tlpListTitle.TabIndex = 7;
+            this.tlpListTitle.TabIndex = 0;
             // 
             // btnRefreshList
             // 
@@ -144,7 +144,7 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList.Location = new System.Drawing.Point(558, 3);
             this.btnRefreshList.Name = "btnRefreshList";
             this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
-            this.btnRefreshList.TabIndex = 2;
+            this.btnRefreshList.TabIndex = 1;
             this.btnRefreshList.Text = "Refresh List";
             this.btnRefreshList.UseVisualStyleBackColor = true;
             this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
@@ -185,14 +185,14 @@ namespace FixtureTracking.WinForms.Views
 
         private System.Windows.Forms.TableLayoutPanel tlpObjectList;
         private System.Windows.Forms.DataGridView dgvObjectList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDebitId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmFixtureName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDebitDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDateDebit;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn clmIsReturn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDateReturn;
         private System.Windows.Forms.TableLayoutPanel tlpListTitle;
         private System.Windows.Forms.Button btnRefreshList;
         private System.Windows.Forms.Label lblListTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDebitId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmFixture;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDateDebit;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmDebitReturn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDateReturn;
     }
 }

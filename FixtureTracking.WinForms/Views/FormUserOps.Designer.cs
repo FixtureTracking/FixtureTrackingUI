@@ -33,7 +33,7 @@ namespace FixtureTracking.WinForms.Views
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.tlpUserInputs = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpObjectInputs = new System.Windows.Forms.TableLayoutPanel();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
@@ -44,7 +44,7 @@ namespace FixtureTracking.WinForms.Views
             this.lblDepartment = new System.Windows.Forms.Label();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.btnAddUser = new System.Windows.Forms.Button();
-            this.tlpUserList = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpObjectList = new System.Windows.Forms.TableLayoutPanel();
             this.dgvUserList = new System.Windows.Forms.DataGridView();
             this.clmUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,13 +54,13 @@ namespace FixtureTracking.WinForms.Views
             this.clmCreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDebits = new System.Windows.Forms.DataGridViewLinkColumn();
             this.clmDelete = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.tlpUserTitle = new System.Windows.Forms.TableLayoutPanel();
-            this.lblUserTitle = new System.Windows.Forms.Label();
+            this.tlpListTitle = new System.Windows.Forms.TableLayoutPanel();
+            this.lblListTitle = new System.Windows.Forms.Label();
             this.btnRefreshList = new System.Windows.Forms.Button();
-            this.tlpUserInputs.SuspendLayout();
-            this.tlpUserList.SuspendLayout();
+            this.tlpObjectInputs.SuspendLayout();
+            this.tlpObjectList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).BeginInit();
-            this.tlpUserTitle.SuspendLayout();
+            this.tlpListTitle.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblFirstName
@@ -93,37 +93,37 @@ namespace FixtureTracking.WinForms.Views
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username";
             // 
-            // tlpUserInputs
+            // tlpObjectInputs
             // 
-            this.tlpUserInputs.ColumnCount = 2;
-            this.tlpUserInputs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tlpUserInputs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpUserInputs.Controls.Add(this.txtFirstName, 1, 0);
-            this.tlpUserInputs.Controls.Add(this.lblFirstName, 0, 0);
-            this.tlpUserInputs.Controls.Add(this.lblUsername, 0, 2);
-            this.tlpUserInputs.Controls.Add(this.lblLastName, 0, 1);
-            this.tlpUserInputs.Controls.Add(this.lblEmail, 0, 3);
-            this.tlpUserInputs.Controls.Add(this.txtLastName, 1, 1);
-            this.tlpUserInputs.Controls.Add(this.txtUsername, 1, 2);
-            this.tlpUserInputs.Controls.Add(this.txtEmail, 1, 3);
-            this.tlpUserInputs.Controls.Add(this.lblBirthdate, 0, 4);
-            this.tlpUserInputs.Controls.Add(this.dtpBirthdate, 1, 4);
-            this.tlpUserInputs.Controls.Add(this.lblDepartment, 0, 5);
-            this.tlpUserInputs.Controls.Add(this.cmbDepartment, 1, 5);
-            this.tlpUserInputs.Controls.Add(this.btnAddUser, 1, 6);
-            this.tlpUserInputs.Location = new System.Drawing.Point(12, 12);
-            this.tlpUserInputs.Name = "tlpUserInputs";
-            this.tlpUserInputs.RowCount = 8;
-            this.tlpUserInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpUserInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpUserInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpUserInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpUserInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpUserInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpUserInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tlpUserInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpUserInputs.Size = new System.Drawing.Size(300, 224);
-            this.tlpUserInputs.TabIndex = 1;
+            this.tlpObjectInputs.ColumnCount = 2;
+            this.tlpObjectInputs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tlpObjectInputs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpObjectInputs.Controls.Add(this.txtFirstName, 1, 0);
+            this.tlpObjectInputs.Controls.Add(this.lblFirstName, 0, 0);
+            this.tlpObjectInputs.Controls.Add(this.lblUsername, 0, 2);
+            this.tlpObjectInputs.Controls.Add(this.lblLastName, 0, 1);
+            this.tlpObjectInputs.Controls.Add(this.lblEmail, 0, 3);
+            this.tlpObjectInputs.Controls.Add(this.txtLastName, 1, 1);
+            this.tlpObjectInputs.Controls.Add(this.txtUsername, 1, 2);
+            this.tlpObjectInputs.Controls.Add(this.txtEmail, 1, 3);
+            this.tlpObjectInputs.Controls.Add(this.lblBirthdate, 0, 4);
+            this.tlpObjectInputs.Controls.Add(this.dtpBirthdate, 1, 4);
+            this.tlpObjectInputs.Controls.Add(this.lblDepartment, 0, 5);
+            this.tlpObjectInputs.Controls.Add(this.cmbDepartment, 1, 5);
+            this.tlpObjectInputs.Controls.Add(this.btnAddUser, 1, 6);
+            this.tlpObjectInputs.Location = new System.Drawing.Point(12, 12);
+            this.tlpObjectInputs.Name = "tlpObjectInputs";
+            this.tlpObjectInputs.RowCount = 8;
+            this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpObjectInputs.Size = new System.Drawing.Size(300, 224);
+            this.tlpObjectInputs.TabIndex = 0;
             // 
             // txtFirstName
             // 
@@ -207,25 +207,25 @@ namespace FixtureTracking.WinForms.Views
             this.btnAddUser.Location = new System.Drawing.Point(224, 183);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(73, 26);
-            this.btnAddUser.TabIndex = 6;
+            this.btnAddUser.TabIndex = 10;
             this.btnAddUser.Text = "Add User";
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
-            // tlpUserList
+            // tlpObjectList
             // 
-            this.tlpUserList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tlpObjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlpUserList.ColumnCount = 1;
-            this.tlpUserList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpUserList.Controls.Add(this.dgvUserList, 0, 0);
-            this.tlpUserList.Location = new System.Drawing.Point(318, 31);
-            this.tlpUserList.Name = "tlpUserList";
-            this.tlpUserList.RowCount = 1;
-            this.tlpUserList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpUserList.Size = new System.Drawing.Size(643, 251);
-            this.tlpUserList.TabIndex = 2;
+            this.tlpObjectList.ColumnCount = 1;
+            this.tlpObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpObjectList.Controls.Add(this.dgvUserList, 0, 0);
+            this.tlpObjectList.Location = new System.Drawing.Point(318, 31);
+            this.tlpObjectList.Name = "tlpObjectList";
+            this.tlpObjectList.RowCount = 1;
+            this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpObjectList.Size = new System.Drawing.Size(643, 251);
+            this.tlpObjectList.TabIndex = 2;
             // 
             // dgvUserList
             // 
@@ -248,7 +248,7 @@ namespace FixtureTracking.WinForms.Views
             this.dgvUserList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvUserList.RowTemplate.Height = 25;
             this.dgvUserList.Size = new System.Drawing.Size(637, 245);
-            this.dgvUserList.TabIndex = 0;
+            this.dgvUserList.TabIndex = 21;
             this.dgvUserList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserList_CellClick);
             // 
             // clmUserId
@@ -300,31 +300,31 @@ namespace FixtureTracking.WinForms.Views
             this.clmDelete.Name = "clmDelete";
             this.clmDelete.ReadOnly = true;
             // 
-            // tlpUserTitle
+            // tlpListTitle
             // 
-            this.tlpUserTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tlpListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlpUserTitle.ColumnCount = 2;
-            this.tlpUserTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tlpUserTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpUserTitle.Controls.Add(this.lblUserTitle, 0, 0);
-            this.tlpUserTitle.Controls.Add(this.btnRefreshList, 1, 0);
-            this.tlpUserTitle.Location = new System.Drawing.Point(318, 5);
-            this.tlpUserTitle.Name = "tlpUserTitle";
-            this.tlpUserTitle.RowCount = 1;
-            this.tlpUserTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpUserTitle.Size = new System.Drawing.Size(643, 29);
-            this.tlpUserTitle.TabIndex = 3;
+            this.tlpListTitle.ColumnCount = 2;
+            this.tlpListTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tlpListTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpListTitle.Controls.Add(this.lblListTitle, 0, 0);
+            this.tlpListTitle.Controls.Add(this.btnRefreshList, 1, 0);
+            this.tlpListTitle.Location = new System.Drawing.Point(318, 5);
+            this.tlpListTitle.Name = "tlpListTitle";
+            this.tlpListTitle.RowCount = 1;
+            this.tlpListTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpListTitle.Size = new System.Drawing.Size(643, 29);
+            this.tlpListTitle.TabIndex = 1;
             // 
-            // lblUserTitle
+            // lblListTitle
             // 
-            this.lblUserTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblUserTitle.AutoSize = true;
-            this.lblUserTitle.Location = new System.Drawing.Point(3, 7);
-            this.lblUserTitle.Name = "lblUserTitle";
-            this.lblUserTitle.Size = new System.Drawing.Size(35, 15);
-            this.lblUserTitle.TabIndex = 0;
-            this.lblUserTitle.Text = "Users";
+            this.lblListTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblListTitle.AutoSize = true;
+            this.lblListTitle.Location = new System.Drawing.Point(3, 7);
+            this.lblListTitle.Name = "lblListTitle";
+            this.lblListTitle.Size = new System.Drawing.Size(35, 15);
+            this.lblListTitle.TabIndex = 0;
+            this.lblListTitle.Text = "Users";
             // 
             // btnRefreshList
             // 
@@ -334,7 +334,7 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList.Location = new System.Drawing.Point(557, 3);
             this.btnRefreshList.Name = "btnRefreshList";
             this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
-            this.btnRefreshList.TabIndex = 10;
+            this.btnRefreshList.TabIndex = 20;
             this.btnRefreshList.Text = "Refresh List";
             this.btnRefreshList.UseVisualStyleBackColor = true;
             this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
@@ -344,9 +344,9 @@ namespace FixtureTracking.WinForms.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(973, 294);
-            this.Controls.Add(this.tlpUserTitle);
-            this.Controls.Add(this.tlpUserList);
-            this.Controls.Add(this.tlpUserInputs);
+            this.Controls.Add(this.tlpListTitle);
+            this.Controls.Add(this.tlpObjectList);
+            this.Controls.Add(this.tlpObjectInputs);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -354,12 +354,12 @@ namespace FixtureTracking.WinForms.Views
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fixture Tracking | User Operations";
             this.Load += new System.EventHandler(this.FormUserOps_Load);
-            this.tlpUserInputs.ResumeLayout(false);
-            this.tlpUserInputs.PerformLayout();
-            this.tlpUserList.ResumeLayout(false);
+            this.tlpObjectInputs.ResumeLayout(false);
+            this.tlpObjectInputs.PerformLayout();
+            this.tlpObjectList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).EndInit();
-            this.tlpUserTitle.ResumeLayout(false);
-            this.tlpUserTitle.PerformLayout();
+            this.tlpListTitle.ResumeLayout(false);
+            this.tlpListTitle.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -369,7 +369,7 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.TableLayoutPanel tlpUserInputs;
+        private System.Windows.Forms.TableLayoutPanel tlpObjectInputs;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblBirthdate;
@@ -379,11 +379,11 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.DateTimePicker dtpBirthdate;
         private System.Windows.Forms.ComboBox cmbDepartment;
-        private System.Windows.Forms.TableLayoutPanel tlpUserList;
+        private System.Windows.Forms.TableLayoutPanel tlpObjectList;
         private System.Windows.Forms.DataGridView dgvUserList;
-        private System.Windows.Forms.TableLayoutPanel tlpUserTitle;
+        private System.Windows.Forms.TableLayoutPanel tlpListTitle;
         private System.Windows.Forms.Button btnRefreshList;
-        private System.Windows.Forms.Label lblUserTitle;
+        private System.Windows.Forms.Label lblListTitle;
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUserId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmName;

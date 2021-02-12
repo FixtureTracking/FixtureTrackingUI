@@ -26,27 +26,27 @@ namespace FixtureTracking.WinForms.Views
             await LoadDebitList();
         }
 
-        private void btnSlcFixture_Click(object sender, EventArgs e)
+        private void btnSelectFixture_Click(object sender, EventArgs e)
         {
             FormSelectFixture formSelectFixture = new FormSelectFixture();
             formSelectFixture.ShowDialog();
             _selectedFixtureId = formSelectFixture.SelectedFixtureId;
             if (_selectedFixtureId != Guid.Empty)
             {
-                btnSlcFixture.Enabled = false;
-                btnSlcFixture.Text = "Fixture selected";
+                btnSelectFixture.Enabled = false;
+                btnSelectFixture.Text = "Fixture selected";
             }
         }
 
-        private void btnSlcUser_Click(object sender, EventArgs e)
+        private void btnSelectUser_Click(object sender, EventArgs e)
         {
             FormSelectUser formSelectUser = new FormSelectUser();
             formSelectUser.ShowDialog();
             _selectedUserId = formSelectUser.SelectedUserId;
             if (_selectedUserId != Guid.Empty)
             {
-                btnSlcUser.Enabled = false;
-                btnSlcUser.Text = "User selected";
+                btnSelectUser.Enabled = false;
+                btnSelectUser.Text = "User selected";
             }
         }
 
@@ -86,11 +86,11 @@ namespace FixtureTracking.WinForms.Views
         private void ClearInputs()
         {
             txtDescription.ResetText();
-            dtpDebit.ResetText();
-            btnSlcFixture.Enabled = true;
-            btnSlcUser.Enabled = true;
-            btnSlcFixture.Text = "Select Fixture";
-            btnSlcUser.Text = "Select User";
+            dtpDateDebit.ResetText();
+            btnSelectFixture.Enabled = true;
+            btnSelectUser.Enabled = true;
+            btnSelectFixture.Text = "Select Fixture";
+            btnSelectUser.Text = "Select User";
             _selectedFixtureId = Guid.Empty;
             _selectedUserId = Guid.Empty;
         }
@@ -123,7 +123,7 @@ namespace FixtureTracking.WinForms.Views
         {
             DebitForAddDto debitForAddDto = new DebitForAddDto()
             {
-                DateDebit = dtpDebit.Value,
+                DateDebit = dtpDateDebit.Value,
                 Description = txtDescription.Text,
                 FixtureId = _selectedFixtureId,
                 UserId = _selectedUserId

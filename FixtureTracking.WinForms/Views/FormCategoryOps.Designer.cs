@@ -70,7 +70,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpListTitle.RowCount = 1;
             this.tlpListTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpListTitle.Size = new System.Drawing.Size(551, 29);
-            this.tlpListTitle.TabIndex = 6;
+            this.tlpListTitle.TabIndex = 1;
             // 
             // lblListTitle
             // 
@@ -90,7 +90,7 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList.Location = new System.Drawing.Point(465, 3);
             this.btnRefreshList.Name = "btnRefreshList";
             this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
-            this.btnRefreshList.TabIndex = 10;
+            this.btnRefreshList.TabIndex = 20;
             this.btnRefreshList.Text = "Refresh List";
             this.btnRefreshList.UseVisualStyleBackColor = true;
             this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
@@ -108,7 +108,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectList.RowCount = 1;
             this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpObjectList.Size = new System.Drawing.Size(551, 182);
-            this.tlpObjectList.TabIndex = 5;
+            this.tlpObjectList.TabIndex = 2;
             // 
             // dgvObjectList
             // 
@@ -129,7 +129,7 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvObjectList.RowTemplate.Height = 25;
             this.dgvObjectList.Size = new System.Drawing.Size(545, 176);
-            this.dgvObjectList.TabIndex = 0;
+            this.dgvObjectList.TabIndex = 21;
             this.dgvObjectList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectList_CellClick);
             // 
             // clmCategoryId
@@ -186,7 +186,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpObjectInputs.Size = new System.Drawing.Size(300, 143);
-            this.tlpObjectInputs.TabIndex = 4;
+            this.tlpObjectInputs.TabIndex = 0;
             // 
             // txtName
             // 
@@ -239,7 +239,7 @@ namespace FixtureTracking.WinForms.Views
             this.btnAdd.Location = new System.Drawing.Point(30, 0);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 28);
-            this.btnAdd.TabIndex = 6;
+            this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add Category";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -252,7 +252,7 @@ namespace FixtureTracking.WinForms.Views
             this.btnUpdate.Location = new System.Drawing.Point(16, 0);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(114, 28);
-            this.btnUpdate.TabIndex = 6;
+            this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Update Category";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Visible = false;

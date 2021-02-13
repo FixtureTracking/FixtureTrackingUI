@@ -2,6 +2,7 @@
 using FixtureTracking.Entities.Dtos.Fixture;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
 using FixtureTracking.WinForms.Utilities.Constants;
+using FixtureTracking.WinForms.Utilities.FormTools;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -73,9 +74,8 @@ namespace FixtureTracking.WinForms.Views
 
         private async void ShowDeleteDiaolog(Guid fixtureId, string fixtureName, string fixtureDescription)
         {
-            var confirmResult = MessageBox.Show($"Are you sure to delete this fixture?\r\n({fixtureName} - {fixtureDescription})", "Confirm Delete", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-
-            if (confirmResult == DialogResult.Yes)
+            var dialogResult = DeleteDiaolog.Show("fixture", $"{fixtureName} - {fixtureDescription}");
+            if (dialogResult == DialogResult.Yes)
                 await DeleteFixture(fixtureId);
         }
 

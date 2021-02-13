@@ -1,6 +1,7 @@
 ﻿using FixtureTracking.Entities.Dtos.Category;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
 using FixtureTracking.WinForms.Utilities.Constants;
+using FixtureTracking.WinForms.Utilities.FormTools;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -9,7 +10,7 @@ namespace FixtureTracking.WinForms.Views
 {
     public partial class FormCategoryOps : Form
     {
-        private short selectedCategoryId;
+        private short _selectedCategoryId;
         public FormCategoryOps()
         {
             InitializeComponent();
@@ -43,23 +44,21 @@ namespace FixtureTracking.WinForms.Views
             var clickedCell = dgvObjectList.Rows[e.RowIndex].Cells[e.ColumnIndex];
             var categoryIdCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmCategoryId)];
             var categoryNameCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmName)];
-
-            selectedCategoryId = Convert.ToInt16(categoryIdCell.Value.ToString());
+            _selectedCategoryId = Convert.ToInt16(categoryIdCell.Value.ToString());
 
             switch (clickedCell.OwningColumn.Name)
             {
                 case nameof(clmUpdate):
                     var categoryDescCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmDescription)];
-                    txtDescription.Text = categoryDescCell.Value.ToString();
                     txtName.Text = categoryNameCell.Value.ToString();
+                    txtDescription.Text = categoryDescCell.Value.ToString();
 
                     btnAdd.Hide();
                     btnUpdate.Show();
                     break;
 
                 case nameof(clmDelete):
-                    string categoryName = categoryNameCell.Value.ToString();
-                    ShowDeleteDiaolog(selectedCategoryId, categoryName);
+                    ShowDeleteDiaolog(_selectedCategoryId, categoryNameCell.Value.ToString());
                     break;
 
                 default:
@@ -81,9 +80,8 @@ namespace FixtureTracking.WinForms.Views
 
         private async void ShowDeleteDiaolog(short categoryId, string categoryName)
         {
-            var confirmResult = MessageBox.Show($"Are you sure to delete this category?\r\n({categoryName})", "Confirm Delete", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-
-            if (confirmResult == DialogResult.Yes)
+            var dialogResult = DeleteDiaolog.Show("category", categoryName);
+            if (dialogResult == DialogResult.Yes)
                 await DeleteCategory(categoryId);
         }
 
@@ -120,7 +118,7 @@ namespace FixtureTracking.WinForms.Views
         {
             CategoryForUpdateDto categoryForUpdateDto = new CategoryForUpdateDto()
             {
-                Id = selectedCategoryId,
+                Id = _selectedCategoryId,
                 Description = txtDescription.Text,
                 Name = txtName.Text
             };

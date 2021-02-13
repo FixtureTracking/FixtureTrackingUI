@@ -1,6 +1,7 @@
 ﻿using FixtureTracking.Entities.Dtos.User;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
 using FixtureTracking.WinForms.Utilities.Constants;
+using FixtureTracking.WinForms.Utilities.FormTools;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,8 +40,8 @@ namespace FixtureTracking.WinForms.Views
             var clickedCell = dgvObjectList.Rows[e.RowIndex].Cells[e.ColumnIndex];
             var userIdCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmUserId)];
             var nameCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmName)];
-
             _selectedUserId = Guid.Parse(userIdCell.Value.ToString());
+
             switch (clickedCell.OwningColumn.Name)
             {
                 case nameof(clmDebits):
@@ -73,9 +74,8 @@ namespace FixtureTracking.WinForms.Views
 
         private async void ShowDeleteDiaolog(Guid userId, string fullName, string username)
         {
-            var confirmResult = MessageBox.Show($"Are you sure to delete this user?\r\n({fullName} - {username})", "Confirm Delete", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-
-            if (confirmResult == DialogResult.Yes)
+            var dialogResult = DeleteDiaolog.Show("user", $"{fullName} - {username}");
+            if (dialogResult == DialogResult.Yes)
                 await DeleteUser(userId);
         }
 

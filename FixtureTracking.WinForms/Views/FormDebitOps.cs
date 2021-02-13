@@ -1,6 +1,7 @@
 ﻿using FixtureTracking.Entities.Dtos.Debit;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
 using FixtureTracking.WinForms.Utilities.Constants;
+using FixtureTracking.WinForms.Utilities.FormTools;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,9 +32,10 @@ namespace FixtureTracking.WinForms.Views
         {
             FormSelectFixture formSelectFixture = new FormSelectFixture();
             formSelectFixture.ShowDialog();
-            _selectedFixtureId = formSelectFixture.SelectedFixtureId;
-            if (_selectedFixtureId != Guid.Empty)
+
+            if (formSelectFixture.SelectedFixtureId != Guid.Empty)
             {
+                _selectedFixtureId = formSelectFixture.SelectedFixtureId;
                 btnSelectFixture.Enabled = false;
                 btnSelectFixture.Text = "Fixture selected";
             }
@@ -43,9 +45,10 @@ namespace FixtureTracking.WinForms.Views
         {
             FormSelectUser formSelectUser = new FormSelectUser();
             formSelectUser.ShowDialog();
-            _selectedUserId = formSelectUser.SelectedUserId;
-            if (_selectedUserId != Guid.Empty)
+
+            if (formSelectUser.SelectedUserId != Guid.Empty)
             {
+                _selectedUserId = formSelectUser.SelectedUserId;
                 btnSelectUser.Enabled = false;
                 btnSelectUser.Text = "User selected";
             }
@@ -98,12 +101,9 @@ namespace FixtureTracking.WinForms.Views
 
         private async void ShowDeleteDiaolog(Guid debitId, string fixture, string user)
         {
-            var confirmResult = MessageBox.Show($"Are you sure to delete this debit?\r\n({fixture} - {user})", "Confirm Delete", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-
-            if (confirmResult == DialogResult.Yes)
-            {
+            var dialogResult = DeleteDiaolog.Show("debit", $"{fixture} - {user}");
+            if (dialogResult == DialogResult.Yes)
                 await DeleteDebit(debitId);
-            }
         }
 
         private async Task LoadDebitList()

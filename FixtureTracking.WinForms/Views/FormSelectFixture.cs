@@ -46,7 +46,7 @@ namespace FixtureTracking.WinForms.Views
             var fixtures = await FixtureService.GetAvailableList();
             fixtures.ForEach(fixtureDto =>
             {
-                dgvObjectList.Rows.Add(fixtureDto.Id, fixtureDto.Name, fixtureDto.Description, fixtureDto.DateWarranty.ToShortDateString(), fixtureDto.UpdatedAt, "Select");
+                dgvObjectList.Rows.Add(fixtureDto.Fixture.Id, fixtureDto.Fixture.Name, fixtureDto.Fixture.Description, fixtureDto.Fixture.DateWarranty.ToShortDateString(), fixtureDto.Fixture.UpdatedAt, "Select");
             });
             dgvObjectList.Sort(dgvObjectList.Columns[nameof(clmName)], System.ComponentModel.ListSortDirection.Ascending);
         }

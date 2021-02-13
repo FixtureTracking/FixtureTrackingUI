@@ -121,10 +121,10 @@ namespace FixtureTracking.WinForms.Views
             HideUpdateButton();
 
             var fixtures = await FixtureService.GetList();
-            fixtures.ForEach(fixture =>
+            fixtures.ForEach(fixtureDto =>
             {
-                var availableStatus = fixture.FixturePositionId == 1;
-                dgvObjectList.Rows.Add(fixture.Id, fixture.Name, fixture.Description, fixture.DateWarranty.ToShortDateString(), fixture.Price, availableStatus, fixture.UpdatedAt, "Update", "Delete");
+                var availableStatus = fixtureDto.Fixture.FixturePositionId == 1;
+                dgvObjectList.Rows.Add(fixtureDto.Fixture.Id, fixtureDto.Fixture.Name, fixtureDto.Fixture.Description, fixtureDto.Fixture.DateWarranty.ToShortDateString(), fixtureDto.Fixture.Price, availableStatus, fixtureDto.Fixture.UpdatedAt, "Update", "Delete");
             });
             dgvObjectList.Columns[nameof(clmUpdate)].DefaultCellStyle.Font = new System.Drawing.Font(dgvObjectList.DefaultCellStyle.Font, System.Drawing.FontStyle.Underline);
             dgvObjectList.Sort(dgvObjectList.Columns[nameof(clmUpdatedAt)], System.ComponentModel.ListSortDirection.Descending);

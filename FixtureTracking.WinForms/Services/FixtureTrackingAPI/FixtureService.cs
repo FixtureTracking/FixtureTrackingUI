@@ -31,7 +31,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
             throw new HttpFailureException(errorContent);
         }
 
-        public static async Task<List<Fixture>> GetList()
+        public static async Task<List<FixtureForDetailDto>> GetList()
         {
             using var client = new HttpClient();
             var uri = $"{APIAddresses.FixtureService}";
@@ -39,13 +39,13 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
             var response = await client.GetAsync(uri);
 
             if (response.IsSuccessStatusCode)
-                return response.Content.ReadFromJsonAsync<DataResult<List<Fixture>>>().Result.Data;
+                return response.Content.ReadFromJsonAsync<DataResult<List<FixtureForDetailDto>>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
             throw new HttpFailureException(errorContent);
         }
 
-        public static async Task<List<Fixture>> GetAvailableList()
+        public static async Task<List<FixtureForDetailDto>> GetAvailableList()
         {
             using var client = new HttpClient();
             var uri = $"{APIAddresses.FixtureService}/positions";
@@ -53,7 +53,7 @@ namespace FixtureTracking.WinForms.Services.FixtureTrackingAPI
             var response = await client.GetAsync(uri);
 
             if (response.IsSuccessStatusCode)
-                return response.Content.ReadFromJsonAsync<DataResult<List<Fixture>>>().Result.Data;
+                return response.Content.ReadFromJsonAsync<DataResult<List<FixtureForDetailDto>>>().Result.Data;
 
             var errorContent = response.Content.ReadFromJsonAsync<ErrorDetail>().Result;
             throw new HttpFailureException(errorContent);

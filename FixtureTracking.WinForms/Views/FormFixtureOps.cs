@@ -46,22 +46,21 @@ namespace FixtureTracking.WinForms.Views
                 return;
 
             var clickedCell = dgvObjectList.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            var fixtureIdCell = dgvObjectList.Rows[e.RowIndex].Cells["clmFixtureId"];
+            var fixtureIdCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmFixtureId)];
             _selectedFixtureId = Guid.Parse(fixtureIdCell.Value.ToString());
 
-            switch (clickedCell.OwningColumn.HeaderCell.Value)
+            switch (clickedCell.OwningColumn.Name)
             {
-                case "Update":
+                case nameof(clmUpdate):
                     FillInputValues();
 
                     btnAdd.Hide();
                     btnUpdate.Show();
                     break;
 
-
-                case "Delete":
-                    var fixtureNameCell = dgvObjectList.Rows[e.RowIndex].Cells["clmName"];
-                    var fixtureDescriptionCell = dgvObjectList.Rows[e.RowIndex].Cells["clmDescription"];
+                case nameof(clmDelete):
+                    var fixtureNameCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmName)];
+                    var fixtureDescriptionCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmDescription)];
 
                     ShowDeleteDiaolog(_selectedFixtureId, fixtureNameCell.Value.ToString(), fixtureDescriptionCell.Value.ToString());
                     break;
@@ -89,11 +88,11 @@ namespace FixtureTracking.WinForms.Views
             dtpPurchase.Value = fixture.DatePurchase.Date;
             dtpWarranty.Value = fixture.DateWarranty.Date;
 
-            var clickedSupplier = _suppliers.Find(s => s.Id == fixture.SupplierId);
-            var clickedCategory = _categories.Find(c => c.Id == fixture.CategoryId);
+            var selectedSupplier = _suppliers.Find(s => s.Id == fixture.SupplierId);
+            var selectedCategory = _categories.Find(c => c.Id == fixture.CategoryId);
 
-            cmbSupplier.SelectedItem = new { Display = clickedSupplier.Name, Value = clickedSupplier.Id };
-            cmbCategory.SelectedItem = new { Display = clickedCategory.Name, Value = clickedCategory.Id };
+            cmbSupplier.SelectedItem = new { Display = selectedSupplier.Name, Value = selectedSupplier.Id };
+            cmbCategory.SelectedItem = new { Display = selectedCategory.Name, Value = selectedCategory.Id };
         }
 
         private void ClearInputs()
@@ -126,8 +125,8 @@ namespace FixtureTracking.WinForms.Views
                 var availableStatus = fixture.FixturePositionId == 1;
                 dgvObjectList.Rows.Add(fixture.Id, fixture.Name, fixture.Description, fixture.DateWarranty.ToShortDateString(), fixture.Price, availableStatus, fixture.UpdatedAt, "Update", "Delete");
             });
-
-            dgvObjectList.Sort(dgvObjectList.Columns["clmUpdatedAt"], System.ComponentModel.ListSortDirection.Descending);
+            dgvObjectList.Columns[nameof(clmUpdate)].DefaultCellStyle.Font = new System.Drawing.Font(dgvObjectList.DefaultCellStyle.Font, System.Drawing.FontStyle.Underline);
+            dgvObjectList.Sort(dgvObjectList.Columns[nameof(clmUpdatedAt)], System.ComponentModel.ListSortDirection.Descending);
         }
 
         private async Task LoadSupplierComboBox()

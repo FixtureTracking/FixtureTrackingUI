@@ -32,15 +32,15 @@ namespace FixtureTracking.WinForms.Views
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDebitsOfUser));
             this.tlpObjectList = new System.Windows.Forms.TableLayoutPanel();
             this.dgvObjectList = new System.Windows.Forms.DataGridView();
+            this.tlpListTitle = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRefreshList = new System.Windows.Forms.Button();
+            this.lblListTitle = new System.Windows.Forms.Label();
             this.clmDebitId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFixture = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDateDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDebitReturn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.clmDateReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tlpListTitle = new System.Windows.Forms.TableLayoutPanel();
-            this.btnRefreshList = new System.Windows.Forms.Button();
-            this.lblListTitle = new System.Windows.Forms.Label();
             this.tlpObjectList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectList)).BeginInit();
             this.tlpListTitle.SuspendLayout();
@@ -58,7 +58,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectList.Name = "tlpObjectList";
             this.tlpObjectList.RowCount = 1;
             this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 256F));
+            this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 261F));
             this.tlpObjectList.Size = new System.Drawing.Size(644, 261);
             this.tlpObjectList.TabIndex = 2;
             // 
@@ -82,43 +82,6 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.RowTemplate.Height = 25;
             this.dgvObjectList.Size = new System.Drawing.Size(638, 255);
             this.dgvObjectList.TabIndex = 3;
-            // 
-            // clmDebitId
-            // 
-            this.clmDebitId.HeaderText = "Debit Id";
-            this.clmDebitId.Name = "clmDebitId";
-            this.clmDebitId.ReadOnly = true;
-            this.clmDebitId.Visible = false;
-            // 
-            // clmFixture
-            // 
-            this.clmFixture.HeaderText = "Fixture Name";
-            this.clmFixture.Name = "clmFixture";
-            this.clmFixture.ReadOnly = true;
-            // 
-            // clmDescription
-            // 
-            this.clmDescription.HeaderText = "Debit Description";
-            this.clmDescription.Name = "clmDescription";
-            this.clmDescription.ReadOnly = true;
-            // 
-            // clmDateDebit
-            // 
-            this.clmDateDebit.HeaderText = "Date of Debit";
-            this.clmDateDebit.Name = "clmDateDebit";
-            this.clmDateDebit.ReadOnly = true;
-            // 
-            // clmDebitReturn
-            // 
-            this.clmDebitReturn.HeaderText = "Debit Return Status";
-            this.clmDebitReturn.Name = "clmDebitReturn";
-            this.clmDebitReturn.ReadOnly = true;
-            // 
-            // clmDateReturn
-            // 
-            this.clmDateReturn.HeaderText = "Date of Return";
-            this.clmDateReturn.Name = "clmDateReturn";
-            this.clmDateReturn.ReadOnly = true;
             // 
             // tlpListTitle
             // 
@@ -158,6 +121,45 @@ namespace FixtureTracking.WinForms.Views
             this.lblListTitle.Size = new System.Drawing.Size(40, 15);
             this.lblListTitle.TabIndex = 0;
             this.lblListTitle.Text = "Debits";
+            // 
+            // clmDebitId
+            // 
+            this.clmDebitId.HeaderText = "Debit Id";
+            this.clmDebitId.Name = "clmDebitId";
+            this.clmDebitId.ReadOnly = true;
+            this.clmDebitId.Visible = false;
+            // 
+            // clmFixture
+            // 
+            this.clmFixture.HeaderText = "Fixture Name";
+            this.clmFixture.Name = "clmFixture";
+            this.clmFixture.ReadOnly = true;
+            // 
+            // clmDescription
+            // 
+            this.clmDescription.HeaderText = "Debit Description";
+            this.clmDescription.Name = "clmDescription";
+            this.clmDescription.ReadOnly = true;
+            // 
+            // clmDateDebit
+            // 
+            this.clmDateDebit.HeaderText = "Date of Debit";
+            this.clmDateDebit.Name = "clmDateDebit";
+            this.clmDateDebit.ReadOnly = true;
+            // 
+            // clmDebitReturn
+            // 
+            this.clmDebitReturn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmDebitReturn.HeaderText = "Debit Return";
+            this.clmDebitReturn.Name = "clmDebitReturn";
+            this.clmDebitReturn.ReadOnly = true;
+            this.clmDebitReturn.Width = 79;
+            // 
+            // clmDateReturn
+            // 
+            this.clmDateReturn.HeaderText = "Date of Return";
+            this.clmDateReturn.Name = "clmDateReturn";
+            this.clmDateReturn.ReadOnly = true;
             // 
             // FormDebitsOfUser
             // 

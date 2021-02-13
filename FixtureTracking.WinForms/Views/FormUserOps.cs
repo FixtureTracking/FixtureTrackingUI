@@ -35,22 +35,22 @@ namespace FixtureTracking.WinForms.Views
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
 
-            var clickedCell = dgvUserList.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            var userIdCell = dgvUserList.Rows[e.RowIndex].Cells["clmUserId"];
-            var nameCell = dgvUserList.Rows[e.RowIndex].Cells["clmName"];
+            var clickedCell = dgvObjectList.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            var userIdCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmUserId)];
+            var nameCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmName)];
 
             _selectedUserId = Guid.Parse(userIdCell.Value.ToString());
-            switch (clickedCell.OwningColumn.HeaderCell.Value)
+            switch (clickedCell.OwningColumn.Name)
             {
-                case "Debits":
-                    var departmentCell = dgvUserList.Rows[e.RowIndex].Cells["clmDepartment"];
+                case nameof(clmDebits):
+                    var departmentCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmDepartment)];
 
                     FormDebitsOfUser formDebitsOfUser = new FormDebitsOfUser(_selectedUserId, nameCell.Value.ToString(), departmentCell.Value.ToString());
                     formDebitsOfUser.ShowDialog();
                     break;
 
-                case "Delete":
-                    var usernameCell = dgvUserList.Rows[e.RowIndex].Cells["clmUsername"];
+                case nameof(clmDelete):
+                    var usernameCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmUsername)];
 
                     ShowDeleteDiaolog(_selectedUserId, nameCell.Value.ToString(), usernameCell.Value.ToString());
                     break;
@@ -75,25 +75,21 @@ namespace FixtureTracking.WinForms.Views
             var confirmResult = MessageBox.Show($"Are you sure to delete this user?\r\n({fullName} - {username})", "Confirm Delete", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
             if (confirmResult == DialogResult.Yes)
-            {
                 await DeleteUser(userId);
-            }
         }
 
         private async Task LoadUserList()
         {
-            dgvUserList.Rows.Clear();
-            dgvUserList.Refresh();
+            dgvObjectList.Rows.Clear();
+            dgvObjectList.Refresh();
             ClearInputs();
 
             var users = await UserService.GetList();
-
             users.ForEach(userDto =>
             {
-                dgvUserList.Rows.Add(userDto.User.Id, userDto.FullName, userDto.DepartmentName, userDto.User.Username, userDto.User.Email, userDto.User.CreatedAt, "Get Debits", "Delete");
+                dgvObjectList.Rows.Add(userDto.User.Id, userDto.FullName, userDto.DepartmentName, userDto.User.Username, userDto.User.Email, userDto.User.UpdatedAt, "Debits", "Delete");
             });
-
-            dgvUserList.Sort(dgvUserList.Columns["clmCreatedAt"], System.ComponentModel.ListSortDirection.Descending);
+            dgvObjectList.Sort(dgvObjectList.Columns[nameof(clmUpdatedAt)], System.ComponentModel.ListSortDirection.Descending);
         }
 
         private async Task LoadDepartmentComboBox()
@@ -123,8 +119,8 @@ namespace FixtureTracking.WinForms.Views
                 Password = "fixT123.", // TODO : random password -> send e-mail
                 Username = txtUsername.Text
             };
-            await AuthService.Register(userForRegisterDto);
 
+            await AuthService.Register(userForRegisterDto);
             MessageBox.Show("User registered.");
             await LoadUserList();
         }
@@ -133,7 +129,6 @@ namespace FixtureTracking.WinForms.Views
         {
             await UserService.Delete(userId);
             MessageBox.Show("User deleted.");
-            ClearInputs();
             await LoadUserList();
         }
     }

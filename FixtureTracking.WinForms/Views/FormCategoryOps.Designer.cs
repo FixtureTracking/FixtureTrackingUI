@@ -35,12 +35,6 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList = new System.Windows.Forms.Button();
             this.tlpObjectList = new System.Windows.Forms.TableLayoutPanel();
             this.dgvObjectList = new System.Windows.Forms.DataGridView();
-            this.clmCategoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmUpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmUpdate = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.clmDelete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tlpObjectInputs = new System.Windows.Forms.TableLayoutPanel();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
@@ -49,6 +43,12 @@ namespace FixtureTracking.WinForms.Views
             this.pnlActionButtons = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.clmCategoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tlpListTitle.SuspendLayout();
             this.tlpObjectList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObjectList)).BeginInit();
@@ -58,7 +58,7 @@ namespace FixtureTracking.WinForms.Views
             // 
             // tlpListTitle
             // 
-            this.tlpListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.tlpListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpListTitle.ColumnCount = 2;
             this.tlpListTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -69,7 +69,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpListTitle.Name = "tlpListTitle";
             this.tlpListTitle.RowCount = 1;
             this.tlpListTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpListTitle.Size = new System.Drawing.Size(551, 29);
+            this.tlpListTitle.Size = new System.Drawing.Size(490, 29);
             this.tlpListTitle.TabIndex = 1;
             // 
             // lblListTitle
@@ -87,7 +87,7 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefreshList.FlatAppearance.BorderSize = 0;
             this.btnRefreshList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefreshList.Location = new System.Drawing.Point(465, 3);
+            this.btnRefreshList.Location = new System.Drawing.Point(404, 3);
             this.btnRefreshList.Name = "btnRefreshList";
             this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
             this.btnRefreshList.TabIndex = 20;
@@ -97,8 +97,8 @@ namespace FixtureTracking.WinForms.Views
             // 
             // tlpObjectList
             // 
-            this.tlpObjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tlpObjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpObjectList.ColumnCount = 1;
             this.tlpObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -107,7 +107,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectList.Name = "tlpObjectList";
             this.tlpObjectList.RowCount = 1;
             this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpObjectList.Size = new System.Drawing.Size(551, 182);
+            this.tlpObjectList.Size = new System.Drawing.Size(490, 182);
             this.tlpObjectList.TabIndex = 2;
             // 
             // dgvObjectList
@@ -128,46 +128,9 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.ReadOnly = true;
             this.dgvObjectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvObjectList.RowTemplate.Height = 25;
-            this.dgvObjectList.Size = new System.Drawing.Size(545, 176);
+            this.dgvObjectList.Size = new System.Drawing.Size(484, 176);
             this.dgvObjectList.TabIndex = 21;
             this.dgvObjectList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectList_CellClick);
-            // 
-            // clmCategoryId
-            // 
-            this.clmCategoryId.HeaderText = "Category Id";
-            this.clmCategoryId.Name = "clmCategoryId";
-            this.clmCategoryId.ReadOnly = true;
-            this.clmCategoryId.Visible = false;
-            // 
-            // clmName
-            // 
-            this.clmName.HeaderText = "Name";
-            this.clmName.Name = "clmName";
-            this.clmName.ReadOnly = true;
-            // 
-            // clmDescription
-            // 
-            this.clmDescription.HeaderText = "Description";
-            this.clmDescription.Name = "clmDescription";
-            this.clmDescription.ReadOnly = true;
-            // 
-            // clmUpdatedAt
-            // 
-            this.clmUpdatedAt.HeaderText = "Updated At";
-            this.clmUpdatedAt.Name = "clmUpdatedAt";
-            this.clmUpdatedAt.ReadOnly = true;
-            // 
-            // clmUpdate
-            // 
-            this.clmUpdate.HeaderText = "Update";
-            this.clmUpdate.Name = "clmUpdate";
-            this.clmUpdate.ReadOnly = true;
-            // 
-            // clmDelete
-            // 
-            this.clmDelete.HeaderText = "Delete";
-            this.clmDelete.Name = "clmDelete";
-            this.clmDelete.ReadOnly = true;
             // 
             // tlpObjectInputs
             // 
@@ -258,11 +221,63 @@ namespace FixtureTracking.WinForms.Views
             this.btnUpdate.Visible = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // clmCategoryId
+            // 
+            this.clmCategoryId.HeaderText = "Category Id";
+            this.clmCategoryId.Name = "clmCategoryId";
+            this.clmCategoryId.ReadOnly = true;
+            this.clmCategoryId.Visible = false;
+            // 
+            // clmName
+            // 
+            this.clmName.FillWeight = 61.484F;
+            this.clmName.HeaderText = "Name";
+            this.clmName.Name = "clmName";
+            this.clmName.ReadOnly = true;
+            // 
+            // clmDescription
+            // 
+            this.clmDescription.FillWeight = 61.484F;
+            this.clmDescription.HeaderText = "Description";
+            this.clmDescription.Name = "clmDescription";
+            this.clmDescription.ReadOnly = true;
+            // 
+            // clmUpdatedAt
+            // 
+            this.clmUpdatedAt.DividerWidth = 1;
+            this.clmUpdatedAt.FillWeight = 61.484F;
+            this.clmUpdatedAt.HeaderText = "Updated At";
+            this.clmUpdatedAt.Name = "clmUpdatedAt";
+            this.clmUpdatedAt.ReadOnly = true;
+            // 
+            // clmUpdate
+            // 
+            this.clmUpdate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmUpdate.DividerWidth = 1;
+            this.clmUpdate.FillWeight = 60F;
+            this.clmUpdate.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.clmUpdate.HeaderText = " Update  ";
+            this.clmUpdate.Name = "clmUpdate";
+            this.clmUpdate.ReadOnly = true;
+            this.clmUpdate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmUpdate.Width = 61;
+            // 
+            // clmDelete
+            // 
+            this.clmDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmDelete.FillWeight = 60F;
+            this.clmDelete.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.clmDelete.HeaderText = " Delete  ";
+            this.clmDelete.Name = "clmDelete";
+            this.clmDelete.ReadOnly = true;
+            this.clmDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmDelete.Width = 55;
+            // 
             // FormCategoryOps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 225);
+            this.ClientSize = new System.Drawing.Size(820, 225);
             this.Controls.Add(this.tlpListTitle);
             this.Controls.Add(this.tlpObjectList);
             this.Controls.Add(this.tlpObjectInputs);
@@ -297,13 +312,13 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Panel pnlActionButtons;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCategoryId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUpdatedAt;
-        private System.Windows.Forms.DataGridViewLinkColumn clmUpdate;
-        private System.Windows.Forms.DataGridViewLinkColumn clmDelete;
-        private System.Windows.Forms.Panel pnlActionButtons;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.DataGridViewButtonColumn clmUpdate;
+        private System.Windows.Forms.DataGridViewButtonColumn clmDelete;
     }
 }

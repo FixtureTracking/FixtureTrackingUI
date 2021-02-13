@@ -40,15 +40,15 @@ namespace FixtureTracking.WinForms.Views
                 return;
 
             var clickedCell = dgvObjectList.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            var categoryIdCell = dgvObjectList.Rows[e.RowIndex].Cells["clmCategoryId"];
-            var categoryNameCell = dgvObjectList.Rows[e.RowIndex].Cells["clmName"];
+            var categoryIdCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmCategoryId)];
+            var categoryNameCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmName)];
 
             selectedCategoryId = Convert.ToInt16(categoryIdCell.Value.ToString());
 
-            switch (clickedCell.OwningColumn.HeaderCell.Value)
+            switch (clickedCell.OwningColumn.Name)
             {
-                case "Update":
-                    var categoryDescCell = dgvObjectList.Rows[e.RowIndex].Cells["clmDescription"];
+                case nameof(clmUpdate):
+                    var categoryDescCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmDescription)];
                     txtDescription.Text = categoryDescCell.Value.ToString();
                     txtName.Text = categoryNameCell.Value.ToString();
 
@@ -56,7 +56,7 @@ namespace FixtureTracking.WinForms.Views
                     btnUpdate.Show();
                     break;
 
-                case "Delete":
+                case nameof(clmDelete):
                     string categoryName = categoryNameCell.Value.ToString();
                     ShowDeleteDiaolog(selectedCategoryId, categoryName);
                     break;
@@ -98,8 +98,8 @@ namespace FixtureTracking.WinForms.Views
             {
                 dgvObjectList.Rows.Add(category.Id, category.Name, category.Description, category.UpdatedAt, "Update", "Delete");
             });
-
-            dgvObjectList.Sort(dgvObjectList.Columns["clmUpdatedAt"], System.ComponentModel.ListSortDirection.Descending);
+            dgvObjectList.Columns[nameof(clmUpdate)].DefaultCellStyle.Font = new System.Drawing.Font(dgvObjectList.DefaultCellStyle.Font, System.Drawing.FontStyle.Underline);
+            dgvObjectList.Sort(dgvObjectList.Columns[nameof(clmUpdatedAt)], System.ComponentModel.ListSortDirection.Descending);
         }
 
         private async Task AddCategory()

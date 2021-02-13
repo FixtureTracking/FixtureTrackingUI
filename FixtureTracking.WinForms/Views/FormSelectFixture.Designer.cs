@@ -48,7 +48,7 @@ namespace FixtureTracking.WinForms.Views
             // 
             // tlpListTitle
             // 
-            this.tlpListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.tlpListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpListTitle.ColumnCount = 2;
             this.tlpListTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -87,8 +87,8 @@ namespace FixtureTracking.WinForms.Views
             // 
             // tlpObjectList
             // 
-            this.tlpObjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tlpObjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpObjectList.ColumnCount = 1;
             this.tlpObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -149,17 +149,21 @@ namespace FixtureTracking.WinForms.Views
             // 
             // clmUpdatedAt
             // 
+            this.clmUpdatedAt.DividerWidth = 1;
             this.clmUpdatedAt.HeaderText = "Updated At";
             this.clmUpdatedAt.Name = "clmUpdatedAt";
             this.clmUpdatedAt.ReadOnly = true;
             // 
             // clmSelect
             // 
-            this.clmSelect.HeaderText = "Select";
+            this.clmSelect.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmSelect.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.clmSelect.HeaderText = " Select  ";
             this.clmSelect.Name = "clmSelect";
             this.clmSelect.ReadOnly = true;
             this.clmSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.clmSelect.Text = "";
+            this.clmSelect.Width = 53;
             // 
             // FormSelectFixture
             // 

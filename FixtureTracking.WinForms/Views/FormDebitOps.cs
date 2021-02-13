@@ -66,14 +66,14 @@ namespace FixtureTracking.WinForms.Views
                 return;
 
             var clickedCell = dgvObjectList.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            var debitIdCell = dgvObjectList.Rows[e.RowIndex].Cells["clmDebitId"];
-
+            var debitIdCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmDebitId)];
             _selectedDebitId = Guid.Parse(debitIdCell.Value.ToString());
-            switch (clickedCell.OwningColumn.HeaderCell.Value)
+
+            switch (clickedCell.OwningColumn.Name)
             {
-                case "Delete":
-                    var fixtureCell = dgvObjectList.Rows[e.RowIndex].Cells["clmFixture"];
-                    var userCell = dgvObjectList.Rows[e.RowIndex].Cells["clmUser"];
+                case nameof(clmDelete):
+                    var fixtureCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmFixture)];
+                    var userCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmUser)];
 
                     ShowDeleteDiaolog(_selectedDebitId, fixtureCell.Value.ToString(), userCell.Value.ToString());
                     break;
@@ -115,8 +115,9 @@ namespace FixtureTracking.WinForms.Views
             debits.ForEach(debitDto =>
             {
                 string dateReturn = debitDto.Debit.IsReturn ? debitDto.Debit.DateReturn.ToString() : "-";
-                dgvObjectList.Rows.Add(debitDto.Debit.Id, debitDto.Debit.Description, debitDto.FixtureName, debitDto.UserFullName, debitDto.DepartmentName, debitDto.Debit.DateDebit, debitDto.Debit.IsReturn, dateReturn, "Delete");
+                dgvObjectList.Rows.Add(debitDto.Debit.Id, debitDto.Debit.Description, debitDto.FixtureName, debitDto.UserFullName, debitDto.DepartmentName, debitDto.Debit.DateDebit, debitDto.Debit.IsReturn, dateReturn, debitDto.Debit.UpdatedAt, "Delete");
             });
+            dgvObjectList.Sort(dgvObjectList.Columns[nameof(clmUpdatedAt)], System.ComponentModel.ListSortDirection.Descending);
         }
 
         private async Task AddDebit()

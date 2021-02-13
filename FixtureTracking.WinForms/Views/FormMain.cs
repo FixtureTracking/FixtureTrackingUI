@@ -89,6 +89,8 @@ namespace FixtureTracking.WinForms.Views
                 string dateReturn = debitDto.Debit.IsReturn ? debitDto.Debit.DateReturn.ToString() : "-";
                 dgvObjectList.Rows.Add(debitDto.Debit.Id, debitDto.FixtureName, debitDto.Debit.Description, debitDto.Debit.DateDebit, debitDto.Debit.IsReturn, dateReturn);
             });
+            dgvObjectList.Sort(dgvObjectList.Columns[nameof(clmDateReturn)], System.ComponentModel.ListSortDirection.Ascending);
+
             tlpListTitle.Visible = true;
             tlpObjectList.Visible = true;
         }

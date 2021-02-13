@@ -35,11 +35,11 @@ namespace FixtureTracking.WinForms.Views
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSelectFixture = new System.Windows.Forms.Button();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.lblDescription = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.dtpDateDebit = new System.Windows.Forms.DateTimePicker();
-            this.lblDateDebit = new System.Windows.Forms.Label();
-            this.lblFixture = new System.Windows.Forms.Label();
-            this.lblUser = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnSelectUser = new System.Windows.Forms.Button();
             this.tlpObjectList = new System.Windows.Forms.TableLayoutPanel();
             this.dgvObjectList = new System.Windows.Forms.DataGridView();
@@ -51,7 +51,8 @@ namespace FixtureTracking.WinForms.Views
             this.clmDateDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDebitReturn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.clmDateReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDelete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.clmUpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tlpListTitle = new System.Windows.Forms.TableLayoutPanel();
             this.btnRefreshList = new System.Windows.Forms.Button();
             this.lblListTitle = new System.Windows.Forms.Label();
@@ -70,11 +71,11 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectInputs.Controls.Add(this.btnAdd, 1, 4);
             this.tlpObjectInputs.Controls.Add(this.btnSelectFixture, 1, 2);
             this.tlpObjectInputs.Controls.Add(this.txtDescription, 1, 0);
-            this.tlpObjectInputs.Controls.Add(this.lblDescription, 0, 0);
+            this.tlpObjectInputs.Controls.Add(this.label1, 0, 0);
             this.tlpObjectInputs.Controls.Add(this.dtpDateDebit, 1, 1);
-            this.tlpObjectInputs.Controls.Add(this.lblDateDebit, 0, 1);
-            this.tlpObjectInputs.Controls.Add(this.lblFixture, 0, 2);
-            this.tlpObjectInputs.Controls.Add(this.lblUser, 0, 3);
+            this.tlpObjectInputs.Controls.Add(this.label2, 0, 1);
+            this.tlpObjectInputs.Controls.Add(this.label3, 0, 2);
+            this.tlpObjectInputs.Controls.Add(this.label4, 0, 3);
             this.tlpObjectInputs.Controls.Add(this.btnSelectUser, 1, 3);
             this.tlpObjectInputs.Location = new System.Drawing.Point(12, 12);
             this.tlpObjectInputs.Name = "tlpObjectInputs";
@@ -134,14 +135,14 @@ namespace FixtureTracking.WinForms.Views
             this.txtDescription.Size = new System.Drawing.Size(171, 64);
             this.txtDescription.TabIndex = 0;
             // 
-            // lblDescription
+            // label1
             // 
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(3, 0);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(67, 30);
-            this.lblDescription.TabIndex = 0;
-            this.lblDescription.Text = "\r\nDescription";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "\r\nDescription";
             // 
             // dtpDateDebit
             // 
@@ -153,35 +154,35 @@ namespace FixtureTracking.WinForms.Views
             this.dtpDateDebit.Size = new System.Drawing.Size(171, 23);
             this.dtpDateDebit.TabIndex = 1;
             // 
-            // lblDateDebit
+            // label2
             // 
-            this.lblDateDebit.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblDateDebit.AutoSize = true;
-            this.lblDateDebit.Location = new System.Drawing.Point(3, 77);
-            this.lblDateDebit.Name = "lblDateDebit";
-            this.lblDateDebit.Size = new System.Drawing.Size(76, 15);
-            this.lblDateDebit.TabIndex = 0;
-            this.lblDateDebit.Text = "Date of Debit";
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 15);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Date of Debit";
             // 
-            // lblFixture
+            // label3
             // 
-            this.lblFixture.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblFixture.AutoSize = true;
-            this.lblFixture.Location = new System.Drawing.Point(3, 108);
-            this.lblFixture.Name = "lblFixture";
-            this.lblFixture.Size = new System.Drawing.Size(43, 15);
-            this.lblFixture.TabIndex = 0;
-            this.lblFixture.Text = "Fixture";
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 108);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 15);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Fixture";
             // 
-            // lblUser
+            // label4
             // 
-            this.lblUser.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(3, 140);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(30, 15);
-            this.lblUser.TabIndex = 0;
-            this.lblUser.Text = "User";
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 140);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 15);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "User";
             // 
             // btnSelectUser
             // 
@@ -210,7 +211,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectList.RowCount = 1;
             this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 273F));
-            this.tlpObjectList.Size = new System.Drawing.Size(822, 273);
+            this.tlpObjectList.Size = new System.Drawing.Size(829, 273);
             this.tlpObjectList.TabIndex = 2;
             // 
             // dgvObjectList
@@ -227,6 +228,7 @@ namespace FixtureTracking.WinForms.Views
             this.clmDateDebit,
             this.clmDebitReturn,
             this.clmDateReturn,
+            this.clmUpdatedAt,
             this.clmDelete});
             this.dgvObjectList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvObjectList.Location = new System.Drawing.Point(3, 3);
@@ -234,7 +236,7 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.ReadOnly = true;
             this.dgvObjectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvObjectList.RowTemplate.Height = 25;
-            this.dgvObjectList.Size = new System.Drawing.Size(816, 267);
+            this.dgvObjectList.Size = new System.Drawing.Size(823, 267);
             this.dgvObjectList.TabIndex = 21;
             this.dgvObjectList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectList_CellContentClick);
             // 
@@ -277,9 +279,11 @@ namespace FixtureTracking.WinForms.Views
             // 
             // clmDebitReturn
             // 
-            this.clmDebitReturn.HeaderText = "Debit Return Status";
+            this.clmDebitReturn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmDebitReturn.HeaderText = "Debit Return";
             this.clmDebitReturn.Name = "clmDebitReturn";
             this.clmDebitReturn.ReadOnly = true;
+            this.clmDebitReturn.Width = 79;
             // 
             // clmDateReturn
             // 
@@ -287,11 +291,22 @@ namespace FixtureTracking.WinForms.Views
             this.clmDateReturn.Name = "clmDateReturn";
             this.clmDateReturn.ReadOnly = true;
             // 
+            // clmUpdatedAt
+            // 
+            this.clmUpdatedAt.DividerWidth = 1;
+            this.clmUpdatedAt.HeaderText = "Updated At";
+            this.clmUpdatedAt.Name = "clmUpdatedAt";
+            this.clmUpdatedAt.ReadOnly = true;
+            // 
             // clmDelete
             // 
-            this.clmDelete.HeaderText = "Delete";
+            this.clmDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmDelete.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.clmDelete.HeaderText = " Delete  ";
             this.clmDelete.Name = "clmDelete";
             this.clmDelete.ReadOnly = true;
+            this.clmDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmDelete.Width = 55;
             // 
             // tlpListTitle
             // 
@@ -306,7 +321,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpListTitle.Name = "tlpListTitle";
             this.tlpListTitle.RowCount = 1;
             this.tlpListTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpListTitle.Size = new System.Drawing.Size(822, 29);
+            this.tlpListTitle.Size = new System.Drawing.Size(829, 29);
             this.tlpListTitle.TabIndex = 1;
             // 
             // btnRefreshList
@@ -314,7 +329,7 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefreshList.FlatAppearance.BorderSize = 0;
             this.btnRefreshList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefreshList.Location = new System.Drawing.Point(736, 3);
+            this.btnRefreshList.Location = new System.Drawing.Point(743, 3);
             this.btnRefreshList.Name = "btnRefreshList";
             this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
             this.btnRefreshList.TabIndex = 20;
@@ -336,7 +351,7 @@ namespace FixtureTracking.WinForms.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 317);
+            this.ClientSize = new System.Drawing.Size(1121, 317);
             this.Controls.Add(this.tlpObjectList);
             this.Controls.Add(this.tlpListTitle);
             this.Controls.Add(this.tlpObjectInputs);
@@ -361,10 +376,10 @@ namespace FixtureTracking.WinForms.Views
 
         private System.Windows.Forms.TableLayoutPanel tlpObjectInputs;
         private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.Label lblDateDebit;
-        private System.Windows.Forms.Label lblFixture;
-        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpDateDebit;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSelectFixture;
@@ -383,6 +398,7 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDateDebit;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmDebitReturn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDateReturn;
-        private System.Windows.Forms.DataGridViewLinkColumn clmDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmUpdatedAt;
+        private System.Windows.Forms.DataGridViewButtonColumn clmDelete;
     }
 }

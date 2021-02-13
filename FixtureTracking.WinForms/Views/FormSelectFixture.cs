@@ -30,9 +30,9 @@ namespace FixtureTracking.WinForms.Views
                 return;
 
             var clickedCell = dgvObjectList.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            if (clickedCell.OwningColumn.HeaderCell.Value.ToString() == "Select")
+            if (clickedCell.OwningColumn.Name == nameof(clmSelect))
             {
-                var fixtureIdCell = dgvObjectList.Rows[e.RowIndex].Cells["clmFixtureId"];
+                var fixtureIdCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmFixtureId)];
                 SelectedFixtureId = Guid.Parse(fixtureIdCell.Value.ToString());
                 this.Close();
             }
@@ -46,9 +46,9 @@ namespace FixtureTracking.WinForms.Views
             var fixtures = await FixtureService.GetAvailableList();
             fixtures.ForEach(fixtureDto =>
             {
-                dgvObjectList.Rows.Add(fixtureDto.Id, fixtureDto.Name, fixtureDto.Description, fixtureDto.DateWarranty.ToShortDateString(), fixtureDto.UpdatedAt, "SELECT");
+                dgvObjectList.Rows.Add(fixtureDto.Id, fixtureDto.Name, fixtureDto.Description, fixtureDto.DateWarranty.ToShortDateString(), fixtureDto.UpdatedAt, "Select");
             });
-            dgvObjectList.Sort(dgvObjectList.Columns["clmUpdatedAt"], System.ComponentModel.ListSortDirection.Descending);
+            dgvObjectList.Sort(dgvObjectList.Columns[nameof(clmName)], System.ComponentModel.ListSortDirection.Ascending);
         }
     }
 }

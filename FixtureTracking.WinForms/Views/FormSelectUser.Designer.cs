@@ -40,6 +40,7 @@ namespace FixtureTracking.WinForms.Views
             this.clmDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSelect = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tlpListTitle.SuspendLayout();
             this.tlpObjectList.SuspendLayout();
@@ -48,7 +49,7 @@ namespace FixtureTracking.WinForms.Views
             // 
             // tlpListTitle
             // 
-            this.tlpListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.tlpListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpListTitle.ColumnCount = 2;
             this.tlpListTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -87,8 +88,8 @@ namespace FixtureTracking.WinForms.Views
             // 
             // tlpObjectList
             // 
-            this.tlpObjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tlpObjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpObjectList.ColumnCount = 1;
             this.tlpObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -111,6 +112,7 @@ namespace FixtureTracking.WinForms.Views
             this.clmDepartment,
             this.clmUsername,
             this.clmEmail,
+            this.clmUpdatedAt,
             this.clmSelect});
             this.dgvObjectList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvObjectList.Location = new System.Drawing.Point(3, 3);
@@ -153,11 +155,21 @@ namespace FixtureTracking.WinForms.Views
             this.clmEmail.Name = "clmEmail";
             this.clmEmail.ReadOnly = true;
             // 
+            // clmUpdatedAt
+            // 
+            this.clmUpdatedAt.DividerWidth = 1;
+            this.clmUpdatedAt.HeaderText = "Updated At";
+            this.clmUpdatedAt.Name = "clmUpdatedAt";
+            this.clmUpdatedAt.ReadOnly = true;
+            // 
             // clmSelect
             // 
-            this.clmSelect.HeaderText = "Select";
+            this.clmSelect.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmSelect.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.clmSelect.HeaderText = " Select  ";
             this.clmSelect.Name = "clmSelect";
             this.clmSelect.ReadOnly = true;
+            this.clmSelect.Width = 53;
             // 
             // FormSelectUser
             // 
@@ -193,6 +205,7 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUsername;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmUpdatedAt;
         private System.Windows.Forms.DataGridViewButtonColumn clmSelect;
     }
 }

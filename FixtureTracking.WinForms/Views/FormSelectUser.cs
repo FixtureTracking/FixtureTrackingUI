@@ -30,9 +30,9 @@ namespace FixtureTracking.WinForms.Views
                 return;
 
             var clickedCell = dgvObjectList.Rows[e.RowIndex].Cells[e.ColumnIndex];
-            if (clickedCell.OwningColumn.HeaderCell.Value.ToString() == "Select")
+            if (clickedCell.OwningColumn.Name == nameof(clmSelect))
             {
-                var userIdCell = dgvObjectList.Rows[e.RowIndex].Cells["clmUserId"];
+                var userIdCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmUserId)];
                 SelectedUserId = Guid.Parse(userIdCell.Value.ToString());
                 this.Close();
             }
@@ -46,9 +46,9 @@ namespace FixtureTracking.WinForms.Views
             var users = await UserService.GetList();
             users.ForEach(userDto =>
             {
-                dgvObjectList.Rows.Add(userDto.User.Id, userDto.FullName, userDto.DepartmentName, userDto.User.Username, userDto.User.Email, "SELECT");
+                dgvObjectList.Rows.Add(userDto.User.Id, userDto.FullName, userDto.DepartmentName, userDto.User.Username, userDto.User.Email, userDto.User.UpdatedAt, "Select");
             });
-            dgvObjectList.Sort(dgvObjectList.Columns["clmName"], System.ComponentModel.ListSortDirection.Ascending);
+            dgvObjectList.Sort(dgvObjectList.Columns[nameof(clmName)], System.ComponentModel.ListSortDirection.Ascending);
         }
     }
 }

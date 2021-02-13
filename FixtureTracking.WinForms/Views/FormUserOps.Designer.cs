@@ -45,21 +45,21 @@ namespace FixtureTracking.WinForms.Views
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.tlpObjectList = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvUserList = new System.Windows.Forms.DataGridView();
+            this.dgvObjectList = new System.Windows.Forms.DataGridView();
+            this.tlpListTitle = new System.Windows.Forms.TableLayoutPanel();
+            this.lblListTitle = new System.Windows.Forms.Label();
+            this.btnRefreshList = new System.Windows.Forms.Button();
             this.clmUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDebits = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.clmDelete = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.tlpListTitle = new System.Windows.Forms.TableLayoutPanel();
-            this.lblListTitle = new System.Windows.Forms.Label();
-            this.btnRefreshList = new System.Windows.Forms.Button();
+            this.clmUpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDebits = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tlpObjectInputs.SuspendLayout();
             this.tlpObjectList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObjectList)).BeginInit();
             this.tlpListTitle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -214,42 +214,81 @@ namespace FixtureTracking.WinForms.Views
             // 
             // tlpObjectList
             // 
-            this.tlpObjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tlpObjectList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpObjectList.ColumnCount = 1;
             this.tlpObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpObjectList.Controls.Add(this.dgvUserList, 0, 0);
+            this.tlpObjectList.Controls.Add(this.dgvObjectList, 0, 0);
             this.tlpObjectList.Location = new System.Drawing.Point(318, 31);
             this.tlpObjectList.Name = "tlpObjectList";
             this.tlpObjectList.RowCount = 1;
             this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpObjectList.Size = new System.Drawing.Size(643, 251);
+            this.tlpObjectList.Size = new System.Drawing.Size(652, 251);
             this.tlpObjectList.TabIndex = 2;
             // 
-            // dgvUserList
+            // dgvObjectList
             // 
-            this.dgvUserList.AllowUserToAddRows = false;
-            this.dgvUserList.AllowUserToDeleteRows = false;
-            this.dgvUserList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUserList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvObjectList.AllowUserToAddRows = false;
+            this.dgvObjectList.AllowUserToDeleteRows = false;
+            this.dgvObjectList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvObjectList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmUserId,
             this.clmName,
             this.clmDepartment,
             this.clmUsername,
             this.clmEmail,
-            this.clmCreatedAt,
+            this.clmUpdatedAt,
             this.clmDebits,
             this.clmDelete});
-            this.dgvUserList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvUserList.Location = new System.Drawing.Point(3, 3);
-            this.dgvUserList.Name = "dgvUserList";
-            this.dgvUserList.ReadOnly = true;
-            this.dgvUserList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvUserList.RowTemplate.Height = 25;
-            this.dgvUserList.Size = new System.Drawing.Size(637, 245);
-            this.dgvUserList.TabIndex = 21;
-            this.dgvUserList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserList_CellClick);
+            this.dgvObjectList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvObjectList.Location = new System.Drawing.Point(3, 3);
+            this.dgvObjectList.Name = "dgvObjectList";
+            this.dgvObjectList.ReadOnly = true;
+            this.dgvObjectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvObjectList.RowTemplate.Height = 25;
+            this.dgvObjectList.Size = new System.Drawing.Size(646, 245);
+            this.dgvObjectList.TabIndex = 21;
+            this.dgvObjectList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserList_CellClick);
+            // 
+            // tlpListTitle
+            // 
+            this.tlpListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlpListTitle.ColumnCount = 2;
+            this.tlpListTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tlpListTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpListTitle.Controls.Add(this.lblListTitle, 0, 0);
+            this.tlpListTitle.Controls.Add(this.btnRefreshList, 1, 0);
+            this.tlpListTitle.Location = new System.Drawing.Point(318, 5);
+            this.tlpListTitle.Name = "tlpListTitle";
+            this.tlpListTitle.RowCount = 1;
+            this.tlpListTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpListTitle.Size = new System.Drawing.Size(652, 29);
+            this.tlpListTitle.TabIndex = 1;
+            // 
+            // lblListTitle
+            // 
+            this.lblListTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblListTitle.AutoSize = true;
+            this.lblListTitle.Location = new System.Drawing.Point(3, 7);
+            this.lblListTitle.Name = "lblListTitle";
+            this.lblListTitle.Size = new System.Drawing.Size(35, 15);
+            this.lblListTitle.TabIndex = 0;
+            this.lblListTitle.Text = "Users";
+            // 
+            // btnRefreshList
+            // 
+            this.btnRefreshList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefreshList.FlatAppearance.BorderSize = 0;
+            this.btnRefreshList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefreshList.Location = new System.Drawing.Point(566, 3);
+            this.btnRefreshList.Name = "btnRefreshList";
+            this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
+            this.btnRefreshList.TabIndex = 20;
+            this.btnRefreshList.Text = "Refresh List";
+            this.btnRefreshList.UseVisualStyleBackColor = true;
+            this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
             // 
             // clmUserId
             // 
@@ -282,68 +321,37 @@ namespace FixtureTracking.WinForms.Views
             this.clmEmail.Name = "clmEmail";
             this.clmEmail.ReadOnly = true;
             // 
-            // clmCreatedAt
+            // clmUpdatedAt
             // 
-            this.clmCreatedAt.HeaderText = "Created At";
-            this.clmCreatedAt.Name = "clmCreatedAt";
-            this.clmCreatedAt.ReadOnly = true;
+            this.clmUpdatedAt.DividerWidth = 1;
+            this.clmUpdatedAt.HeaderText = "Updated At";
+            this.clmUpdatedAt.Name = "clmUpdatedAt";
+            this.clmUpdatedAt.ReadOnly = true;
             // 
             // clmDebits
             // 
-            this.clmDebits.HeaderText = "Debits";
+            this.clmDebits.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmDebits.DividerWidth = 1;
+            this.clmDebits.HeaderText = " Debits  ";
             this.clmDebits.Name = "clmDebits";
             this.clmDebits.ReadOnly = true;
+            this.clmDebits.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmDebits.Width = 56;
             // 
             // clmDelete
             // 
-            this.clmDelete.HeaderText = "Delete";
+            this.clmDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmDelete.HeaderText = " Delete  ";
             this.clmDelete.Name = "clmDelete";
             this.clmDelete.ReadOnly = true;
-            // 
-            // tlpListTitle
-            // 
-            this.tlpListTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlpListTitle.ColumnCount = 2;
-            this.tlpListTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tlpListTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpListTitle.Controls.Add(this.lblListTitle, 0, 0);
-            this.tlpListTitle.Controls.Add(this.btnRefreshList, 1, 0);
-            this.tlpListTitle.Location = new System.Drawing.Point(318, 5);
-            this.tlpListTitle.Name = "tlpListTitle";
-            this.tlpListTitle.RowCount = 1;
-            this.tlpListTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpListTitle.Size = new System.Drawing.Size(643, 29);
-            this.tlpListTitle.TabIndex = 1;
-            // 
-            // lblListTitle
-            // 
-            this.lblListTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblListTitle.AutoSize = true;
-            this.lblListTitle.Location = new System.Drawing.Point(3, 7);
-            this.lblListTitle.Name = "lblListTitle";
-            this.lblListTitle.Size = new System.Drawing.Size(35, 15);
-            this.lblListTitle.TabIndex = 0;
-            this.lblListTitle.Text = "Users";
-            // 
-            // btnRefreshList
-            // 
-            this.btnRefreshList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefreshList.FlatAppearance.BorderSize = 0;
-            this.btnRefreshList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefreshList.Location = new System.Drawing.Point(557, 3);
-            this.btnRefreshList.Name = "btnRefreshList";
-            this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
-            this.btnRefreshList.TabIndex = 20;
-            this.btnRefreshList.Text = "Refresh List";
-            this.btnRefreshList.UseVisualStyleBackColor = true;
-            this.btnRefreshList.Click += new System.EventHandler(this.btnRefreshList_Click);
+            this.clmDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmDelete.Width = 55;
             // 
             // FormUserOps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(973, 294);
+            this.ClientSize = new System.Drawing.Size(982, 294);
             this.Controls.Add(this.tlpListTitle);
             this.Controls.Add(this.tlpObjectList);
             this.Controls.Add(this.tlpObjectInputs);
@@ -357,7 +365,7 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectInputs.ResumeLayout(false);
             this.tlpObjectInputs.PerformLayout();
             this.tlpObjectList.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObjectList)).EndInit();
             this.tlpListTitle.ResumeLayout(false);
             this.tlpListTitle.PerformLayout();
             this.ResumeLayout(false);
@@ -380,7 +388,7 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.DateTimePicker dtpBirthdate;
         private System.Windows.Forms.ComboBox cmbDepartment;
         private System.Windows.Forms.TableLayoutPanel tlpObjectList;
-        private System.Windows.Forms.DataGridView dgvUserList;
+        private System.Windows.Forms.DataGridView dgvObjectList;
         private System.Windows.Forms.TableLayoutPanel tlpListTitle;
         private System.Windows.Forms.Button btnRefreshList;
         private System.Windows.Forms.Label lblListTitle;
@@ -390,8 +398,8 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUsername;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCreatedAt;
-        private System.Windows.Forms.DataGridViewLinkColumn clmDebits;
-        private System.Windows.Forms.DataGridViewLinkColumn clmDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmUpdatedAt;
+        private System.Windows.Forms.DataGridViewButtonColumn clmDebits;
+        private System.Windows.Forms.DataGridViewButtonColumn clmDelete;
     }
 }

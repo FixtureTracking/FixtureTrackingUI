@@ -1,5 +1,6 @@
 ﻿using FixtureTracking.Entities.Dtos.Debit;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
+using FixtureTracking.WinForms.Utilities.Constants;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -131,14 +132,14 @@ namespace FixtureTracking.WinForms.Views
             };
 
             await DebitService.Add(debitForAddDto);
-            MessageBox.Show("Debit added");
+            MessageBox.Show(Messages.DebitAdded);
             await LoadDebitList();
         }
 
         private async Task DeleteDebit(Guid debitId)
         {
             await DebitService.Delete(debitId);
-            MessageBox.Show("Debit deleted");
+            MessageBox.Show(Messages.DebitDeleted);
             await LoadDebitList();
         }
     }

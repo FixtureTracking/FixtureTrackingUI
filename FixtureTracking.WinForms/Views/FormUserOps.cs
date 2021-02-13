@@ -1,5 +1,6 @@
 ﻿using FixtureTracking.Entities.Dtos.User;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
+using FixtureTracking.WinForms.Utilities.Constants;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -103,7 +104,6 @@ namespace FixtureTracking.WinForms.Views
             {
                 cmbDepartment.Items.Add(new { Display = department.Name, Value = department.Id });
             });
-
             cmbDepartment.SelectedItem = new { Display = "Staff", Value = 5 };
         }
 
@@ -121,14 +121,14 @@ namespace FixtureTracking.WinForms.Views
             };
 
             await AuthService.Register(userForRegisterDto);
-            MessageBox.Show("User registered.");
+            MessageBox.Show(Messages.UserRegistered);
             await LoadUserList();
         }
 
         private async Task DeleteUser(Guid userId)
         {
             await UserService.Delete(userId);
-            MessageBox.Show("User deleted.");
+            MessageBox.Show(Messages.UserDeleted);
             await LoadUserList();
         }
     }

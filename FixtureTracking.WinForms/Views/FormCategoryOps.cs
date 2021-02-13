@@ -1,5 +1,6 @@
 ﻿using FixtureTracking.Entities.Dtos.Category;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
+using FixtureTracking.WinForms.Utilities.Constants;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -111,7 +112,7 @@ namespace FixtureTracking.WinForms.Views
             };
 
             await CategoryService.Add(categoryForAddDto);
-            MessageBox.Show("Category added.");
+            MessageBox.Show(Messages.CategoryAdded);
             await LoadCategoryList();
         }
 
@@ -125,14 +126,14 @@ namespace FixtureTracking.WinForms.Views
             };
 
             await CategoryService.Update(categoryForUpdateDto);
-            MessageBox.Show("Category updated.");
+            MessageBox.Show(Messages.CategoryUpdated);
             await LoadCategoryList();
         }
 
         private async Task DeleteCategory(short categoryId)
         {
             await CategoryService.Delete(categoryId);
-            MessageBox.Show("Category deleted.");
+            MessageBox.Show(Messages.CategoryDeleted);
             await LoadCategoryList();
         }
     }

@@ -1,6 +1,7 @@
 ﻿using FixtureTracking.Entities.Concrete;
 using FixtureTracking.Entities.Dtos.Fixture;
 using FixtureTracking.WinForms.Services.FixtureTrackingAPI;
+using FixtureTracking.WinForms.Utilities.Constants;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -141,7 +142,6 @@ namespace FixtureTracking.WinForms.Views
             {
                 cmbSupplier.Items.Add(new { Display = supplier.Name, Value = supplier.Id });
             });
-
             cmbSupplier.SelectedItem = cmbSupplier.Items[0];
         }
 
@@ -157,7 +157,6 @@ namespace FixtureTracking.WinForms.Views
             {
                 cmbCategory.Items.Add(new { Display = category.Name, Value = category.Id });
             });
-
             cmbCategory.SelectedItem = cmbCategory.Items[0];
         }
 
@@ -176,7 +175,7 @@ namespace FixtureTracking.WinForms.Views
             };
 
             await FixtureService.Add(fixtureForAddDto);
-            MessageBox.Show("Fixture added.");
+            MessageBox.Show(Messages.FixtureAdded);
             await LoadFixtureList();
         }
 
@@ -196,14 +195,14 @@ namespace FixtureTracking.WinForms.Views
             };
 
             await FixtureService.Update(fixtureForUpdateDto);
-            MessageBox.Show("Fixture updated.");
+            MessageBox.Show(Messages.FixtureUpdated);
             await LoadFixtureList();
         }
 
         private async Task DeleteFixture(Guid fixtureId)
         {
             await FixtureService.Delete(fixtureId);
-            MessageBox.Show("Fixture deleted.");
+            MessageBox.Show(Messages.FixtureDeleted);
             await LoadFixtureList();
         }
     }

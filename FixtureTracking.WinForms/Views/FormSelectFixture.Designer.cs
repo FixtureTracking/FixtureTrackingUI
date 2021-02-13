@@ -39,6 +39,8 @@ namespace FixtureTracking.WinForms.Views
             this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDateWarranty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSupplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSelect = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tlpListTitle.SuspendLayout();
@@ -110,6 +112,8 @@ namespace FixtureTracking.WinForms.Views
             this.clmName,
             this.clmDescription,
             this.clmDateWarranty,
+            this.clmCategory,
+            this.clmSupplier,
             this.clmUpdatedAt,
             this.clmSelect});
             this.dgvObjectList.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -146,6 +150,18 @@ namespace FixtureTracking.WinForms.Views
             this.clmDateWarranty.HeaderText = "Date Warranty";
             this.clmDateWarranty.Name = "clmDateWarranty";
             this.clmDateWarranty.ReadOnly = true;
+            // 
+            // clmCategory
+            // 
+            this.clmCategory.HeaderText = "Category";
+            this.clmCategory.Name = "clmCategory";
+            this.clmCategory.ReadOnly = true;
+            // 
+            // clmSupplier
+            // 
+            this.clmSupplier.HeaderText = "Supplier";
+            this.clmSupplier.Name = "clmSupplier";
+            this.clmSupplier.ReadOnly = true;
             // 
             // clmUpdatedAt
             // 
@@ -198,6 +214,8 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDateWarranty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSupplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUpdatedAt;
         private System.Windows.Forms.DataGridViewButtonColumn clmSelect;
     }

@@ -58,7 +58,10 @@ namespace FixtureTracking.WinForms.Views
             this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDateWarranty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSupplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAvailable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clmPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
             this.clmDelete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -78,11 +81,11 @@ namespace FixtureTracking.WinForms.Views
             this.tlpListTitle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpListTitle.Controls.Add(this.lblListTitle, 0, 0);
             this.tlpListTitle.Controls.Add(this.btnRefreshList, 1, 0);
-            this.tlpListTitle.Location = new System.Drawing.Point(318, 5);
+            this.tlpListTitle.Location = new System.Drawing.Point(302, 5);
             this.tlpListTitle.Name = "tlpListTitle";
             this.tlpListTitle.RowCount = 1;
             this.tlpListTitle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpListTitle.Size = new System.Drawing.Size(749, 29);
+            this.tlpListTitle.Size = new System.Drawing.Size(931, 29);
             this.tlpListTitle.TabIndex = 1;
             // 
             // lblListTitle
@@ -100,7 +103,7 @@ namespace FixtureTracking.WinForms.Views
             this.btnRefreshList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefreshList.FlatAppearance.BorderSize = 0;
             this.btnRefreshList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefreshList.Location = new System.Drawing.Point(663, 3);
+            this.btnRefreshList.Location = new System.Drawing.Point(845, 3);
             this.btnRefreshList.Name = "btnRefreshList";
             this.btnRefreshList.Size = new System.Drawing.Size(83, 23);
             this.btnRefreshList.TabIndex = 20;
@@ -116,11 +119,11 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectList.ColumnCount = 1;
             this.tlpObjectList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpObjectList.Controls.Add(this.dgvObjectList, 0, 0);
-            this.tlpObjectList.Location = new System.Drawing.Point(318, 31);
+            this.tlpObjectList.Location = new System.Drawing.Point(302, 31);
             this.tlpObjectList.Name = "tlpObjectList";
             this.tlpObjectList.RowCount = 1;
             this.tlpObjectList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpObjectList.Size = new System.Drawing.Size(749, 341);
+            this.tlpObjectList.Size = new System.Drawing.Size(931, 341);
             this.tlpObjectList.TabIndex = 2;
             // 
             // dgvObjectList
@@ -134,7 +137,10 @@ namespace FixtureTracking.WinForms.Views
             this.clmDescription,
             this.clmDateWarranty,
             this.clmPrice,
+            this.clmCategory,
+            this.clmSupplier,
             this.clmAvailable,
+            this.clmPosition,
             this.clmUpdatedAt,
             this.clmUpdate,
             this.clmDelete});
@@ -144,7 +150,7 @@ namespace FixtureTracking.WinForms.Views
             this.dgvObjectList.ReadOnly = true;
             this.dgvObjectList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvObjectList.RowTemplate.Height = 25;
-            this.dgvObjectList.Size = new System.Drawing.Size(743, 335);
+            this.dgvObjectList.Size = new System.Drawing.Size(925, 335);
             this.dgvObjectList.TabIndex = 21;
             this.dgvObjectList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvObjectList_CellClick);
             // 
@@ -179,14 +185,14 @@ namespace FixtureTracking.WinForms.Views
             this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpObjectInputs.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpObjectInputs.Size = new System.Drawing.Size(300, 292);
+            this.tlpObjectInputs.Size = new System.Drawing.Size(287, 292);
             this.tlpObjectInputs.TabIndex = 0;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(108, 3);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(189, 23);
+            this.txtName.Size = new System.Drawing.Size(176, 23);
             this.txtName.TabIndex = 0;
             // 
             // label1
@@ -204,7 +210,7 @@ namespace FixtureTracking.WinForms.Views
             this.txtDescription.Location = new System.Drawing.Point(108, 33);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(189, 64);
+            this.txtDescription.Size = new System.Drawing.Size(176, 64);
             this.txtDescription.TabIndex = 1;
             // 
             // label2
@@ -270,7 +276,7 @@ namespace FixtureTracking.WinForms.Views
             // 
             this.txtPrice.Location = new System.Drawing.Point(108, 103);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(189, 23);
+            this.txtPrice.Size = new System.Drawing.Size(176, 23);
             this.txtPrice.TabIndex = 2;
             this.txtPrice.Text = "0.00";
             this.txtPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -279,14 +285,14 @@ namespace FixtureTracking.WinForms.Views
             // 
             this.dtpPurchase.Location = new System.Drawing.Point(108, 133);
             this.dtpPurchase.Name = "dtpPurchase";
-            this.dtpPurchase.Size = new System.Drawing.Size(189, 23);
+            this.dtpPurchase.Size = new System.Drawing.Size(176, 23);
             this.dtpPurchase.TabIndex = 3;
             // 
             // dtpWarranty
             // 
             this.dtpWarranty.Location = new System.Drawing.Point(108, 163);
             this.dtpWarranty.Name = "dtpWarranty";
-            this.dtpWarranty.Size = new System.Drawing.Size(189, 23);
+            this.dtpWarranty.Size = new System.Drawing.Size(176, 23);
             this.dtpWarranty.TabIndex = 4;
             // 
             // cmbSupplier
@@ -295,7 +301,7 @@ namespace FixtureTracking.WinForms.Views
             this.cmbSupplier.FormattingEnabled = true;
             this.cmbSupplier.Location = new System.Drawing.Point(108, 193);
             this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Size = new System.Drawing.Size(189, 23);
+            this.cmbSupplier.Size = new System.Drawing.Size(176, 23);
             this.cmbSupplier.Sorted = true;
             this.cmbSupplier.TabIndex = 5;
             // 
@@ -305,7 +311,7 @@ namespace FixtureTracking.WinForms.Views
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(108, 223);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(189, 23);
+            this.cmbCategory.Size = new System.Drawing.Size(176, 23);
             this.cmbCategory.Sorted = true;
             this.cmbCategory.TabIndex = 6;
             // 
@@ -314,7 +320,7 @@ namespace FixtureTracking.WinForms.Views
             this.pnlActionButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlActionButtons.Controls.Add(this.btnAdd);
             this.pnlActionButtons.Controls.Add(this.btnUpdate);
-            this.pnlActionButtons.Location = new System.Drawing.Point(167, 253);
+            this.pnlActionButtons.Location = new System.Drawing.Point(154, 253);
             this.pnlActionButtons.Name = "pnlActionButtons";
             this.pnlActionButtons.Size = new System.Drawing.Size(130, 31);
             this.pnlActionButtons.TabIndex = 7;
@@ -372,9 +378,23 @@ namespace FixtureTracking.WinForms.Views
             // 
             // clmPrice
             // 
-            this.clmPrice.HeaderText = "Price";
+            this.clmPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.clmPrice.HeaderText = "Price  ";
             this.clmPrice.Name = "clmPrice";
             this.clmPrice.ReadOnly = true;
+            this.clmPrice.Width = 64;
+            // 
+            // clmCategory
+            // 
+            this.clmCategory.HeaderText = "Category";
+            this.clmCategory.Name = "clmCategory";
+            this.clmCategory.ReadOnly = true;
+            // 
+            // clmSupplier
+            // 
+            this.clmSupplier.HeaderText = "Supplier";
+            this.clmSupplier.Name = "clmSupplier";
+            this.clmSupplier.ReadOnly = true;
             // 
             // clmAvailable
             // 
@@ -382,9 +402,14 @@ namespace FixtureTracking.WinForms.Views
             this.clmAvailable.HeaderText = "Available";
             this.clmAvailable.Name = "clmAvailable";
             this.clmAvailable.ReadOnly = true;
-            this.clmAvailable.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmAvailable.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clmAvailable.Width = 80;
+            this.clmAvailable.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.clmAvailable.Width = 61;
+            // 
+            // clmPosition
+            // 
+            this.clmPosition.HeaderText = "Fixt. Position";
+            this.clmPosition.Name = "clmPosition";
+            this.clmPosition.ReadOnly = true;
             // 
             // clmUpdatedAt
             // 
@@ -418,7 +443,7 @@ namespace FixtureTracking.WinForms.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 384);
+            this.ClientSize = new System.Drawing.Size(1245, 384);
             this.Controls.Add(this.tlpListTitle);
             this.Controls.Add(this.tlpObjectList);
             this.Controls.Add(this.tlpObjectInputs);
@@ -470,7 +495,10 @@ namespace FixtureTracking.WinForms.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDateWarranty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSupplier;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmAvailable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPosition;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUpdatedAt;
         private System.Windows.Forms.DataGridViewButtonColumn clmUpdate;
         private System.Windows.Forms.DataGridViewButtonColumn clmDelete;

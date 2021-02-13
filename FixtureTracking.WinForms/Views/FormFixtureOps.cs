@@ -61,10 +61,10 @@ namespace FixtureTracking.WinForms.Views
                     break;
 
                 case nameof(clmDelete):
-                    var fixtureNameCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmName)];
-                    var fixtureDescriptionCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmDescription)];
+                    var nameCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmName)];
+                    var categoryCell = dgvObjectList.Rows[e.RowIndex].Cells[nameof(clmCategory)];
 
-                    ShowDeleteDiaolog(_selectedFixtureId, fixtureNameCell.Value.ToString(), fixtureDescriptionCell.Value.ToString());
+                    ShowDeleteDiaolog(_selectedFixtureId, nameCell.Value.ToString(), categoryCell.Value.ToString());
                     break;
 
                 default:
@@ -72,9 +72,9 @@ namespace FixtureTracking.WinForms.Views
             }
         }
 
-        private async void ShowDeleteDiaolog(Guid fixtureId, string fixtureName, string fixtureDescription)
+        private async void ShowDeleteDiaolog(Guid fixtureId, string fixtureName, string fixtureCategory)
         {
-            var dialogResult = DeleteDiaolog.Show("fixture", $"{fixtureName} - {fixtureDescription}");
+            var dialogResult = DeleteDiaolog.Show("fixture", $"{fixtureName} - {fixtureCategory}");
             if (dialogResult == DialogResult.Yes)
                 await DeleteFixture(fixtureId);
         }
@@ -124,7 +124,7 @@ namespace FixtureTracking.WinForms.Views
             fixtures.ForEach(fixtureDto =>
             {
                 var availableStatus = fixtureDto.Fixture.FixturePositionId == 1;
-                dgvObjectList.Rows.Add(fixtureDto.Fixture.Id, fixtureDto.Fixture.Name, fixtureDto.Fixture.Description, fixtureDto.Fixture.DateWarranty.ToShortDateString(), fixtureDto.Fixture.Price, availableStatus, fixtureDto.Fixture.UpdatedAt, "Update", "Delete");
+                dgvObjectList.Rows.Add(fixtureDto.Fixture.Id, fixtureDto.Fixture.Name, fixtureDto.Fixture.Description, fixtureDto.Fixture.DateWarranty.ToShortDateString(), fixtureDto.Fixture.Price, fixtureDto.CategoryName, fixtureDto.SupplierName, availableStatus, fixtureDto.FixturePosName, fixtureDto.Fixture.UpdatedAt, "Update", "Delete");
             });
             dgvObjectList.Columns[nameof(clmUpdate)].DefaultCellStyle.Font = new System.Drawing.Font(dgvObjectList.DefaultCellStyle.Font, System.Drawing.FontStyle.Underline);
             dgvObjectList.Sort(dgvObjectList.Columns[nameof(clmUpdatedAt)], System.ComponentModel.ListSortDirection.Descending);

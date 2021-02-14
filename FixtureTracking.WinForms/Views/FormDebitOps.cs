@@ -115,8 +115,8 @@ namespace FixtureTracking.WinForms.Views
             var debits = await DebitService.GetList();
             debits.ForEach(debitDto =>
             {
-                string dateReturn = debitDto.Debit.IsReturn ? debitDto.Debit.DateReturn.ToString() : "-";
-                dgvObjectList.Rows.Add(debitDto.Debit.Id, debitDto.Debit.Description, debitDto.FixtureName, debitDto.UserFullName, debitDto.DepartmentName, debitDto.Debit.DateDebit, debitDto.Debit.IsReturn, dateReturn, debitDto.Debit.UpdatedAt, "Delete");
+                string dateReturn = debitDto.Debit.IsReturn ? debitDto.Debit.DateReturn.ToShortDateString() : "-";
+                dgvObjectList.Rows.Add(debitDto.Debit.Id, debitDto.Debit.Description, debitDto.FixtureName, debitDto.UserFullName, debitDto.DepartmentName, debitDto.Debit.DateDebit.Date, debitDto.Debit.IsReturn, dateReturn, debitDto.Debit.UpdatedAt, "Delete");
             });
             dgvObjectList.Sort(dgvObjectList.Columns[nameof(clmUpdatedAt)], System.ComponentModel.ListSortDirection.Descending);
         }
@@ -125,7 +125,7 @@ namespace FixtureTracking.WinForms.Views
         {
             DebitForAddDto debitForAddDto = new DebitForAddDto()
             {
-                DateDebit = dtpDateDebit.Value,
+                DateDebit = dtpDateDebit.Value.Date,
                 Description = txtDescription.Text,
                 FixtureId = _selectedFixtureId,
                 UserId = _selectedUserId

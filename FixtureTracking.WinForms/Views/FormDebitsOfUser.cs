@@ -33,8 +33,8 @@ namespace FixtureTracking.WinForms.Views
             var debits = await UserService.GetDebits(_userId);
             debits.ForEach(debitDto =>
             {
-                string dateOfReturn = debitDto.Debit.IsReturn ? debitDto.Debit.DateReturn.ToString() : "-";
-                dgvObjectList.Rows.Add(debitDto.Debit.Id, debitDto.FixtureName, debitDto.Debit.Description, debitDto.Debit.DateDebit, debitDto.Debit.IsReturn, dateOfReturn);
+                string dateOfReturn = debitDto.Debit.IsReturn ? debitDto.Debit.DateReturn.ToShortDateString() : "-";
+                dgvObjectList.Rows.Add(debitDto.Debit.Id, debitDto.FixtureName, debitDto.Debit.Description, debitDto.Debit.DateDebit.Date, debitDto.Debit.IsReturn, dateOfReturn);
             });
             dgvObjectList.Sort(dgvObjectList.Columns[nameof(clmDateReturn)], System.ComponentModel.ListSortDirection.Ascending);
         }

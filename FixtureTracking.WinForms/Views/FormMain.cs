@@ -66,11 +66,8 @@ namespace FixtureTracking.WinForms.Views
 
         private async Task LoadUserDetail()
         {
-            var user = await UserService.GetById(FormCurrentUser.UserId);
-            FormCurrentUser.SetUserValues(user);
-
-            var department = await DepartmentService.GetById(FormCurrentUser.DepartmentId);
-            FormCurrentUser.SetDepartmentValues(department);
+            var user = await UserService.GetDetail(FormCurrentUser.UserId);
+            FormCurrentUser.SetValues(user);
 
             lblName.Text = FormCurrentUser.FullName;
             lblDepartment.Text = FormCurrentUser.DepartmentName;

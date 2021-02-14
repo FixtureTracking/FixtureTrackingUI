@@ -1,5 +1,4 @@
-﻿using FixtureTracking.Core.Entities.Concrete;
-using FixtureTracking.Entities.Concrete;
+﻿using FixtureTracking.Entities.Dtos.User;
 using System;
 
 namespace FixtureTracking.WinForms.Utilities.Security
@@ -13,18 +12,14 @@ namespace FixtureTracking.WinForms.Utilities.Security
         public static int DepartmentId { get; set; }
         public static string DepartmentName { get; set; }
 
-        public static void SetUserValues(User user)
+        public static void SetValues(UserForDetailDto userForDetailDto)
         {
-            UserId = user.Id;
-            FullName = $"{user.FirstName} {user.LastName}";
-            Username = user.FirstName;
-            Email = user.Email;
-            DepartmentId = user.DepartmentId;
-        }
-
-        public static void SetDepartmentValues(Department department)
-        {
-            DepartmentName = department.Name;
+            UserId = userForDetailDto.User.Id;
+            FullName = userForDetailDto.FullName;
+            Username = userForDetailDto.User.Username;
+            Email = userForDetailDto.User.Email;
+            DepartmentId = userForDetailDto.User.DepartmentId;
+            DepartmentName = userForDetailDto.DepartmentName;
         }
     }
 }
